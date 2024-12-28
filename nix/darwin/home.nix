@@ -7,7 +7,7 @@
 	home = {
 
 		file = {
-			".zshrc".source = ../../dotfiles/zshrc/.zshrc;
+			".zshrc".source = ../../zshrc/.zshrc;
 		};
 
 		packages = with pkgs; [];
