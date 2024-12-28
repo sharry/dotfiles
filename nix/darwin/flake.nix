@@ -2,13 +2,17 @@
 	description = "Ben Sadik's Nix config";
 
 	inputs = {
-		nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+		nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
 		nix-darwin.url = "github:LnL7/nix-darwin";
 		nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 		nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+		home-manager = {
+			url = "github:nix-community/home-manager/release-24.11";
+    			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
-	outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
+	outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager }:
 	let
 	configuration = { pkgs, ... }: {
 		environment.systemPackages = with pkgs; [
@@ -24,8 +28,8 @@
 		};
 
 		nix.settings.experimental-features = "nix-command flakes";
-      		programs.zsh.enable = true;
-      		system.configurationRevision = self.rev or self.dirtyRev or null;
+      	programs.zsh.enable = true;
+      	system.configurationRevision = self.rev or self.dirtyRev or null;
 		system.stateVersion = 5;
 		nixpkgs.hostPlatform = "aarch64-darwin";
 		security.pam.enableSudoTouchIdAuth = true;     
@@ -90,13 +94,21 @@
 		darwinConfigurations.sharry = nix-darwin.lib.darwinSystem {
 			modules = [
 				configuration
-				nix-homebrew.darwinModules.nix-homebrew {
+				nix-homebrew.darwinModules.nix-homebrew
+				{
 					nix-homebrew = {
-				 		enable = true;
-    						enableRosetta = true;
-            					user = "momo";
+						enable = true;
+						enableRosetta = true;
+						user = "momo";
 						autoMigrate = true;
 				 	};
+				}
+				home-manager.darwinModules.home-manager
+          			{
+					users.users.momo.home = "/Users/momo";
+            				home-manager.useGlobalPkgs = true;
+            				home-manager.useUserPackages = true;
+            				home-manager.users.momo = import ./home.nix;
 				}
 			];
 		};
