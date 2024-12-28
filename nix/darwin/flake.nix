@@ -16,6 +16,7 @@
 			neovim
 			yazi
 			nodejs_22
+			lazygit
 		];
 
 		services = {
