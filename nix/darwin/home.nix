@@ -8,6 +8,7 @@
 
 		file = {
 			".zshrc".source = ../../zshrc/.zshrc;
+			".config/aerospace/aerospace.toml".source = ../../aerospace/aerospace.toml;
 		};
 
 		packages = with pkgs; [];
