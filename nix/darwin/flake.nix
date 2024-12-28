@@ -8,7 +8,7 @@
 		nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 		home-manager = {
 			url = "github:nix-community/home-manager/release-24.11";
-    			inputs.nixpkgs.follows = "nixpkgs";
+			inputs.nixpkgs.follows = "nixpkgs";
 		};
 	};
 
@@ -17,10 +17,10 @@
 	configuration = { pkgs, ... }: {
 		environment.systemPackages = with pkgs; [
 			vim
-			neovim
 			yazi
-			nodejs_22
+			neovim
 			lazygit
+			nodejs_22
 		];
 
 		services = {
@@ -43,8 +43,7 @@
 				autohide = true;
 				minimize-to-application = true;
 				orientation = "right";
-				persistent-apps = [
-				];
+				persistent-apps = [];
 			};
 			NSGlobalDomain = {
 				AppleInterfaceStyle = "Dark";
@@ -88,27 +87,32 @@
 				autoUpdate = true;
 			};
 		};
-    	};
+	};
+	user = "momo";
 	in
 	{
 		darwinConfigurations.sharry = nix-darwin.lib.darwinSystem {
 			modules = [
 				configuration
+				
 				nix-homebrew.darwinModules.nix-homebrew
 				{
 					nix-homebrew = {
 						enable = true;
 						enableRosetta = true;
-						user = "momo";
+						user = user;
 						autoMigrate = true;
 				 	};
 				}
+
 				home-manager.darwinModules.home-manager
-          			{
-					users.users.momo.home = "/Users/momo";
-            				home-manager.useGlobalPkgs = true;
-            				home-manager.useUserPackages = true;
-            				home-manager.users.momo = import ./home.nix;
+          		{
+					users.users."${user}".home = "/Users/${user}";
+					home-manager = {
+						useGlobalPkgs = true;
+						useUserPackages = true;
+						users."${user}" = import ./home.nix;
+					};
 				}
 			];
 		};
