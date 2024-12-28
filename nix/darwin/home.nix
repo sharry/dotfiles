@@ -5,6 +5,11 @@
 
 
 	home = {
+
+		file = {
+			".zshrc".source = ../../dotfiles/zshrc/.zshrc;
+		};
+
 		packages = with pkgs; [];
 		sessionVariables = {
 			EDITOR = "vim";
