@@ -111,7 +111,7 @@
 					home-manager = {
 						useGlobalPkgs = true;
 						useUserPackages = true;
-						backupFileExtension = "backup";
+						backupFileExtension = "bak";
 						users."${user}" = import ./home.nix;
 					};
 				}
