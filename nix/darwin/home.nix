@@ -57,9 +57,8 @@
 			".ssh/config".source = ../../ssh/config;
 		};
 
-		packages = with pkgs; [];
 		sessionVariables = {
-			EDITOR = "vim";
+			EDITOR = "nvim";
 		};
 	};
 
