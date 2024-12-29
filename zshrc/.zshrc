@@ -1,7 +1,4 @@
-export ZSH=~/.oh-my-zsh
-
-source $ZSH/oh-my-zsh.sh
-
+# Yazi wrapper that changes the current working directory to the one specified by yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -11,7 +8,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-# Aliases
 alias v="nvim"
 alias c="clear"
 alias renix="darwin-rebuild switch --flake ~/dotfiles/nix/darwin#sharry"
