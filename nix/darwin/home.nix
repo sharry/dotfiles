@@ -31,6 +31,7 @@
 			".config/ghostty/config".source = ../../ghostty/config;
 			".config/yazi/yazi.toml".source = ../../yazi/yazi.toml;
 			".config/karabiner/karabiner.json".source = ../../karabiner/karabiner.json;
+			".config/lazygit/config.yml".source = ../../lazygit/config.yml;
 		};
 
 		packages = with pkgs; [];
