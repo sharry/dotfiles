@@ -16,11 +16,17 @@
 	let
 	configuration = { pkgs, ... }: {
 		environment.systemPackages = with pkgs; [
-			vim
+			fd
+			fzf
+			deno
 			yazi
+			xclip
+			ffmpeg
 			neovim
 			lazygit
+			ripgrep
 			nodejs_22
+			imagemagick
 		];
 
 		time.timeZone = "Africa/Casablanca";
@@ -70,17 +76,7 @@
 				"ghostty"
 			];
 
-			brews = [
-				"deno"
-				"ffmpeg"
-				"sevenzip"
-				"poppler"
-				"fd"
-				"ripgrep"
-				"fzf"
-				"imagemagick"
-				"xclip"
-			];
+			brews = [];
 
 			onActivation = { 
 				upgrade = true;
