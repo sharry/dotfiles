@@ -46,12 +46,14 @@
 				AppleShowAllFiles = true;
 				AppleShowAllExtensions = true;
 			};
+			
 			dock = {
 				autohide = true;
 				persistent-apps = [];
 				orientation = "right";
 				minimize-to-application = true;
 			};
+
 			NSGlobalDomain = {
 				KeyRepeat = 2;
 				AppleMetricUnits = 1;
@@ -61,6 +63,20 @@
 				AppleMeasurementUnits = "Centimeters";
 				NSDocumentSaveNewDocumentsToCloud = false;
 			};
+
+			CustomUserPreferences = {
+				"org.p0deje.Maccy" = {
+					ignoredApps = [
+						"com.apple.Passwords"
+					];
+					menuIcon = "paperclip";
+					pasteByDefault = true;
+					showFooter = false;
+					showTitle = false;
+					KeyboardShortcuts_popup = ''{"carbonKeyCode":9,"carbonModifiers":768}'';
+					searchVisibility = "duringSearch";
+				};
+			};	
 		};
 
 		homebrew = {
@@ -72,6 +88,7 @@
 
 			casks = [
 				"arc"
+				"maccy"
 				"ghostty"
 				"obsidian"
 				"aerospace"
