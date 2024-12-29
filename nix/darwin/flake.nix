@@ -23,6 +23,8 @@
 			nodejs_22
 		];
 
+		time.timeZone = "Africa/Casablanca";
+
 		services = {
 			nix-daemon.enable = true;
 		};
