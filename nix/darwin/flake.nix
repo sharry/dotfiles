@@ -68,6 +68,7 @@
 				"org.p0deje.Maccy" = {
 					ignoredApps = [
 						"com.apple.Passwords"
+						"org.keepassxc.keepassxc"
 					];
 					menuIcon = "paperclip";
 					pasteByDefault = true;
@@ -109,7 +110,7 @@
 	user = "momo";
 	in
 	{
-		darwinConfigurations.sharry = nix-darwin.lib.darwinSystem {
+		darwinConfigurations."sharry" = nix-darwin.lib.darwinSystem {
 			modules = [
 				configuration
 				
@@ -125,12 +126,12 @@
 
 				home-manager.darwinModules.home-manager
           		{
-					users.users."${user}".home = "/Users/${user}";
+					users.users.${user}.home = "/Users/${user}";
 					home-manager = {
 						useGlobalPkgs = true;
 						useUserPackages = true;
 						backupFileExtension = "bak";
-						users."${user}" = import ./home.nix;
+						users.${user} = import ./home.nix;
 					};
 				}
 			];
