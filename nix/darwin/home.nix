@@ -32,6 +32,7 @@
 			".config/yazi/yazi.toml".source = ../../yazi/yazi.toml;
 			".config/karabiner/karabiner.json".source = ../../karabiner/karabiner.json;
 			".config/lazygit/config.yml".source = ../../lazygit/config.yml;
+			".ssh/config".source = ../../ssh/config;
 		};
 
 		packages = with pkgs; [];

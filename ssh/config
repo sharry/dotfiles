@@ -1,0 +1,13 @@
+# Personal account (default)
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_personal
+  AddKeysToAgent yes
+
+# Work account (specific folders)
+Host github-work
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_work
+  AddKeysToAgent yes
