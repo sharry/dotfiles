@@ -15,8 +15,10 @@
 			ignores = [
 				".DS_Store"
 			];
-			init.defaultBranch = "main";
-			push.autoSetupRemote = true;
+			extraConfig = {
+				init.defaultBranch = "main";
+				push.autoSetupRemote = true;
+			};
 		};
 		
 	};
