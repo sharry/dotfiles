@@ -35,27 +35,31 @@
 			nix-daemon.enable = true;
 		};
 
-		nix.settings.experimental-features = "nix-command flakes";
-      	system.configurationRevision = self.rev or self.dirtyRev or null;
 		system.stateVersion = 5;
 		nixpkgs.hostPlatform = "aarch64-darwin";
 		security.pam.enableSudoTouchIdAuth = true;     
+		nix.settings.experimental-features = "nix-command flakes";
+      	system.configurationRevision = self.rev or self.dirtyRev or null;
 
 		system.defaults = {
 			finder = {
-				AppleShowAllExtensions = true;
 				AppleShowAllFiles = true;
+				AppleShowAllExtensions = true;
 			};
 			dock = {
 				autohide = true;
-				minimize-to-application = true;
-				orientation = "right";
 				persistent-apps = [];
+				orientation = "right";
+				minimize-to-application = true;
 			};
 			NSGlobalDomain = {
+				KeyRepeat = 2;
+				AppleMetricUnits = 1;
 				AppleInterfaceStyle = "Dark";
 				AppleICUForce24HourTime = true;
-				KeyRepeat = 2;
+				AppleTemperatureUnit = "Celsius";
+				AppleMeasurementUnits = "Centimeters";
+				NSDocumentSaveNewDocumentsToCloud = false;
 			};
 		};
 
@@ -68,12 +72,12 @@
 
 			casks = [
 				"arc"
+				"ghostty"
+				"obsidian"
 				"aerospace"
 				"hiddenbar"
 				"microsoft-edge"
 				"visual-studio-code"
-				"obsidian"
-				"ghostty"
 			];
 
 			brews = [];
