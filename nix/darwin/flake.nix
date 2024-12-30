@@ -35,6 +35,10 @@
 			nix-daemon.enable = true;
 		};
 
+		networking = {
+			localHostName = "bensadik";
+		};
+
 		system.stateVersion = 5;
 		nixpkgs.hostPlatform = "aarch64-darwin";
 		security.pam.enableSudoTouchIdAuth = true;     
@@ -97,6 +101,7 @@
 				"aerospace"
 				"hiddenbar"
 				"microsoft-edge"
+				"karabiner-elements"
 				"visual-studio-code"
 			];
 
