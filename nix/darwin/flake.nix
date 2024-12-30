@@ -92,6 +92,7 @@
 				"maccy"
 				"ghostty"
 				"obsidian"
+				"telegram"
 				"aerospace"
 				"hiddenbar"
 				"microsoft-edge"
@@ -99,6 +100,12 @@
 			];
 
 			brews = [];
+
+			# App Store apps
+			# Syntax: <app-name: string> = <app-id: number>;
+			masApps = {
+
+			};
 
 			onActivation = { 
 				upgrade = true;
