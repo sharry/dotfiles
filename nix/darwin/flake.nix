@@ -52,6 +52,7 @@
 				persistent-apps = [];
 				orientation = "right";
 				minimize-to-application = true;
+				wvous-br-corner = 1; # Disable buttom right Hot Corner
 			};
 
 			NSGlobalDomain = {
