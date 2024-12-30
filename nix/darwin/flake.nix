@@ -46,6 +46,9 @@
       	system.configurationRevision = self.rev or self.dirtyRev or null;
 
 		system.defaults = {
+
+			loginwindow.LoginwindowText = "youssef@bensadik.net";
+
 			finder = {
 				AppleShowAllFiles = true;
 				AppleShowAllExtensions = true;
