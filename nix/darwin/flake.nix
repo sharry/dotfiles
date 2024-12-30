@@ -73,6 +73,10 @@
 			};
 
 			CustomUserPreferences = {
+				"com.apple.screencapture" = {
+					target = "clipboard";
+				};
+				
 				"org.p0deje.Maccy" = {
 					ignoredApps = [
 						"com.apple.Passwords"
