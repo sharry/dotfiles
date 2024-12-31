@@ -26,33 +26,9 @@
       configuration =
         { pkgs, ... }:
         {
-          environment.systemPackages = with pkgs; [
-            fd
-            nil
-            fzf
-            deno
-            yazi
-            xclip
-            gnupg
-            ffmpeg
-            neovim
-            lazygit
-            ripgrep
-            nodejs_22
-            imagemagick
-            nixfmt-rfc-style
-          ];
 
-          services = {
-            nix-daemon.enable = true;
-          };
-
-          networking = {
-            localHostName = "bensadik";
-          };
-
+          services.nix-daemon.enable = true;
           nixpkgs.hostPlatform = "aarch64-darwin";
-          security.pam.enableSudoTouchIdAuth = true;
           nix.settings.experimental-features = "nix-command flakes";
 
         };
@@ -61,6 +37,7 @@
     {
       darwinConfigurations."sharry" = nix-darwin.lib.darwinSystem {
         modules = [
+          ./config/pkgs.nix
           ./config/system.nix
           ./config/brew.nix
           configuration

@@ -1,7 +1,10 @@
 { ... }:
 {
   time.timeZone = "Africa/Casablanca";
+  networking.localHostName = "bensadik";
+  security.pam.enableSudoTouchIdAuth = true;
   system.stateVersion = 5;
+
   system.defaults = {
     loginwindow.LoginwindowText = "youssef@bensadik.net";
 
