@@ -3,7 +3,8 @@
 	home.stateVersion = "23.05";
 
 	imports = [
-		../tools/zsh.nix
+		../programs/zsh.nix
+		../programs/git.nix
 	];
 
 	programs = {
@@ -15,19 +16,6 @@
 		
 		home-manager = {
 			enable = true;
-		};
-
-		git = {
-			enable = true;
-			userName = "Youssef Ben Sadik";
-			userEmail = "youssef@bensadik.net";
-			ignores = [
-				".DS_Store"
-			];
-			extraConfig = {
-				init.defaultBranch = "main";
-				push.autoSetupRemote = true;
-			};
 		};
 		
 	};
