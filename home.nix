@@ -21,7 +21,7 @@
 				c = "clear";
 				y = "yazi";
 				ll = "ls -l";
-				renix = "darwin-rebuild switch --flake ~/dotfiles/nix/darwin#sharry && source ~/.zshrc";
+				renix = "darwin-rebuild switch --flake ~/dotfiles#sharry && source ~/.zshrc";
 			};
 
 			oh-my-zsh = {
@@ -54,12 +54,12 @@
 	home = {
 
 		file = {
-			".config/aerospace/aerospace.toml".source = ../../aerospace/aerospace.toml;
-			".config/ghostty/config".source = ../../ghostty/config;
-			".config/yazi/yazi.toml".source = ../../yazi/yazi.toml;
-			".config/karabiner/karabiner.json".source = ../../karabiner/karabiner.json;
-			".config/lazygit/config.yml".source = ../../lazygit/config.yml;
-			".ssh/config".source = ../../ssh/config;
+			".config/aerospace/aerospace.toml".source = ./aerospace/aerospace.toml;
+			".config/ghostty/config".source = ./ghostty/config;
+			".config/yazi/yazi.toml".source = ./yazi/yazi.toml;
+			".config/karabiner/karabiner.json".source = ./karabiner/karabiner.json;
+			".config/lazygit/config.yml".source = ./lazygit/config.yml;
+			".ssh/config".source = ./ssh/config;
 		};
 
 		sessionVariables = {
