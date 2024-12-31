@@ -4,6 +4,7 @@ Host github.com
   User git
   IdentityFile ~/.ssh/id_ed25519_personal
   AddKeysToAgent yes
+  IdentitiesOnly yes
 
 # Work account (specific folders)
 Host github-work
@@ -11,3 +12,4 @@ Host github-work
   User git
   IdentityFile ~/.ssh/id_ed25519_work
   AddKeysToAgent yes
+  IdentitiesOnly yes
