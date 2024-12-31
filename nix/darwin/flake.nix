@@ -107,6 +107,7 @@
 				"telegram"
 				"aerospace"
 				"hiddenbar"
+				"fsmonitor"
 				"microsoft-edge"
 				"karabiner-elements"
 				"visual-studio-code"
