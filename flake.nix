@@ -44,9 +44,9 @@
           nix-homebrew.darwinModules.nix-homebrew
           {
             nix-homebrew = {
+              inherit user;
               enable = true;
               enableRosetta = true;
-              user = user;
               autoMigrate = true;
             };
           }
