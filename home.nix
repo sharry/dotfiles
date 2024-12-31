@@ -63,7 +63,7 @@
 		};
 
 		sessionVariables = {
-			EDITOR = "nvim";
+			EDITOR = "code";
 		};
 	};
 
