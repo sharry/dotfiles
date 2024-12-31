@@ -3,7 +3,7 @@
 	home.stateVersion = "23.05";
 
 	imports = [
-		./zsh.nix
+		../tools/zsh.nix
 	];
 
 	programs = {
@@ -35,12 +35,12 @@
 	home = {
 
 		file = {
-			".config/aerospace/aerospace.toml".source = ./aerospace/aerospace.toml;
-			".config/ghostty/config".source = ./ghostty/config;
-			".config/yazi/yazi.toml".source = ./yazi/yazi.toml;
-			".config/karabiner/karabiner.json".source = ./karabiner/karabiner.json;
-			".config/lazygit/config.yml".source = ./lazygit/config.yml;
-			".ssh/config".source = ./ssh/config;
+			".config/aerospace/aerospace.toml".source = ../dotfiles/aerospace.toml;
+			".config/ghostty/config".source = ../dotfiles/ghostty;
+			".config/yazi/yazi.toml".source = ../dotfiles/yazi.toml;
+			".config/karabiner/karabiner.json".source = ../dotfiles/karabiner.json;
+			".config/lazygit/config.yml".source = ../dotfiles/lazygit.yml;
+			".ssh/config".source = ../dotfiles/ssh;
 		};
 
 		sessionVariables = {

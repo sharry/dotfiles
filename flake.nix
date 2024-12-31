@@ -51,8 +51,8 @@
 	{
 		darwinConfigurations."sharry" = nix-darwin.lib.darwinSystem {
 			modules = [
-				./system.nix
-				./brew.nix
+				./config/system.nix
+				./config/brew.nix
 				configuration
 				nix-homebrew.darwinModules.nix-homebrew
 				{
@@ -71,7 +71,7 @@
 						useGlobalPkgs = true;
 						useUserPackages = true;
 						backupFileExtension = "bak";
-						users.${user} = import ./home.nix;
+						users.${user} = import ./config/home.nix;
 					};
 				}
 			];
