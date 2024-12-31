@@ -33,8 +33,6 @@
 			imagemagick
 		];
 
-		time.timeZone = "Africa/Casablanca";
-
 		services = {
 			nix-daemon.enable = true;
 		};

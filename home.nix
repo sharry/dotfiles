@@ -2,34 +2,15 @@
 
 	home.stateVersion = "23.05";
 
+	imports = [
+		./zsh.nix
+	];
+
 	programs = {
 
 		java  = {
 			enable = true;
 			package = pkgs.jdk17;
-		};
-
-		zsh = {
-			
-			enable = true;
-			enableCompletion = true;
-			autosuggestion.enable = true;
-			syntaxHighlighting.enable = true;
-
-			shellAliases = {
-				v = "nvim";
-				c = "clear";
-				y = "yazi";
-				ll = "ls -l";
-				renix = "darwin-rebuild switch --flake ~/dotfiles#sharry && source ~/.zshrc";
-			};
-
-			oh-my-zsh = {
-				enable = true;
-				plugins = ["git"];
-				theme = "robbyrussell";
-  			};
-
 		};
 		
 		home-manager = {

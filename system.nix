@@ -1,7 +1,8 @@
 { ... }:
 {
+	time.timeZone = "Africa/Casablanca";
 	system.stateVersion = 5;
-    system.defaults = {
+	system.defaults = {
 		loginwindow.LoginwindowText = "youssef@bensadik.net";
 
 		finder = {
@@ -45,5 +46,5 @@
 				searchVisibility = "duringSearch";
 			};
 		};
-    };
+	};
 }
