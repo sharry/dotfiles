@@ -23,6 +23,7 @@
 			deno
 			yazi
 			xclip
+			gnupg
 			ffmpeg
 			neovim
 			lazygit
@@ -93,50 +94,14 @@
 				};
 			};	
 		};
-
-		homebrew = {
-			enable = true;
-
-			taps = [
-				"nikitabobko/tap"
-			];
-
-			casks = [
-				"arc"
-				"maccy"
-				"ghostty"
-				"obsidian"
-				"telegram"
-				"aerospace"
-				"hiddenbar"
-				"fsmonitor"
-				"microsoft-edge"
-				"karabiner-elements"
-				"visual-studio-code"
-			];
-
-			brews = [];
-
-			# App Store apps
-			# Syntax: <app-name: string> = <app-id: number>;
-			masApps = {
-
-			};
-
-			onActivation = { 
-				upgrade = true;
-				cleanup = "zap";
-				autoUpdate = true;
-			};
-		};
 	};
 	user = "momo";
 	in
 	{
 		darwinConfigurations."sharry" = nix-darwin.lib.darwinSystem {
 			modules = [
+				./brew.nix
 				configuration
-				
 				nix-homebrew.darwinModules.nix-homebrew
 				{
 					nix-homebrew = {
