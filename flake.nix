@@ -23,15 +23,6 @@
       home-manager,
     }:
     let
-      configuration =
-        { pkgs, ... }:
-        {
-
-          services.nix-daemon.enable = true;
-          nixpkgs.hostPlatform = "aarch64-darwin";
-          nix.settings.experimental-features = "nix-command flakes";
-
-        };
       user = "momo";
     in
     {
@@ -40,8 +31,13 @@
           ./config/pkgs.nix
           ./config/system.nix
           ./config/brew.nix
-          configuration
           nix-homebrew.darwinModules.nix-homebrew
+          home-manager.darwinModules.home-manager
+          {
+            services.nix-daemon.enable = true;
+            nixpkgs.hostPlatform = "aarch64-darwin";
+            nix.settings.experimental-features = "nix-command flakes";
+          }
           {
             nix-homebrew = {
               inherit user;
@@ -50,8 +46,6 @@
               autoMigrate = true;
             };
           }
-
-          home-manager.darwinModules.home-manager
           {
             users.users.${user}.home = "/Users/${user}";
             home-manager = {
