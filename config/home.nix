@@ -1,6 +1,8 @@
+{ pkgs, ... }:
 {
 
   imports = [
+    ./pkgs.nix
     ../programs/zsh.nix
     ../programs/git.nix
     ../programs/zoxide.nix

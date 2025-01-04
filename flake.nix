@@ -28,9 +28,8 @@
     {
       darwinConfigurations.${user} = nix-darwin.lib.darwinSystem {
         modules = [
-          ./config/pkgs.nix
-          ./config/system.nix
           ./config/brew.nix
+          ./config/system.nix
           nix-homebrew.darwinModules.nix-homebrew
           home-manager.darwinModules.home-manager
           {
