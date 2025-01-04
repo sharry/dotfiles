@@ -2,9 +2,9 @@
 {
 
   imports = [
-    ./pkgs.nix
     ../programs/zsh.nix
     ../programs/git.nix
+    ../programs/pkgs.nix
     ../programs/zoxide.nix
     ../programs/direnv.nix
   ];
