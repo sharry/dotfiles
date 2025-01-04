@@ -28,32 +28,9 @@
     {
       darwinConfigurations.${user} = nix-darwin.lib.darwinSystem {
         modules = [
-          ./config/brew.nix
-          ./config/system.nix
+          (import ./config { inherit user; })
           nix-homebrew.darwinModules.nix-homebrew
           home-manager.darwinModules.home-manager
-          {
-            services.nix-daemon.enable = true;
-            nixpkgs.hostPlatform = "aarch64-darwin";
-            nix.settings.experimental-features = "nix-command flakes";
-          }
-          {
-            nix-homebrew = {
-              inherit user;
-              enable = true;
-              enableRosetta = true;
-              autoMigrate = true;
-            };
-          }
-          {
-            users.users.${user}.home = "/Users/${user}";
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "bak";
-              users.${user} = import ./config/home.nix;
-            };
-          }
         ];
       };
 
