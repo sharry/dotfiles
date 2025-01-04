@@ -1,4 +1,3 @@
-{ ... }:
 {
   time.timeZone = "Africa/Casablanca";
   networking.localHostName = "bensadik";

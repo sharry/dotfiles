@@ -1,38 +1,15 @@
-{ pkgs, ... }:
 {
-
-  home.stateVersion = "23.05";
 
   imports = [
     ../programs/zsh.nix
     ../programs/git.nix
+    ../programs/zoxide.nix
+    ../programs/direnv.nix
   ];
 
-  programs = {
-
-    java = {
-      enable = true;
-      package = pkgs.jdk17;
-    };
-
-    home-manager = {
-      enable = true;
-    };
-
-    direnv = {
-      enable = true;
-      enableZshIntegration = true;
-      nix-direnv.enable = true;
-    };
-
-    zoxide = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
-  };
-
   home = {
+
+    stateVersion = "23.05";
 
     file = {
       ".config/aerospace/aerospace.toml".source = ../dotfiles/aerospace.toml;
@@ -46,6 +23,9 @@
     sessionVariables = {
       EDITOR = "code";
     };
+
   };
+
+  programs.home-manager.enable = true;
 
 }
