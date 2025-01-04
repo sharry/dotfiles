@@ -12,7 +12,7 @@
       c = "clear";
       y = "yazi";
       ll = "ls -l";
-      renix = "darwin-rebuild switch --flake ~/dotfiles#sharry && source ~/.zshrc";
+      renix = "darwin-rebuild switch --flake ~/dotfiles#$USER && source ~/.zshrc";
     };
 
     oh-my-zsh = {

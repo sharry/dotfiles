@@ -35,7 +35,7 @@
       user = "momo";
     in
     {
-      darwinConfigurations."sharry" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations.${user} = nix-darwin.lib.darwinSystem {
         modules = [
           ./config/pkgs.nix
           ./config/system.nix
@@ -64,6 +64,6 @@
         ];
       };
 
-      darwinPackages = self.darwinConfigurations.sharry.pkgs;
+      darwinPackages = self.darwinConfigurations.${user}.pkgs;
     };
 }
