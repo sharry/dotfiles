@@ -4,6 +4,7 @@
     fd
     nil
     fzf
+    atac
     deno
     yazi
     xclip
