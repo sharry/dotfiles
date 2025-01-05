@@ -6,6 +6,8 @@
     ./yazi.nix
     ./zoxide.nix
     ./direnv.nix
+    ./ghostty.nix
     ./starship.nix
+    ./karabiner.nix
   ];
 }
