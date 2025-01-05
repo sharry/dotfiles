@@ -8,6 +8,7 @@
 
     casks = [
       "arc"
+      "pika"
       "maccy"
       "ghostty"
       "obsidian"
