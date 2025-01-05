@@ -6,7 +6,6 @@
     fzf
     atac
     deno
-    yazi
     xclip
     gnupg
     ffmpeg

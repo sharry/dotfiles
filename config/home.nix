@@ -11,7 +11,6 @@
     file = {
       ".config/aerospace/aerospace.toml".source = ../dotfiles/aerospace.toml;
       ".config/ghostty/config".source = ../dotfiles/ghostty;
-      ".config/yazi/yazi.toml".source = ../dotfiles/yazi.toml;
       ".config/karabiner/karabiner.json".source = ../dotfiles/karabiner.json;
       ".config/lazygit/config.yml".source = ../dotfiles/lazygit.yml;
       ".ssh/config".source = ../dotfiles/ssh;
