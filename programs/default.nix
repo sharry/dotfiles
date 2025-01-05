@@ -1,5 +1,6 @@
 {
   imports = [
+    ./vim.nix
     ./zsh.nix
     ./git.nix
     ./yazi.nix

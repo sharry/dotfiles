@@ -9,7 +9,6 @@
     xclip
     gnupg
     ffmpeg
-    neovim
     lazygit
     ripgrep
     nodejs_22
