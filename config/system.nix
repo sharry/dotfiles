@@ -33,13 +33,6 @@
       AppleMeasurementUnits = "Centimeters";
       NSDocumentSaveNewDocumentsToCloud = false;
     };
-
-    CustomUserPreferences = {
-
-      "com.apple.screencapture" = {
-        target = "clipboard";
-      };
-
-    };
+    
   };
 }

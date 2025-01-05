@@ -1,6 +1,7 @@
 {
   imports = [
-    ./maccy.nix
     ./pika.nix
+    ./maccy.nix
+    ./screencapture.nix
   ];
 }
