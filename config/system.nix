@@ -4,6 +4,10 @@
   security.pam.enableSudoTouchIdAuth = true;
   system.stateVersion = 5;
 
+  imports = [
+    ../programs/system-default.nix
+  ];
+
   system.defaults = {
     loginwindow.LoginwindowText = "youssef@bensadik.net";
 
@@ -31,29 +35,9 @@
     };
 
     CustomUserPreferences = {
+
       "com.apple.screencapture" = {
         target = "clipboard";
-      };
-
-      "org.p0deje.Maccy" = {
-        ignoredApps = [
-          "com.apple.Passwords"
-          "org.keepassxc.keepassxc"
-        ];
-        menuIcon = "paperclip";
-        pasteByDefault = true;
-        showFooter = false;
-        showTitle = false;
-        KeyboardShortcuts_popup = ''{"carbonKeyCode":9,"carbonModifiers":768}''; # Cmd+Shift+V
-        searchVisibility = "duringSearch";
-      };
-
-      "com.superhighfives.Pika" = {
-        KeyboardShortcuts_togglePika = ''{"carbonKeyCode":35,"carbonModifiers":768}''; # Cmd+Shift+P
-        LaunchAtLogin__hasMigrated = true;
-        copyColorOnPick = true;
-        viewedSplash = true;
-        colorFormat = "Hex";
       };
 
     };
