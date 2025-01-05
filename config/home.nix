@@ -1,6 +1,7 @@
 {
 
   imports = [
+    ./pkgs.nix
     ../programs
   ];
 
