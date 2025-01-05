@@ -1,11 +1,7 @@
 {
 
   imports = [
-    ../programs/zsh.nix
-    ../programs/git.nix
-    ../programs/pkgs.nix
-    ../programs/zoxide.nix
-    ../programs/direnv.nix
+    ../programs
   ];
 
   home = {
@@ -19,7 +15,6 @@
       ".config/karabiner/karabiner.json".source = ../dotfiles/karabiner.json;
       ".config/lazygit/config.yml".source = ../dotfiles/lazygit.yml;
       ".ssh/config".source = ../dotfiles/ssh;
-      ".p10k.zsh".source = ../dotfiles/p10k.zsh;
     };
 
     sessionVariables = {

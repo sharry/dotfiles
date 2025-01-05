@@ -16,6 +16,5 @@
     nodejs_22
     imagemagick
     nixfmt-rfc-style
-    zsh-powerlevel10k
   ];
 }
