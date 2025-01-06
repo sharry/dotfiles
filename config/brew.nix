@@ -3,7 +3,7 @@
     enable = true;
 
     taps = [
-      "nikitabobko/tap"
+      # "nikitabobko/tap"
     ];
 
     casks = [
@@ -13,7 +13,7 @@
       "ghostty"
       "obsidian"
       "telegram"
-      "aerospace"
+      # "aerospace"
       "hiddenbar"
       "fsmonitor"
       "microsoft-edge"

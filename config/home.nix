@@ -9,11 +9,6 @@
 
     stateVersion = "23.05";
 
-    file = {
-      ".config/aerospace/aerospace.toml".source = ../dotfiles/aerospace.toml;
-      ".ssh/config".source = ../dotfiles/ssh;
-    };
-
     sessionVariables = {
       EDITOR = "code";
     };

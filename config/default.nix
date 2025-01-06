@@ -4,6 +4,7 @@
   imports = [
     ./brew.nix
     ./system.nix
+    ./window.nix
   ];
 
   services.nix-daemon.enable = true;

@@ -1,6 +1,6 @@
 {
   system.defaults.CustomUserPreferences."com.superhighfives.Pika" = {
-    KeyboardShortcuts_togglePika = ''{"carbonKeyCode":35,"carbonModifiers":768}''; # Cmd+Shift+P
+    KeyboardShortcuts_togglePika = ''{"carbonKeyCode":8,"carbonModifiers":768}''; # Cmd+Shift+C
     LaunchAtLogin__hasMigrated = true;
     copyColorOnPick = true;
     viewedSplash = true;

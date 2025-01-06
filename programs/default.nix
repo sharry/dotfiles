@@ -9,5 +9,6 @@
     ./ghostty.nix
     ./starship.nix
     ./karabiner.nix
+    ./ssh.nix
   ];
 }
