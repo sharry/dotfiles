@@ -1,6 +1,6 @@
 {
   imports = [
-    ./vim.nix
+    ./ssh.nix
     ./zsh.nix
     ./git.nix
     ./yazi.nix
@@ -9,6 +9,5 @@
     ./ghostty.nix
     ./starship.nix
     ./karabiner.nix
-    ./ssh.nix
   ];
 }
