@@ -11,6 +11,7 @@
       v = "nvim";
       c = "clear";
       y = "yazi";
+	  g = "lazygit";
       ll = "ls -l";
       renix = "darwin-rebuild switch --flake ~/dotfiles#$USER && source ~/.zshrc";
     };
