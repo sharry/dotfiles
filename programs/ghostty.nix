@@ -7,7 +7,7 @@ in
     theme = dark:catppuccin-mocha,light:catppuccin-latte
     mouse-hide-while-typing = true
     background-blur-radius = 20
-    background-opacity = 0.95
+    background-opacity = 0.96
     window-decoration = true
   '';
 }
