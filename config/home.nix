@@ -10,7 +10,7 @@
     stateVersion = "23.05";
 
     sessionVariables = {
-      EDITOR = "code";
+      EDITOR = "nvim";
     };
 
   };
