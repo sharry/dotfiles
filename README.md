@@ -1,6 +1,6 @@
-# Porsonal Dotfiles
+# Personal Dotfiles
 
-Welcome to my dotfiles repository! This repository contains my personal configuration files for various tools and applications.
+This repository contains my personal configuration files for my macOS system and programs.
 
 ## Tech
 - [Nix](https://nixos.org/) - Nix is a powerful package manager for Unix systems that makes package management reliable and reproducible.
