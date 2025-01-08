@@ -8,6 +8,5 @@
     ./direnv.nix
     ./ghostty.nix
     ./starship.nix
-    ./karabiner.nix
   ];
 }

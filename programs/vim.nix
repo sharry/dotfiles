@@ -5,10 +5,16 @@ let
 		value = {
 			enable = true;
 			lsp.enable = true;
-			format.enable = true;
 			treesitter.enable = true;
 		};
 	}) langs);
+
+	silentNormalKeymap = key: action: {
+		mode = "n";
+		silent = true;
+		inherit key;
+		inherit action;
+	};
 in
 	{
 	programs.nvf = {
@@ -18,25 +24,15 @@ in
 		settings.vim = {
 
 			keymaps = [
-				{
-					key = "<leader>e";
-					mode = "n";
-					silent = true;
-					action = ":Neotree toggle<CR>";
-				}
-				{
-					key = "<leader><space>";
-					mode = "n";
-					silent = true;
-					action = ":Telescope git_files<CR>";
-				}
+				(silentNormalKeymap "<leader>e" ":Neotree toggle<CR>")
+				(silentNormalKeymap "<leader><space>" ":Telescope git_files<CR>")
 			];
 
 			theme = {
 				enable = true;
+				style = "mocha";
 				transparent = true;
 				name = "catppuccin";
-				style = "mocha";
 			};
 
 			ui = {
@@ -53,7 +49,10 @@ in
 
 			telescope.enable = true;
 
-			assistant.copilot.enable = true;
+			assistant.copilot = {
+				enable = true;
+				cmp.enable = true;
+			};
 
 			comments.comment-nvim.enable = true;
 
@@ -64,7 +63,12 @@ in
 			languages = enableLanguages [
 				"ts"
 				"nix"
+				"csharp"
 			];
+
+			autocomplete.nvim-cmp = {
+				enable = true;
+			};
 
 		};
 	};

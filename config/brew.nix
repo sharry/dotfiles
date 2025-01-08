@@ -10,10 +10,10 @@
 			"ghostty"
 			"obsidian"
 			"telegram"
+			"desktoppr"
 			"hiddenbar"
 			"fsmonitor"
 			"microsoft-edge"
-			"karabiner-elements" # TODO: migrate to nix keymapper
 			"visual-studio-code"
 		];
 
