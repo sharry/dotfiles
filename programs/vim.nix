@@ -9,7 +9,7 @@ let
 		};
 	}) langs);
 
-	silentNormalKeymap = key: action: {
+	silentNormalKeymap = { key, action }: {
 		mode = "n";
 		silent = true;
 		inherit key;
@@ -24,8 +24,8 @@ in
 		settings.vim = {
 
 			keymaps = [
-				(silentNormalKeymap "<leader>e" ":Neotree toggle<CR>")
-				(silentNormalKeymap "<leader><space>" ":Telescope git_files<CR>")
+				(silentNormalKeymap { key = "<leader>e"; action = ":Neotree toggle<CR>"; })
+				(silentNormalKeymap { key = "<leader><space>"; action = ":Telescope git_files<CR>"; })
 			];
 
 			theme = {
