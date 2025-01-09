@@ -6,6 +6,7 @@
 		fzf
 		atac
 		deno
+		gtop
 		dblab
 		gnupg
 		ffmpeg
