@@ -1,22 +1,22 @@
 {
 
-  imports = [
-    ./pkgs.nix
-    ../programs
-  ];
+	imports = [
+		./pkgs.nix
+		../programs
+	];
 
-  home = {
+	home = {
 
-	file.".hushlogin".text = ""; # Stops showing the last login message
+		file.".hushlogin".text = ""; # Stops showing the last login message
 
-    stateVersion = "23.05";
+		stateVersion = "23.05";
 
-    sessionVariables = {
-      EDITOR = "nvim";
-    };
+		sessionVariables = {
+			EDITOR = "nvim";
+		};
 
-  };
+	};
 
-  programs.home-manager.enable = true;
+	programs.home-manager.enable = true;
 
 }
