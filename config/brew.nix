@@ -7,6 +7,7 @@
 			"arc"
 			"pika"
 			"maccy"
+			"raycast"
 			"ghostty"
 			"obsidian"
 			"telegram"
