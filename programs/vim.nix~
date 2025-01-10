@@ -18,7 +18,9 @@ let
 in
 	{
 	programs.nvf = {
+		
 		enable = true;
+		
 		settings.vim = {
 
 			lsp = {
@@ -28,13 +30,13 @@ in
 			};
 
 			lineNumberMode = "number";
-			hideSearchHighlight = true;
+			hideSearchHighlight = true;	
 
 			spellcheck = {
 				enable = true;
 				languages = ["en"];
 			};
-
+			
 			options = {
 				wrap = false;
 				smoothscroll = true;
