@@ -1,12 +1,18 @@
-{ ... }:
 let
-	enableLanguages = langs: builtins.listToAttrs (map (lang: {
-		name = lang;
+	enableLanguages = langs: builtins.listToAttrs (map ({ name, withTreesitter ? true, withLsp ? true, extensions ? {} }: {
+		inherit name;
 		value = {
 			enable = true;
+		}
+		// (if withLsp then {
 			lsp.enable = true;
+		} else {})
+		// (if withTreesitter then {
 			treesitter.enable = true;
-		};
+		} else {})
+		// (if extensions != {} then {
+			inherit extensions;
+		} else {});
 	}) langs);
 
 	silentNormalKeymap = { key, action }: {
@@ -15,8 +21,10 @@ let
 		inherit key;
 		inherit action;
 	};
+
+	enterCmd = cmd: action: ":${cmd} ${action}<CR>";
 in
-	{
+{
 	programs.nvf = {
 		enable = true;
 		settings.vim = {
@@ -33,6 +41,10 @@ in
 			spellcheck = {
 				enable = true;
 				languages = ["en"];
+				programmingWordlist.enable = true;
+				extraSpellWords."en.utf-8" = [
+					"darwin" "homebrew" "dotfiles" "macOS"
+				];
 			};
 
 			options = {
@@ -41,9 +53,14 @@ in
 			};
 
 			keymaps = [
-				(silentNormalKeymap { key = "<leader>e"; action = ":Neotree toggle<CR>"; })
-				(silentNormalKeymap { key = "<leader>c"; action = ":Copilot toggle<CR>"; })
-				(silentNormalKeymap { key = "<leader><space>"; action = ":Telescope git_files<CR>"; })
+				(silentNormalKeymap {
+					key = "<leader>" + "e";
+					action = enterCmd "Neotree" "toggle";
+				})
+				(silentNormalKeymap {
+					key = "<leader>" + "<space>";
+					action = enterCmd "Telescope" "git_files";
+				})
 			];
 
 			theme = {
@@ -79,9 +96,12 @@ in
 			treesitter.enable = true;
 
 			languages = enableLanguages [
-				"ts"
-				"nix"
-				"csharp"
+				{ name = "ts"; }
+				{ name = "nix"; }
+				{ name = "java"; }
+				{ name = "csharp"; }
+				{ name = "tailwind"; withTreesitter = false; }
+				{ name = "markdown"; extensions = { render-markdown-nvim.enable = true; }; }
 			];
 
 			autocomplete.nvim-cmp = {
