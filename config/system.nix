@@ -2,7 +2,7 @@
 let
 	getWallpaperLink = name: "https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/master/${name}.jpg";
 in
-	{
+{
 	time.timeZone = "Africa/Casablanca";
 	networking.localHostName = "bensadik";
 	security.pam.enableSudoTouchIdAuth = true;
@@ -18,19 +18,6 @@ in
 
 	system.defaults = {
 		loginwindow.LoginwindowText = "youssef@bensadik.net";
-
-		finder = {
-			AppleShowAllFiles = true;
-			AppleShowAllExtensions = true;
-		};
-
-		dock = {
-			autohide = true;
-			persistent-apps = [ ];
-			orientation = "right";
-			minimize-to-application = true;
-			wvous-br-corner = 1; # Disable bottom right Hot Corner
-		};
 
 		NSGlobalDomain = {
 			KeyRepeat = 2;
