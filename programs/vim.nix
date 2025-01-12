@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
 	enableLanguages = langs: builtins.listToAttrs (map ({ name, withTreesitter ? true, withLsp ? true, extensions ? {} }: {
 		inherit name;
@@ -15,19 +16,21 @@ let
 		} else {});
 	}) langs);
 
-	silentNormalKeymap = { key, action }: {
-		mode = "n";
-		silent = true;
+	keymap = { key, action, mode ? ["n"], silent ? true }: {
 		inherit key;
+		inherit mode;
+		inherit silent;
 		inherit action;
 	};
 
-	enterCmd = cmd: action: ":${cmd} ${action}<CR>";
+	enterCmd = cmd: action: "<CMD>${cmd} ${action}<CR>";
 in
 {
 	programs.nvf = {
 		enable = true;
 		settings.vim = {
+
+			enableLuaLoader = true;
 
 			lsp = {
 				enable = true;
@@ -53,11 +56,11 @@ in
 			};
 
 			keymaps = [
-				(silentNormalKeymap {
+				(keymap {
 					key = "<leader>" + "e";
 					action = enterCmd "Neotree" "toggle";
 				})
-				(silentNormalKeymap {
+				(keymap {
 					key = "<leader>" + "<space>";
 					action = enterCmd "Telescope" "git_files";
 				})
@@ -86,7 +89,11 @@ in
 
 			assistant.copilot = {
 				enable = true;
-				cmp.enable = true;
+				setupOpts.suggestion = {
+					enable = true;
+					auto_trigger = true;
+					keymap.accept = "<Tab>";
+				};
 			};
 
 			comments.comment-nvim.enable = true;
@@ -106,6 +113,27 @@ in
 
 			autocomplete.nvim-cmp = {
 				enable = true;
+			};
+
+			debugger.nvim-dap = {
+				enable = true;
+				ui.enable = true;
+			};
+
+			lazy.plugins = with pkgs.vimPlugins; {
+				"multicursors.nvim" = {
+					lazy = true;
+					setupModule = "multicursors";
+					package = multicursors-nvim;
+					cmd = ["MCstart" "MCvisual" "MCclear" "MCpattern" "MCvisualPattern" "MCunderCursor"];
+					keys = [
+						(keymap {
+							mode = [ "n" "v" ];
+							key = "<Leader>m";
+							action = enterCmd "MCstart" "";
+						})
+					];
+				};
 			};
 
 		};
