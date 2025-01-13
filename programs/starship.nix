@@ -53,18 +53,6 @@
         format = ''[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'';
       };
 
-      rust = {
-        symbol = "";
-        style = "bg:#212736";
-        format = ''[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'';
-      };
-
-      golang = {
-        symbol = "";
-        style = "bg:#212736";
-        format = ''[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'';
-      };
-
       time = {
         disabled = false;
         time_format = "%R"; # Hour:Minute Format
