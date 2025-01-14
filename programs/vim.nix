@@ -24,6 +24,8 @@ let
 	};
 
 	enterCmd = cmd: action: "<CMD>${cmd} ${action}<CR>";
+
+	leader = "<leader>";
 in
 {
 	programs.nvf = {
@@ -35,7 +37,7 @@ in
 			lsp = {
 				enable = true;
 				formatOnSave = true;
-				lightbulb.enable = true;
+				lspSignature.enable = true;
 			};
 
 			lineNumberMode = "number";
@@ -57,11 +59,11 @@ in
 
 			keymaps = [
 				(keymap {
-					key = "<leader>" + "e";
+					key = leader + "e";
 					action = enterCmd "Neotree" "toggle";
 				})
 				(keymap {
-					key = "<leader>" + "<space>";
+					key = leader + "<space>";
 					action = enterCmd "Telescope" "git_files";
 				})
 			];
@@ -89,10 +91,13 @@ in
 
 			assistant.copilot = {
 				enable = true;
-				setupOpts.suggestion = {
-					enable = true;
-					auto_trigger = true;
-					keymap.accept = "<Tab>";
+				setupOpts = {
+					suggestion = {
+						enable = true;
+						auto_trigger = true;
+						keymap.accept = "<Tab>";
+					};
+					panel.enable = true;
 				};
 			};
 
@@ -100,7 +105,10 @@ in
 
 			useSystemClipboard = true;
 
-			treesitter.enable = true;
+			treesitter = {
+				enable = true;
+				fold = true;
+			};
 
 			languages = enableLanguages [
 				{ name = "ts"; }
@@ -113,6 +121,27 @@ in
 
 			autocomplete.nvim-cmp = {
 				enable = true;
+				mappings = {
+					next = "<Down>";
+					previous = "<Up>";
+				};
+			};
+
+			autopairs.nvim-autopairs.enable = true;
+
+			visuals = {
+				nvim-cursorline = {
+					enable = true;
+					setupOpts.cursorline = {
+						enable = true;
+						timeout = 0;
+					};
+				};
+
+				nvim-scrollbar.enable = true;
+				indent-blankline = { 
+					enable = true;
+				};
 			};
 
 			debugger.nvim-dap = {
@@ -129,7 +158,7 @@ in
 					keys = [
 						(keymap {
 							mode = [ "n" "v" ];
-							key = "<Leader>m";
+							key = leader + "m";
 							action = enterCmd "MCstart" "";
 						})
 					];
