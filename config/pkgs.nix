@@ -9,11 +9,13 @@
 		gtop
 		dblab
 		gnupg
+		podman
 		ffmpeg
 		jwt-cli
 		lazygit
 		ripgrep
 		nodejs_22
+		lazydocker
 		imagemagick
 		nixfmt-rfc-style
 	];

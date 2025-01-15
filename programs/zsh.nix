@@ -12,6 +12,7 @@
 			y = "yazi";
 			g = "lazygit";
 			ll = "ls -l";
+			pod = "lazydocker";
 			unjwt = "jwt decode $(pbpaste)";
 			renix = "darwin-rebuild switch --flake ~/dotfiles#$USER && source ~/.zshrc";
 			freenix = "nix-collect-garbage -d";
