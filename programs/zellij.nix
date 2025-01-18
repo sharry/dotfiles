@@ -196,9 +196,9 @@ in
 						tab_separator           "#[bg=#00000000] "	
 
 						// indicators
-						tab_sync_indicator       " "
-						tab_fullscreen_indicator " 󰊓"
-						tab_floating_indicator   " 󰹙"	
+						tab_sync_indicator       "  "
+						tab_fullscreen_indicator " 󰊓 "
+						tab_floating_indicator   " 󰹙 "
 						command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
 						command_git_branch_format      "#[fg=blue] {stdout} "
 						command_git_branch_interval    "10"
