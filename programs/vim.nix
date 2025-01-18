@@ -24,6 +24,9 @@ let
 	};
 
 	enterCmd = cmd: action: "<CMD>${cmd} ${action}<CR>";
+	luaCmd = pkg: func: enterCmd "lua" ''require("${pkg}").${func}()'';
+
+	emptySetup = require: "require('${require}').setup {}";
 
 	leader = "<leader>";
 in
@@ -33,24 +36,20 @@ in
 		settings.vim = {
 
 			enableLuaLoader = true;
+			preventJunkFiles = true;
 
 			lsp = {
 				enable = true;
 				formatOnSave = true;
+				lspkind.enable = true;
+				lsplines.enable = true;
+				lspconfig.enable = true;
+				lightbulb.enable = true;
 				lspSignature.enable = true;
 			};
 
 			lineNumberMode = "number";
 			hideSearchHighlight = true;
-
-			spellcheck = {
-				enable = true;
-				languages = ["en"];
-				programmingWordlist.enable = true;
-				extraSpellWords."en.utf-8" = [
-					"darwin" "homebrew" "dotfiles" "macOS"
-				];
-			};
 
 			options = {
 				wrap = false;
@@ -66,6 +65,10 @@ in
 					key = leader + "<space>";
 					action = enterCmd "Telescope" "git_files";
 				})
+				(keymap {
+					key = "K";
+					action = luaCmd "hover" "hover";
+				})
 			];
 
 			theme = {
@@ -77,15 +80,14 @@ in
 
 			ui = {
 				colorizer.enable = true;
+				nvim-ufo.enable = true;
 			};
 
 			filetree.neo-tree = {
 				enable = true;
 			};
 
-			statusline.lualine = {
-				enable = true;
-			};
+			statusline.lualine.enable = true;
 
 			telescope.enable = true;
 
@@ -132,21 +134,30 @@ in
 			visuals = {
 				nvim-cursorline = {
 					enable = true;
-					setupOpts.cursorline = {
-						enable = true;
-						timeout = 0;
+					setupOpts ={
+						cursorline = {
+							enable = true;
+							timeout = 0;
+						};
+						cursorword.enable = true;
 					};
 				};
 
-				nvim-scrollbar.enable = true;
-				indent-blankline = { 
-					enable = true;
-				};
+				indent-blankline.enable = true;
 			};
 
 			debugger.nvim-dap = {
 				enable = true;
 				ui.enable = true;
+			};
+
+			# Translated to `vim.o.*` options
+			options = {
+				foldenable = true;
+				foldcolumn = "1";
+				foldlevel = 99;
+				foldlevelstart = 99;
+				fillchars = "eob: ,fold: ,foldsep: ,foldopen:,foldclose:";
 			};
 
 			lazy.plugins = with pkgs.vimPlugins; {
@@ -162,6 +173,48 @@ in
 							action = enterCmd "MCstart" "";
 						})
 					];
+				};
+			};
+
+			extraPlugins = with pkgs.vimPlugins; {
+				dropbar = {
+					package = dropbar-nvim;
+					setup = emptySetup "dropbar";
+				};
+
+				statuscol = {
+					package = statuscol-nvim;
+					setup = ''
+						local builtin = require("statuscol.builtin")
+						require("statuscol").setup {
+							relculright = true,
+							segments = {
+								{ text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+								{ text = { "%s" }, click = "v:lua.ScSa" },
+								{ text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+							},
+						}
+					'';
+				};
+
+				hover = {
+					package = hover-nvim;
+					setup = ''
+						require("hover").setup {
+							init = function()
+								require("hover.providers.lsp")
+							end,
+							preview_opts = {
+								border = 'single'
+							},
+							preview_window = false,
+							title = true,
+							mouse_providers = {
+								'LSP'
+							},
+							mouse_delay = 1000
+						}
+					'';
 				};
 			};
 

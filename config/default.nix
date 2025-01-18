@@ -1,4 +1,7 @@
 { user }: { home-manager, nix-homebrew, ... }:
+let
+	system = "aarch64-darwin";
+in
 {
 
 	imports = [
@@ -9,7 +12,7 @@
 	];
 
 	services.nix-daemon.enable = true;
-	nixpkgs.hostPlatform = "aarch64-darwin";
+	nixpkgs.hostPlatform = system;
 	nix.settings.experimental-features = "nix-command flakes";
 
 	nix-homebrew = {

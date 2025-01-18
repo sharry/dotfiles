@@ -2,7 +2,7 @@
 
 	imports = [
 		./pkgs.nix
-		../programs
+		../programs 
 	];
 
 	home = {

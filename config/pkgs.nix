@@ -17,6 +17,7 @@
 		nodejs_22
 		lazydocker
 		imagemagick
+		podman-compose
 		nixfmt-rfc-style
 	];
 }
