@@ -153,7 +153,6 @@ in
 
 			# Translated to `vim.o.*` options
 			options = {
-				foldenable = true;
 				foldcolumn = "1";
 				foldlevel = 99;
 				foldlevelstart = 99;
@@ -175,6 +174,13 @@ in
 					];
 				};
 			};
+
+			luaConfigPost = ''
+				vim.cmd [[
+					set foldenable
+					Copilot enable
+				]]
+			'';
 
 			extraPlugins = with pkgs.vimPlugins; {
 				dropbar = {
