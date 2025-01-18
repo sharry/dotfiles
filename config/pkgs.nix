@@ -13,6 +13,7 @@
 		ffmpeg
 		jwt-cli
 		lazygit
+		lazysql
 		ripgrep
 		nodejs_22
 		lazydocker
