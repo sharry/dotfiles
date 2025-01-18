@@ -1,6 +1,6 @@
 let
 	colors = {
-		base00 = "#1e1e2e00"; # base
+		base00 = "#1e1e2e"; # base
 		base01 = "#181825"; # mantle
 		base02 = "#313244"; # surface0
 		base03 = "#45475a"; # surface1
@@ -158,7 +158,7 @@ in
 					plugin location="https://github.com/dj95/zjstatus/releases/download/v0.19.2/zjstatus.wasm" {
 						format_left   "{mode}#[bg=${colors.base00}] {tabs}"
 						format_center ""
-						format_right  "#[bg=${colors.base00},fg=${colors.base0D}]#[bg=${colors.base0D},fg=${colors.base01},bold] #[bg=${colors.base02},fg=${colors.base05},bold] {session} #[bg=${colors.base03},fg=${colors.base05},bold]"
+						format_right  "#[bg=#00000000,fg=${colors.base0D}]#[bg=${colors.base0D},fg=${colors.base01},bold] #[bg=${colors.base02},fg=${colors.base05},bold] {session} #[bg=${colors.base03},fg=${colors.base05},bold]"
 						format_space  ""
 						format_hide_on_overlength "true"
 						format_precedence "crl"	
@@ -167,33 +167,33 @@ in
 						border_format   "#[fg=6C7086]{char}"
 						border_position "top"
  
-						mode_normal        "#[fg=${colors.base0B}]█#[bg=${colors.base0B},fg=${colors.base02},bold]NORMAL#[bg=${colors.base03},fg=${colors.base0B}]#[bg=${colors.base00},fg=${colors.base0B},bold]"
-						mode_locked        "#[fg=${colors.base04}]█#[bg=${colors.base04},fg=${colors.base02},bold]LOCKED #[bg=${colors.base03},fg=${colors.base04}]#[bg=${colors.base00},fg=${colors.base04},bold]"
-						mode_resize        "#[fg=${colors.base08}]█#[bg=${colors.base08},fg=${colors.base02},bold]RESIZE#[bg=${colors.base03},fg=${colors.base08}]#[bg=${colors.base00},fg=${colors.base08},bold]"
-						mode_pane          "#[fg=${colors.base0D}]█#[bg=${colors.base0D},fg=${colors.base02},bold]PANE#[bg=${colors.base03},fg=${colors.base0D}]#[bg=${colors.base00},fg=${colors.base0D},bold]"
-						mode_tab           "#[fg=${colors.base07}]█#[bg=${colors.base07},fg=${colors.base02},bold]TAB#[bg=${colors.base03},fg=${colors.base07}]#[bg=${colors.base00},fg=${colors.base07},bold]"
-						mode_scroll        "#[fg=${colors.base0A}]█#[bg=${colors.base0A},fg=${colors.base02},bold]SCROLL#[bg=${colors.base03},fg=${colors.base0A}]#[bg=${colors.base00},fg=${colors.base0A},bold]"
-						mode_enter_search  "#[fg=${colors.base0D}]█#[bg=${colors.base0D},fg=${colors.base02},bold]ENT-SEARCH#[bg=${colors.base03},fg=${colors.base0D}]#[bg=${colors.base00},fg=${colors.base0D},bold]"
-						mode_search        "#[fg=${colors.base0D}]█#[bg=${colors.base0D},fg=${colors.base02},bold]SEARCHARCH#[bg=${colors.base03},fg=${colors.base0D}]#[bg=${colors.base00},fg=${colors.base0D},bold]"
-						mode_rename_tab    "#[fg=${colors.base07}]█#[bg=${colors.base07},fg=${colors.base02},bold]RENAME-TAB#[bg=${colors.base03},fg=${colors.base07}]#[bg=${colors.base00},fg=${colors.base07},bold]"
-						mode_rename_pane   "#[fg=${colors.base0D}]█#[bg=${colors.base0D},fg=${colors.base02},bold]RENAME-PANE#[bg=${colors.base03},fg=${colors.base0D}]#[bg=${colors.base00},fg=${colors.base0D},bold]"
-						mode_session       "#[fg=${colors.base0E}]█#[bg=${colors.base0E},fg=${colors.base02},bold]SESSION#[bg=${colors.base03},fg=${colors.base0E}]#[bg=${colors.base00},fg=${colors.base0E},bold]"
-						mode_move          "#[fg=${colors.base0F}]█#[bg=${colors.base0F},fg=${colors.base02},bold]MOVE#[bg=${colors.base03},fg=${colors.base0F}]#[bg=${colors.base00},fg=${colors.base0F},bold]"
-						mode_prompt        "#[fg=${colors.base0D}]█#[bg=${colors.base0D},fg=${colors.base02},bold]PROMPT#[bg=${colors.base03},fg=${colors.base0D}]#[bg=${colors.base00},fg=${colors.base0D},bold]"
-						mode_tmux          "#[fg=${colors.base09}]█#[bg=${colors.base09},fg=${colors.base02},bold]TMUX#[bg=${colors.base03},fg=${colors.base09}]#[bg=${colors.base00},fg=${colors.base09},bold]"
+						mode_normal        "#[fg=${colors.base0B}]█#[bg=${colors.base0B},fg=${colors.base02},bold]NORMAL#[bg=${colors.base03},fg=${colors.base0B}]#[fg=${colors.base0B},bold]"
+						mode_locked        "#[fg=${colors.base04}]█#[bg=${colors.base04},fg=${colors.base02},bold]LOCKED #[bg=${colors.base03},fg=${colors.base04}]#[fg=${colors.base04},bold]"
+						mode_resize        "#[fg=${colors.base08}]█#[bg=${colors.base08},fg=${colors.base02},bold]RESIZE#[bg=${colors.base03},fg=${colors.base08}]#[fg=${colors.base08},bold]"
+						mode_pane          "#[fg=${colors.base0D}]█#[bg=${colors.base0D},fg=${colors.base02},bold]PANE#[bg=${colors.base03},fg=${colors.base0D}]#[fg=${colors.base0D},bold]"
+						mode_tab           "#[fg=${colors.base07}]█#[bg=${colors.base07},fg=${colors.base02},bold]TAB#[bg=${colors.base03},fg=${colors.base07}]#[fg=${colors.base07},bold]"
+						mode_scroll        "#[fg=${colors.base0A}]█#[bg=${colors.base0A},fg=${colors.base02},bold]SCROLL#[bg=${colors.base03},fg=${colors.base0A}]#[fg=${colors.base0A},bold]"
+						mode_enter_search  "#[fg=${colors.base0D}]█#[bg=${colors.base0D},fg=${colors.base02},bold]ENT-SEARCH#[bg=${colors.base03},fg=${colors.base0D}]#[fg=${colors.base0D},bold]"
+						mode_search        "#[fg=${colors.base0D}]█#[bg=${colors.base0D},fg=${colors.base02},bold]SEARCHARCH#[bg=${colors.base03},fg=${colors.base0D}]#[fg=${colors.base0D},bold]"
+						mode_rename_tab    "#[fg=${colors.base07}]█#[bg=${colors.base07},fg=${colors.base02},bold]RENAME-TAB#[bg=${colors.base03},fg=${colors.base07}]#[fg=${colors.base07},bold]"
+						mode_rename_pane   "#[fg=${colors.base0D}]█#[bg=${colors.base0D},fg=${colors.base02},bold]RENAME-PANE#[bg=${colors.base03},fg=${colors.base0D}]#[fg=${colors.base0D},bold]"
+						mode_session       "#[fg=${colors.base0E}]█#[bg=${colors.base0E},fg=${colors.base02},bold]SESSION#[bg=${colors.base03},fg=${colors.base0E}]#[fg=${colors.base0E},bold]"
+						mode_move          "#[fg=${colors.base0F}]█#[bg=${colors.base0F},fg=${colors.base02},bold]MOVE#[bg=${colors.base03},fg=${colors.base0F}]#[fg=${colors.base0F},bold]"
+						mode_prompt        "#[fg=${colors.base0D}]█#[bg=${colors.base0D},fg=${colors.base02},bold]PROMPT#[bg=${colors.base03},fg=${colors.base0D}]#[fg=${colors.base0D},bold]"
+						mode_tmux          "#[fg=${colors.base09}]█#[bg=${colors.base09},fg=${colors.base02},bold]TMUX#[bg=${colors.base03},fg=${colors.base09}]#[fg=${colors.base09},bold]"
 
 						// formatting for inactive tabs
-						tab_normal              "#[bg=${colors.base00},fg=${colors.base0D}]#[bg=${colors.base0D},fg=${colors.base02},bold]{index} #[bg=${colors.base02},fg=${colors.base05},bold] {name}{floating_indicator}#[bg=${colors.base00},fg=${colors.base02},bold]"
-						tab_normal_fullscreen   "#[bg=${colors.base00},fg=${colors.base0D}]#[bg=${colors.base0D},fg=${colors.base02},bold]{index} #[bg=${colors.base02},fg=${colors.base05},bold] {name}{fullscreen_indicator}#[bg=${colors.base00},fg=${colors.base02},bold]"
-						tab_normal_sync         "#[bg=${colors.base00},fg=${colors.base0D}]#[bg=${colors.base0D},fg=${colors.base02},bold]{index} #[bg=${colors.base02},fg=${colors.base05},bold] {name}{sync_indicator}#[bg=${colors.base00},fg=${colors.base02},bold]"	
+						tab_normal              "#[fg=${colors.base0D}]#[bg=${colors.base0D},fg=${colors.base02},bold]{index} #[bg=${colors.base02},fg=${colors.base05},bold] {name}{floating_indicator}#[fg=${colors.base02},bold]"
+						tab_normal_fullscreen   "#[fg=${colors.base0D}]#[bg=${colors.base0D},fg=${colors.base02},bold]{index} #[bg=${colors.base02},fg=${colors.base05},bold] {name}{fullscreen_indicator}#[fg=${colors.base02},bold]"
+						tab_normal_sync         "#[fg=${colors.base0D}]#[bg=${colors.base0D},fg=${colors.base02},bold]{index} #[bg=${colors.base02},fg=${colors.base05},bold] {name}{sync_indicator}#[fg=${colors.base02},bold]"	
 
 						// formatting for the current active tab
-						tab_active              "#[bg=${colors.base00},fg=${colors.base09}]#[bg=${colors.base09},fg=${colors.base02},bold]{index} #[bg=${colors.base02},fg=${colors.base05},bold] {name}{floating_indicator}#[bg=${colors.base00},fg=${colors.base02},bold]"
-						tab_active_fullscreen   "#[bg=${colors.base00},fg=${colors.base09}]#[bg=${colors.base09},fg=${colors.base02},bold]{index} #[bg=${colors.base02},fg=${colors.base05},bold] {name}{fullscreen_indicator}#[bg=${colors.base00},fg=${colors.base02},bold]"
-						tab_active_sync         "#[bg=${colors.base00},fg=${colors.base09}]#[bg=${colors.base09},fg=${colors.base02},bold]{index} #[bg=${colors.base02},fg=${colors.base05},bold] {name}{sync_indicator}#[bg=${colors.base00},fg=${colors.base02},bold]"
+						tab_active              "#[fg=${colors.base09}]#[bg=${colors.base09},fg=${colors.base02},bold]{index} #[bg=${colors.base02},fg=${colors.base05},bold] {name}{floating_indicator}#[fg=${colors.base02},bold]"
+						tab_active_fullscreen   "#[fg=${colors.base09}]#[bg=${colors.base09},fg=${colors.base02},bold]{index} #[bg=${colors.base02},fg=${colors.base05},bold] {name}{fullscreen_indicator}#[fg=${colors.base02},bold]"
+						tab_active_sync         "#[fg=${colors.base09}]#[bg=${colors.base09},fg=${colors.base02},bold]{index} #[bg=${colors.base02},fg=${colors.base05},bold] {name}{sync_indicator}#[fg=${colors.base02},bold]"
 
 						// separator between the tabs
-						tab_separator           "#[bg=${colors.base00}] "	
+						tab_separator           "#[bg=#00000000] "	
 
 						// indicators
 						tab_sync_indicator       " "
