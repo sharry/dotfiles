@@ -25,14 +25,18 @@ in
 	};
 
 	xdg.configFile."zellij/config.kdl".text = ''
+
+		mouse_mode true
 		pane_frames false
 		simplified_ui true
 		theme "catppuccin-mocha"
+
 		ui {
 			pane_frames {
 				hide_session_name true
 			}
 		}
+
 		keybinds {
 			shared_except "locked" {
 				bind "Ctrl Shift f" { ToggleFloatingPanes; }
