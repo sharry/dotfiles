@@ -6,7 +6,7 @@
 		fzf
 		atac
 		deno
-		gtop
+		btop
 		dblab
 		gnupg
 		podman
