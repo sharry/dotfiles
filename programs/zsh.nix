@@ -7,6 +7,7 @@
 		syntaxHighlighting.enable = true;
 
 		shellAliases = {
+			x = "exit";
 			v = "nvim";
 			c = "clear";
 			y = "yazi";
