@@ -1,11 +1,6 @@
 {
-  programs.yazi = {
-    enable = true;
-    enableZshIntegration = true;
-    settings = {
-      manager = {
-        show_hidden = true;
-      };
-    };
-  };
+	programs.yazi = {
+		enable = true;
+		enableZshIntegration = true;
+	};
 }
