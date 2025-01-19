@@ -1,26 +1,29 @@
 {
-  programs.ssh = {
-    
-    enable = true;
-    
-    matchBlocks = {
+	programs.ssh = {
 
-      # Personal GitHub
-      "github.com" = {
-        hostname = "github.com";
-        user = "git";
-        identityFile = "~/.ssh/id_ed25519_personal";
-        identitiesOnly = true;
-      };
+		enable = true;
 
-      # Work GitHub
-      "github-work" = {
-        hostname = "github.com";
-        user = "git";
-        identityFile = "~/.ssh/id_ed25519_work";
-        identitiesOnly = true;
-      };
+		matchBlocks = {
 
-    };
-  };
+			# Personal GitHub
+			"github.com" = {
+				hostname = "github.com";
+				user = "git";
+				identityFile = "~/.ssh/id_ed25519_personal";
+				extraOptions = {
+					AddKeysToAgent = "yes";
+					UseKeychain = "yes";
+				};
+			};
+
+			# Work GitHub
+			"github-work" = {
+				hostname = "github.com";
+				user = "git";
+				identityFile = "~/.ssh/id_ed25519_work";
+				identitiesOnly = true;
+			};
+
+		};
+	};
 }
