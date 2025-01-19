@@ -14,6 +14,7 @@
 			ll = "ls -l";
 			db = "lazysql";
 			pod = "lazydocker";
+			stats = "btop";
 			unjwt = "jwt decode $(pbpaste)";
 			renix = "darwin-rebuild switch --flake ~/dotfiles#$USER && source ~/.zshrc";
 			freenix = "nix-collect-garbage -d";
