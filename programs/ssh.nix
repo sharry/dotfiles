@@ -21,7 +21,10 @@
 				hostname = "github.com";
 				user = "git";
 				identityFile = "~/.ssh/id_ed25519_work";
-				identitiesOnly = true;
+				extraOptions = {
+					AddKeysToAgent = "yes";
+					UseKeychain = "yes";
+				};
 			};
 
 		};
