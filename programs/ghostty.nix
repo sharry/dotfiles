@@ -1,13 +1,12 @@
-{ ... }:
 let
-  configPath = ".config/ghostty/config";
+	configPath = ".config/ghostty/config";
 in
 {
-  home.file.${configPath}.text = ''
-    theme = dark:catppuccin-mocha,light:catppuccin-latte
-    mouse-hide-while-typing = true
-    background-blur-radius = 20
-    background-opacity = 0.96
-    window-decoration = true
-  '';
+	home.file.${configPath}.text = ''
+		theme = dark:catppuccin-mocha,light:catppuccin-latte
+		mouse-hide-while-typing = true
+		background-blur-radius = 20
+		background-opacity = 0.96
+		window-decoration = true
+	'';
 }

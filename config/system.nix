@@ -7,6 +7,7 @@ in
 	networking.localHostName = "bensadik";
 	security.pam.enableSudoTouchIdAuth = true;
 	system.stateVersion = 5;
+	nixpkgs.config.allowUnfree = true;
 
 	imports = [
 		../programs/system-default.nix
