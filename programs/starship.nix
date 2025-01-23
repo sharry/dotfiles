@@ -1,30 +1,39 @@
 { pkgs, ... }:
+let colors = {
+	black = "#090C0C";
+	white = "#E3E5E5";
+	grad0 = "#A3AED2";
+	grad1 = "#769FF0";
+	grad2 = "#394260";
+	grad3 = "#212736";
+	grad4 = "#1D2230";
+}; in
 {
 	programs.starship = {
 		enable = true;
 		enableZshIntegration = true;
 		settings = {
 			format = pkgs.lib.concatStrings [
-				"[░▒▓](#a3aed2)"
-				"[  ](bg:#a3aed2 fg:#090c0c)"
-				"[](bg:#769ff0 fg:#a3aed2)"
+				"[░▒▓](${colors.grad0})"
+				"[  ](bg:${colors.grad0} fg:${colors.black})"
+				"[$nix_shell](bg:${colors.grad0} fg:${colors.black})"
+				"[](bg:${colors.grad1} fg:${colors.grad0})"
 				"$directory"
-				"[](fg:#769ff0 bg:#394260)"
+				"[](fg:${colors.grad1} bg:${colors.grad2})"
 				"$git_branch"
 				"$git_status"
-				"[](fg:#394260 bg:#212736)"
+				"[](fg:${colors.grad2} bg:${colors.grad3})"
+				"$dotnet"
+				"$java"
 				"$nodejs"
-				"$rust"
-				"$golang"
-				"$php"
-				"[](fg:#212736 bg:#1d2230)"
-				"$time"
-				"[ ](fg:#1d2230)"
+				"[](fg:${colors.grad3} bg:${colors.grad4})"
+				"$direnv"
+				"[ ](fg:${colors.grad4})"
 				"\n$character"
 			];
 
 			directory = {
-				style = "fg:#e3e5e5 bg:#769ff0";
+				style = "fg:${colors.white} bg:${colors.grad1}";
 				format = "[ $path ]($style)";
 				truncation_length = 3;
 				truncation_symbol = "…/";
@@ -38,26 +47,44 @@
 
 			git_branch = {
 				symbol = "";
-				style = "bg:#394260";
-				format = ''[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'';
+				style = "bg:${colors.grad2}";
+				format = ''[[ $symbol $branch ](fg:${colors.grad1} bg:${colors.grad2})]($style)'';
 			};
 
 			git_status = {
-				style = "bg:#394260";
-				format = ''[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'';
+				style = "bg:${colors.grad2}";
+				format = ''[[($all_status$ahead_behind )](fg:${colors.grad1} bg:${colors.grad2})]($style)'';
+			};
+
+			dotnet = {
+				symbol = "";
+				style = "bg:${colors.grad3}";
+				format = ''[[ $symbol $version ](fg:${colors.grad1} bg:${colors.grad3})]($style)'';
 			};
 
 			nodejs = {
 				symbol = "";
-				style = "bg:#212736";
-				format = ''[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'';
+				style = "bg:${colors.grad3}";
+				format = ''[[ $symbol ($version) ](fg:${colors.grad1} bg:${colors.grad3})]($style)'';
 			};
 
-			time = {
+			java = {
+				symbol = "";
+				style = "bg:${colors.grad3}";
+				format = ''[[ $symbol $version ](fg:${colors.grad1} bg:${colors.grad3})]($style)'';
+			};
+
+			direnv = {
 				disabled = false;
-				time_format = "%R"; # Hour:Minute Format
-				style = "bg:#1d2230";
-				format = ''[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'';
+				denied_msg = "⛔";
+				allowed_msg = "🟢";
+				not_allowed_msg = "🔴";
+				format = ''[ $allowed env $loaded ](bg:${colors.grad4})'';
+			};
+
+			nix_shell = {
+				disabled = false;
+				format = "+  ";
 			};
 
 		};

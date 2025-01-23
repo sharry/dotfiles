@@ -13,7 +13,11 @@
 
 		sessionVariables = {
 			EDITOR = "nvim";
-			DOCKER_HOST = "unix://$(dirname $(dirname $(podman machine info --format '{{.Host.EventsDir}}')))/podman/$(podman machine info --format '{{.Host.CurrentMachine}}')-api.sock";
+			DOCKER_HOST = "unix://$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}')";
+
+			# Test containers
+			# TESTCONTAINERS_RYUK_DISABLED = "true";
+			# TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE = "/var/run/docker.sock";
 		};
 
 	};
