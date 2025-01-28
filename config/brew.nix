@@ -3,6 +3,10 @@
 
 		enable = true;
 
+		brews = [
+			"nginx" # <- To Delete
+		];
+
 		casks = [
 			"arc"
 			"pika"

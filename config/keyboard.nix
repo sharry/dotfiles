@@ -1,4 +1,3 @@
-{ ... }:
 let
 	keyMap = { from, to }: {
 		HIDKeyboardModifierMappingDst = to;

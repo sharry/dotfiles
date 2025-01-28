@@ -1,4 +1,3 @@
-{ ... }:
 let
 	getWallpaperLink = name: "https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/master/${name}.jpg";
 in

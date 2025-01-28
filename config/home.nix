@@ -16,8 +16,8 @@
 			DOCKER_HOST = "unix://$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}')";
 
 			# Test containers
-			# TESTCONTAINERS_RYUK_DISABLED = "true";
-			# TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE = "/var/run/docker.sock";
+			TESTCONTAINERS_RYUK_DISABLED = "true";
+			TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE = "unix://$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}')";
 		};
 
 	};

@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
 	programs.zsh = {
 
@@ -5,6 +6,14 @@
 		enableCompletion = true;
 		autosuggestion.enable = true;
 		syntaxHighlighting.enable = true;
+
+		plugins = [
+			{
+				name = "vi-mode";
+				src = pkgs.zsh-vi-mode;
+				file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+			}
+		];
 
 		shellAliases = {
 			x = "exit";
@@ -16,6 +25,7 @@
 			db = "lazysql";
 			pod = "lazydocker";
 			stats = "btop";
+			docker = "podman";
 			unjwt = "jwt decode $(pbpaste)";
 			renix = "darwin-rebuild switch --flake ~/dotfiles#$USER && source ~/.zshrc";
 			freenix = "nix-collect-garbage -d";

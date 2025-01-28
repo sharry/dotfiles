@@ -103,6 +103,7 @@ in
 				};
 			};
 
+			mini.surround.enable = true;
 			comments.comment-nvim.enable = true;
 
 			useSystemClipboard = true;
@@ -110,13 +111,17 @@ in
 			treesitter = {
 				enable = true;
 				fold = true;
+				mappings.incrementalSelection = {
+					incrementByNode = "<cr>";
+					decrementByNode = "<S-Enter>";
+				};
 			};
 
 			languages = enableLanguages [
 				{ name = "ts"; }
 				{ name = "nix"; }
 				{ name = "java"; }
-				{ name = "csharp"; }
+				{ name = "csharp"; withLsp = false; }
 				{ name = "tailwind"; withTreesitter = false; }
 				{ name = "markdown"; extensions = { render-markdown-nvim.enable = true; }; }
 			];

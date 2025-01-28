@@ -2,6 +2,7 @@
 {
 	home.packages = with pkgs; [
 		fd
+		jqp
 		nil
 		fzf
 		atac
