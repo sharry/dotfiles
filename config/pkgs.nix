@@ -9,12 +9,15 @@
 		deno
 		dblab
 		gnupg
+		cargo
+		devenv
 		podman
 		ffmpeg
 		jwt-cli
 		lazygit
 		lazysql
 		ripgrep
+		python39
 		nodejs_22
 		lazydocker
 		imagemagick

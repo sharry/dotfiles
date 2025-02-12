@@ -4,7 +4,7 @@
 		enable = true;
 
 		brews = [
-			"nginx" # <- To Delete
+			"posting"
 		];
 
 		casks = [

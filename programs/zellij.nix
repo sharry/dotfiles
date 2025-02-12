@@ -2,7 +2,7 @@ let
 	colors = {
 		base00 = "#1e1e2e"; # base
 		base01 = "#181825"; # mantle
-		base02 = "#313244"; # surface0
+		base02 = "#313243"; # surface0
 		base03 = "#45475a"; # surface1
 		base04 = "#585b70"; # surface2
 		base05 = "#cdd6f4"; # text
@@ -13,7 +13,7 @@ let
 		base0A = "#f9e2af"; # yellow
 		base0B = "#a6e3a1"; # green
 		base0C = "#94e2d5"; # teal
-		base0D = "#89b4fa"; # blue
+		base0D = "#92b3f4"; # blue
 		base0E = "#cba6f7"; # mauve
 		base0F = "#f2cdcd"; # flamingo
 	};
@@ -53,11 +53,11 @@ in
 				bind "Ctrl Shift ]" { NextSwapLayout; }
 			}
 		}
-		
+
 	'';
 
 	xdg.configFile."zellij/layouts/default.kdl".text = ''
-		
+
 		layout {
 			swap_tiled_layout name="vertical" {
 				tab max_panes=5 {
@@ -161,16 +161,16 @@ in
 						format_right  "#[bg=#00000000,fg=${colors.base0D}]#[bg=${colors.base0D},fg=${colors.base01},bold] #[bg=${colors.base02},fg=${colors.base05},bold] {session} #[bg=${colors.base03},fg=${colors.base05},bold]"
 						format_space  ""
 						format_hide_on_overlength "true"
-						format_precedence "crl"	
+						format_precedence "crl"
 						border_enabled  "false"
 						border_char     "─"
 						border_format   "#[fg=6C7086]{char}"
 						border_position "top"
- 
-						mode_normal        "#[fg=${colors.base0B}]█#[bg=${colors.base0B},fg=${colors.base02},bold]NORMAL#[bg=${colors.base03},fg=${colors.base0B}]#[fg=${colors.base0B},bold]"
+
+						mode_normal        "#[fg=${colors.base0D}]█#[bg=${colors.base0D},fg=${colors.base02},bold]NORMAL#[bg=${colors.base03},fg=${colors.base0D}]#[fg=${colors.base0D},bold]"
 						mode_locked        "#[fg=${colors.base04}]█#[bg=${colors.base04},fg=${colors.base02},bold]LOCKED #[bg=${colors.base03},fg=${colors.base04}]#[fg=${colors.base04},bold]"
 						mode_resize        "#[fg=${colors.base08}]█#[bg=${colors.base08},fg=${colors.base02},bold]RESIZE#[bg=${colors.base03},fg=${colors.base08}]#[fg=${colors.base08},bold]"
-						mode_pane          "#[fg=${colors.base0D}]█#[bg=${colors.base0D},fg=${colors.base02},bold]PANE#[bg=${colors.base03},fg=${colors.base0D}]#[fg=${colors.base0D},bold]"
+						mode_pane          "#[fg=${colors.base0B}]█#[bg=${colors.base0B},fg=${colors.base02},bold]PANE#[bg=${colors.base03},fg=${colors.base0B}]#[fg=${colors.base0B},bold]"
 						mode_tab           "#[fg=${colors.base07}]█#[bg=${colors.base07},fg=${colors.base02},bold]TAB#[bg=${colors.base03},fg=${colors.base07}]#[fg=${colors.base07},bold]"
 						mode_scroll        "#[fg=${colors.base0A}]█#[bg=${colors.base0A},fg=${colors.base02},bold]SCROLL#[bg=${colors.base03},fg=${colors.base0A}]#[fg=${colors.base0A},bold]"
 						mode_enter_search  "#[fg=${colors.base0D}]█#[bg=${colors.base0D},fg=${colors.base02},bold]ENT-SEARCH#[bg=${colors.base03},fg=${colors.base0D}]#[fg=${colors.base0D},bold]"
@@ -193,7 +193,7 @@ in
 						tab_active_sync         "#[fg=${colors.base09}]#[bg=${colors.base09},fg=${colors.base02},bold]{index} #[bg=${colors.base02},fg=${colors.base05},bold] {name}{sync_indicator}#[fg=${colors.base02},bold]"
 
 						// separator between the tabs
-						tab_separator           "#[bg=#00000000] "	
+						tab_separator           "#[bg=#00000000] "
 
 						// indicators
 						tab_sync_indicator       "  "
@@ -202,7 +202,7 @@ in
 						command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
 						command_git_branch_format      "#[fg=blue] {stdout} "
 						command_git_branch_interval    "10"
-						command_git_branch_rendermode  "static"	
+						command_git_branch_rendermode  "static"
 						datetime        "#[fg=6C7086,bold] {format} "
 						datetime_format "%A, %d %b %Y %H:%M"
 						datetime_timezone "Africa/Casablanca"

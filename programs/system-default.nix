@@ -1,6 +1,5 @@
 {
 	imports = [
-		./vim.nix
 		./pika.nix
 		./dock.nix
 		./maccy.nix

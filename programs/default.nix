@@ -1,5 +1,6 @@
 {
 	imports = [
+		./neovim
 		./ssh.nix
 		./zsh.nix
 		./git.nix
