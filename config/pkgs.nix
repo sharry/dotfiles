@@ -20,6 +20,7 @@
 		python39
 		nodejs_22
 		lazydocker
+		plistwatch # MacOS only
 		imagemagick
 		podman-compose
 		nixfmt-rfc-style

@@ -13,7 +13,10 @@ in
 
 	services.nix-daemon.enable = true;
 	nixpkgs.hostPlatform = system;
-	nix.settings.experimental-features = "nix-command flakes";
+	nix.settings = {
+		trusted-users = [ user ];
+		experimental-features = "nix-command flakes";
+	};
 
 	nix-homebrew = {
 		inherit user;
