@@ -11,6 +11,7 @@
 			"arc"
 			"pika"
 			"maccy"
+			"sloth"
 			"raycast"
 			"ghostty"
 			"obsidian"
