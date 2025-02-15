@@ -1,0 +1,29 @@
+mouse_mode true
+pane_frames false
+simplified_ui true
+theme "catppuccin-mocha"
+
+ui {
+	pane_frames {
+		hide_session_name true
+	}
+}
+
+keybinds {
+	shared_except "locked" {
+		bind "Ctrl Shift f" { ToggleFloatingPanes; }
+		bind "Ctrl Shift n" { NewPane; }
+		bind "Ctrl Shift i" { MoveTab "Left"; }
+		bind "Ctrl Shift o" { MoveTab "Right"; }
+		bind "Ctrl Shift h" "Ctrl Shift Left" { MoveFocusOrTab "Left"; }
+		bind "Ctrl Shift l" "Ctrl Shift Right" { MoveFocusOrTab "Right"; }
+		bind "Ctrl Shift j" "Ctrl Shift Down" { MoveFocus "Down"; }
+		bind "Ctrl Shift k" "Ctrl Shift Up" { MoveFocus "Up"; }
+		bind "Ctrl Shift =" "Ctrl Shift +" { Resize "Increase"; }
+		bind "Ctrl Shift -" { Resize "Decrease"; }
+		bind "Ctrl Shift [" { PreviousSwapLayout; }
+		bind "Ctrl Shift ]" { NextSwapLayout; }
+	}
+}
+
+

@@ -1,7 +1,10 @@
 { config, lib, ... }:
 let
-	symlink = sourceFolder: targertFolder: ''
-		run ln --symbolic --force $VERBOSE_ARG ${config.home.homeDirectory}/dotfiles/programs/${sourceFolder} ${config.home.homeDirectory}/.config/${targertFolder};
+	symlinkConfigDir = directory: ''
+		run ln --symbolic --force $VERBOSE_ARG ${config.home.homeDirectory}/dotfiles/programs/${directory} ${config.home.homeDirectory}/.config/${directory};
+	'';
+	symlinkConfigFile = path: ''
+		run ln --symbolic --force $VERBOSE_ARG ${config.home.homeDirectory}/dotfiles/programs/${path} ${config.home.homeDirectory}/.config;
 	'';
 in
 {
@@ -28,7 +31,10 @@ in
 
 		activation = {
 			symlinkActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
-				${symlink "neovim" "nvim"}
+				${symlinkConfigDir "nvim" }
+				${symlinkConfigDir "zellij" }
+				${symlinkConfigDir "ghostty" }
+				${symlinkConfigFile "starship/starship.toml" }
 			'';
 		};
 
