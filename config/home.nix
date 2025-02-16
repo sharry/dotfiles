@@ -1,10 +1,11 @@
 { config, lib, ... }:
 let
+	vars = import ../vars.nix;
 	symlinkConfigDir = directory: ''
-		run ln --symbolic --force $VERBOSE_ARG ${config.home.homeDirectory}/dotfiles/programs/${directory} ${config.home.homeDirectory}/.config/${directory};
+		run ln --symbolic --force $VERBOSE_ARG ${vars.personal.dotfilesPath}/programs/${directory} ${config.xdg.configHome}/${directory};
 	'';
 	symlinkConfigFile = path: ''
-		run ln --symbolic --force $VERBOSE_ARG ${config.home.homeDirectory}/dotfiles/programs/${path} ${config.home.homeDirectory}/.config;
+		run ln --symbolic --force $VERBOSE_ARG ${vars.personal.dotfilesPath}/programs/${path} ${config.xdg.configHome};
 	'';
 in
 {
@@ -13,6 +14,8 @@ in
 		./pkgs.nix
 		../programs 
 	];
+
+	xdg.enable = true;
 
 	home = {
 

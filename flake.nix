@@ -12,32 +12,33 @@
 			url = "github:nix-community/home-manager/master";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		nvf = {
-			url = "github:notashelf/nvf";
+		nix-rosetta-builder = {
+			url = "github:cpick/nix-rosetta-builder";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 	};
 
 	outputs =
 		{
-		self,
-		nix-darwin,
-		nix-homebrew,
-		home-manager,
-		nvf,
-		...
+			self,
+			nix-darwin,
+			nix-homebrew,
+			home-manager,
+			nix-rosetta-builder,
+			...
 		}:
 		let
-			user = "momo";
-			config = import ./config { inherit user; };
+			vars = import ./vars.nix;
+			user = vars.personal.user;
+			config = import ./config { inherit vars; };
 		in
 		{
 			darwinConfigurations.${user} = nix-darwin.lib.darwinSystem {
 				modules = [
 					config
-					nvf.nixosModules.default
-					nix-homebrew.darwinModules.nix-homebrew
 					home-manager.darwinModules.home-manager
+					nix-homebrew.darwinModules.nix-homebrew
+					nix-rosetta-builder.darwinModules.default
 				];
 			};
 

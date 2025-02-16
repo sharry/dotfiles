@@ -13,13 +13,17 @@
 
 			gaps = {
 
-				outer.top         = 5;
-				outer.left        = 5;
-				outer.right       = 5;
-				outer.bottom      = 5;
+				outer = {
+					left        = 5;
+					right       = 5;
+					bottom      = 5;
+					# top         = 5;
+				};
 
-				inner.vertical    = 5;
-				inner.horizontal  = 5;
+				inner = { 
+					vertical    = 5;
+					horizontal  = 5;
+				};
 
 			};
 

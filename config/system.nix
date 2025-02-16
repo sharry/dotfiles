@@ -13,7 +13,7 @@ in
 	];
 
 	system.activationScripts.postUserActivation.text = ''
-		/usr/local/bin/desktoppr ${ getWallpaperLink "abandoned-trainstation" }
+		/usr/local/bin/desktoppr ${ getWallpaperLink "dark-forest" }
 	'';
 
 	system.defaults = {

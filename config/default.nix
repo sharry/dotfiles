@@ -1,9 +1,8 @@
-{ user }: { home-manager, nix-homebrew, ... }:
+{ vars }: { home-manager, nix-homebrew, ... }:
 let
-	system = "aarch64-darwin";
+	user = vars.personal.user;
 in
 {
-
 	imports = [
 		./brew.nix
 		./system.nix
@@ -12,20 +11,20 @@ in
 	];
 
 	services.nix-daemon.enable = true;
-	nixpkgs.hostPlatform = system;
+	nixpkgs.hostPlatform = vars.personal.system;
 	nix.settings = {
 		trusted-users = [ user ];
 		experimental-features = "nix-command flakes";
 	};
 
 	nix-homebrew = {
-		inherit user;
+		user = user;
 		enable = true;
 		enableRosetta = true;
 		autoMigrate = true;
 	};
 
-	users.users.${user}.home = "/Users/${user}";
+	users.users.${user}.home = vars.personal.home;
 	home-manager = {
 		useGlobalPkgs = true;
 		useUserPackages = true;
