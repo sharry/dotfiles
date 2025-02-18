@@ -2,6 +2,7 @@ local catppuccin = require("lualine.themes.catppuccin")
 catppuccin.normal.c.bg = "#00000000"
 
 local icons = LazyVim.config.icons
+local noPadding = { left = 0, right = 0 };
 
 return {
 	{
@@ -10,12 +11,20 @@ return {
 			options = {
 				theme = catppuccin,
 				component_separators = "",
-				section_separators = { left = "", right = "" },
+				section_separators = { right = "", left = "" },
 			},
 			sections = {
 				lualine_c = {
-					{ "filetype", icon_only = true, padding = { left = 1, right = 0 } },
-					{ "filename", padding = { left = 0, right = 0 } },
+					{
+						function() return " " end,
+						padding = noPadding,
+					},
+					{
+						"filetype",
+						icon_only = true,
+						padding = noPadding,
+					},
+					{ "filename", padding = noPadding },
 					{
 						"diagnostics",
 						symbols = {
