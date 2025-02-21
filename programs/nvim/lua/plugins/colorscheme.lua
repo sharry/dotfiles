@@ -1,11 +1,9 @@
-require("utils")
-local variant = SwitchThemeMode("latte", "mocha")
-
 return {
+	{ "vimpostor/vim-lumen" },
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "catppuccin-" .. variant,
+			colorscheme = "catppuccin",
 		},
 	},
 	{
