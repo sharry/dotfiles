@@ -17,7 +17,6 @@
 					left        = 5;
 					right       = 5;
 					bottom      = 5;
-					# top         = 5;
 				};
 
 				inner = { 
@@ -111,6 +110,10 @@
 
 				alt-shift-semicolon = "mode service";
 
+			};
+
+			workspace-to-monitor-force-assignment = {
+				"2" = "secondary";
 			};
 
 			mode.service.binding = {
