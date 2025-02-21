@@ -2,4 +2,4 @@ title = " "
 theme = dark:catppuccin-mocha,light:catppuccin-latte
 mouse-hide-while-typing = true
 background-blur-radius = 20
-background-opacity = 0.9
+background-opacity = 0.85
