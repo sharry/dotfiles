@@ -25,5 +25,3 @@ keybinds {
 		bind "Ctrl Shift ]" { NextSwapLayout; }
 	}
 }
-
-

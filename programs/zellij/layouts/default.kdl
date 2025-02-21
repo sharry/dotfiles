@@ -1,4 +1,3 @@
-
 layout {
 	swap_tiled_layout name="vertical" {
 		tab max_panes=5 {
@@ -96,57 +95,57 @@ layout {
 
 	default_tab_template {
 		pane size=2 borderless=true {
-			plugin location="https://github.com/dj95/zjstatus/releases/download/v0.19.2/zjstatus.wasm" {
-				format_left   "{mode}#[bg=#1e1e2e] {tabs}"
-					format_center ""
-					format_right  "#[bg=#00000000,fg=#92b3f4]#[bg=#92b3f4,fg=#181825,bold] #[bg=#313243,fg=#cdd6f4,bold] {session} #[bg=#45475a,fg=#cdd6f4,bold]"
-					format_space  ""
-					format_hide_on_overlength "true"
-					format_precedence "crl"
-					border_enabled  "false"
-					border_char     "─"
-					border_format   "#[fg=6C7086]{char}"
-					border_position "top"
+			plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+				format_left   "{mode} {tabs}"
+				format_center ""
+				format_right  "#[fg=#92b3f4]#[bg=#92b3f4,fg=#181825,bold] #[bg=#313243,fg=#cdd6f4,bold] {session} #[bg=#45475a,fg=#cdd6f4,bold]"
+				format_space  ""
+				format_hide_on_overlength "true"
+				format_precedence "crl"
+				border_enabled  "false"
+				border_char     "─"
+				border_format   "#[fg=6C7086]{char}"
+				border_position "top"
 
-					mode_normal        "#[fg=#92b3f4]█#[bg=#92b3f4,fg=#313243,bold]NORMAL#[bg=#45475a,fg=#92b3f4]#[fg=#92b3f4,bold]"
-					mode_locked        "#[fg=#585b70]█#[bg=#585b70,fg=#313243,bold]LOCKED #[bg=#45475a,fg=#585b70]#[fg=#585b70,bold]"
-					mode_resize        "#[fg=#f38ba8]█#[bg=#f38ba8,fg=#313243,bold]RESIZE#[bg=#45475a,fg=#f38ba8]#[fg=#f38ba8,bold]"
-					mode_pane          "#[fg=#a6e3a1]█#[bg=#a6e3a1,fg=#313243,bold]PANE#[bg=#45475a,fg=#a6e3a1]#[fg=#a6e3a1,bold]"
-					mode_tab           "#[fg=#b4befe]█#[bg=#b4befe,fg=#313243,bold]TAB#[bg=#45475a,fg=#b4befe]#[fg=#b4befe,bold]"
-					mode_scroll        "#[fg=#f9e2af]█#[bg=#f9e2af,fg=#313243,bold]SCROLL#[bg=#45475a,fg=#f9e2af]#[fg=#f9e2af,bold]"
-					mode_enter_search  "#[fg=#92b3f4]█#[bg=#92b3f4,fg=#313243,bold]ENT-SEARCH#[bg=#45475a,fg=#92b3f4]#[fg=#92b3f4,bold]"
-					mode_search        "#[fg=#92b3f4]█#[bg=#92b3f4,fg=#313243,bold]SEARCHARCH#[bg=#45475a,fg=#92b3f4]#[fg=#92b3f4,bold]"
-					mode_rename_tab    "#[fg=#b4befe]█#[bg=#b4befe,fg=#313243,bold]RENAME-TAB#[bg=#45475a,fg=#b4befe]#[fg=#b4befe,bold]"
-					mode_rename_pane   "#[fg=#92b3f4]█#[bg=#92b3f4,fg=#313243,bold]RENAME-PANE#[bg=#45475a,fg=#92b3f4]#[fg=#92b3f4,bold]"
-					mode_session       "#[fg=#cba6f7]█#[bg=#cba6f7,fg=#313243,bold]SESSION#[bg=#45475a,fg=#cba6f7]#[fg=#cba6f7,bold]"
-					mode_move          "#[fg=#f2cdcd]█#[bg=#f2cdcd,fg=#313243,bold]MOVE#[bg=#45475a,fg=#f2cdcd]#[fg=#f2cdcd,bold]"
-					mode_prompt        "#[fg=#92b3f4]█#[bg=#92b3f4,fg=#313243,bold]PROMPT#[bg=#45475a,fg=#92b3f4]#[fg=#92b3f4,bold]"
-					mode_tmux          "#[fg=#fab387]█#[bg=#fab387,fg=#313243,bold]TMUX#[bg=#45475a,fg=#fab387]#[fg=#fab387,bold]"
+				mode_normal        "#[fg=#92b3f4]█#[bg=#92b3f4,fg=#313243,bold]NORMAL#[bg=#45475a,fg=#92b3f4]#[fg=#92b3f4,bold]"
+				mode_locked        "#[fg=#585b70]█#[bg=#585b70,fg=#313243,bold]LOCKED  #[bg=#45475a,fg=#585b70]#[fg=#585b70,bold]"
+				mode_resize        "#[fg=#f38ba8]█#[bg=#f38ba8,fg=#313243,bold]RESIZE#[bg=#45475a,fg=#f38ba8]#[fg=#f38ba8,bold]"
+				mode_pane          "#[fg=#a6e3a1]█#[bg=#a6e3a1,fg=#313243,bold]PANE#[bg=#45475a,fg=#a6e3a1]#[fg=#a6e3a1,bold]"
+				mode_tab           "#[fg=#b4befe]█#[bg=#b4befe,fg=#313243,bold]TAB#[bg=#45475a,fg=#b4befe]#[fg=#b4befe,bold]"
+				mode_scroll        "#[fg=#f9e2af]█#[bg=#f9e2af,fg=#313243,bold]SCROLL#[bg=#45475a,fg=#f9e2af]#[fg=#f9e2af,bold]"
+				mode_enter_search  "#[fg=#92b3f4]█#[bg=#92b3f4,fg=#313243,bold]ENT-SEARCH#[bg=#45475a,fg=#92b3f4]#[fg=#92b3f4,bold]"
+				mode_search        "#[fg=#92b3f4]█#[bg=#92b3f4,fg=#313243,bold]SEARCHARCH#[bg=#45475a,fg=#92b3f4]#[fg=#92b3f4,bold]"
+				mode_rename_tab    "#[fg=#b4befe]█#[bg=#b4befe,fg=#313243,bold]RENAME-TAB#[bg=#45475a,fg=#b4befe]#[fg=#b4befe,bold]"
+				mode_rename_pane   "#[fg=#92b3f4]█#[bg=#92b3f4,fg=#313243,bold]RENAME-PANE#[bg=#45475a,fg=#92b3f4]#[fg=#92b3f4,bold]"
+				mode_session       "#[fg=#cba6f7]█#[bg=#cba6f7,fg=#313243,bold]SESSION#[bg=#45475a,fg=#cba6f7]#[fg=#cba6f7,bold]"
+				mode_move          "#[fg=#f2cdcd]█#[bg=#f2cdcd,fg=#313243,bold]MOVE#[bg=#45475a,fg=#f2cdcd]#[fg=#f2cdcd,bold]"
+				mode_prompt        "#[fg=#92b3f4]█#[bg=#92b3f4,fg=#313243,bold]PROMPT#[bg=#45475a,fg=#92b3f4]#[fg=#92b3f4,bold]"
+				mode_tmux          "#[fg=#fab387]█#[bg=#fab387,fg=#313243,bold]TMUX#[bg=#45475a,fg=#fab387]#[fg=#fab387,bold]"
 
-					// formatting for inactive tabs
-					tab_normal              "#[fg=#92b3f4]#[bg=#92b3f4,fg=#313243,bold]{index} #[bg=#313243,fg=#cdd6f4,bold] {name}{floating_indicator}#[fg=#313243,bold]"
-					tab_normal_fullscreen   "#[fg=#92b3f4]#[bg=#92b3f4,fg=#313243,bold]{index} #[bg=#313243,fg=#cdd6f4,bold] {name}{fullscreen_indicator}#[fg=#313243,bold]"
-					tab_normal_sync         "#[fg=#92b3f4]#[bg=#92b3f4,fg=#313243,bold]{index} #[bg=#313243,fg=#cdd6f4,bold] {name}{sync_indicator}#[fg=#313243,bold]"	
+				// formatting for inactive tabs
+				tab_normal              "#[fg=#92b3f4]#[bg=#92b3f4,fg=#313243,bold]{index} #[bg=#313243,fg=#cdd6f4,bold] {name}{floating_indicator}#[fg=#313243,bold]"
+				tab_normal_fullscreen   "#[fg=#92b3f4]#[bg=#92b3f4,fg=#313243,bold]{index} #[bg=#313243,fg=#cdd6f4,bold] {name}{fullscreen_indicator}#[fg=#313243,bold]"
+				tab_normal_sync         "#[fg=#92b3f4]#[bg=#92b3f4,fg=#313243,bold]{index} #[bg=#313243,fg=#cdd6f4,bold] {name}{sync_indicator}#[fg=#313243,bold]"	
 
-					// formatting for the current active tab
-					tab_active              "#[fg=#fab387]#[bg=#fab387,fg=#313243,bold]{index} #[bg=#313243,fg=#cdd6f4,bold] {name}{floating_indicator}#[fg=#313243,bold]"
-					tab_active_fullscreen   "#[fg=#fab387]#[bg=#fab387,fg=#313243,bold]{index} #[bg=#313243,fg=#cdd6f4,bold] {name}{fullscreen_indicator}#[fg=#313243,bold]"
-					tab_active_sync         "#[fg=#fab387]#[bg=#fab387,fg=#313243,bold]{index} #[bg=#313243,fg=#cdd6f4,bold] {name}{sync_indicator}#[fg=#313243,bold]"
+				// formatting for the current active tab
+				tab_active              "#[fg=#fab387]#[bg=#fab387,fg=#313243,bold]{index} #[bg=#313243,fg=#cdd6f4,bold] {name}{floating_indicator}#[fg=#313243,bold]"
+				tab_active_fullscreen   "#[fg=#fab387]#[bg=#fab387,fg=#313243,bold]{index} #[bg=#313243,fg=#cdd6f4,bold] {name}{fullscreen_indicator}#[fg=#313243,bold]"
+				tab_active_sync         "#[fg=#fab387]#[bg=#fab387,fg=#313243,bold]{index} #[bg=#313243,fg=#cdd6f4,bold] {name}{sync_indicator}#[fg=#313243,bold]"
 
-					// separator between the tabs
-					tab_separator           "#[bg=#00000000] "
+				// separator between the tabs
+				tab_separator           "#[bg=#00000000] "
 
-					// indicators
-					tab_sync_indicator       "  "
-					tab_fullscreen_indicator " 󰊓 "
-					tab_floating_indicator   " 󰹙 "
-					command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
-					command_git_branch_format      "#[fg=blue] {stdout} "
-					command_git_branch_interval    "10"
-					command_git_branch_rendermode  "static"
-					datetime        "#[fg=6C7086,bold] {format} "
-					datetime_format "%A, %d %b %Y %H:%M"
-					datetime_timezone "Africa/Casablanca"
+				// indicators
+				tab_sync_indicator       "  "
+				tab_fullscreen_indicator " 󰊓 "
+				tab_floating_indicator   " 󰹙 "
+				command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+				command_git_branch_format      "#[fg=blue] {stdout} "
+				command_git_branch_interval    "10"
+				command_git_branch_rendermode  "static"
+				datetime        "#[fg=6C7086,bold] {format} "
+				datetime_format "%A, %d %b %Y %H:%M"
+				datetime_timezone "Africa/Casablanca"
 			}
 		}
 
