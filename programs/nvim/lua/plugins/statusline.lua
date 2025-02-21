@@ -1,5 +1,11 @@
-local catppuccin = require("lualine.themes.catppuccin")
-catppuccin.normal.c.bg = "#00000000"
+require("utils")
+
+local catppuccin_latte = require("lualine.themes.catppuccin-latte")
+local catppuccin_mocha = require("lualine.themes.catppuccin-mocha")
+catppuccin_latte.normal.c.bg = "#00000000"
+catppuccin_mocha.normal.c.bg = "#00000000"
+
+local catppuccin = SwitchThemeMode(catppuccin_latte, catppuccin_mocha)
 
 local icons = LazyVim.config.icons
 local noPadding = { left = 0, right = 0 };
