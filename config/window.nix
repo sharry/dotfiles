@@ -19,7 +19,7 @@
 					bottom      = 5;
 				};
 
-				inner = { 
+				inner = {
 					vertical    = 5;
 					horizontal  = 5;
 				};
