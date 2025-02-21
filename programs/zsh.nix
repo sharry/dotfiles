@@ -32,5 +32,14 @@
 			nixdev = "nix develop -c $SHELL";
 		};
 
+		initExtra = ''
+			 macos_theme() {
+				if [[ $(defaults read ~/Library/Preferences/.GlobalPreferences.plist  AppleInterfaceStyle 2>/dev/null) = Dark ]]; then
+					echo 'Dark'
+				else
+					echo 'Light'
+				fi
+			}
+		'';
 	};
 }
