@@ -7,6 +7,10 @@
 			"posting"
 		];
 
+		taps = [
+			"nikitabobko/tap"
+		];
+
 		casks = [
 			"arc"
 			"pika"
@@ -15,6 +19,7 @@
 			"ghostty"
 			"obsidian"
 			"telegram"
+			"aerospace"
 			"desktoppr"
 			"hiddenbar"
 			"microsoft-edge"

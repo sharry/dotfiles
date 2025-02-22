@@ -22,7 +22,7 @@ in
 
 	home = {
 
-		file.".hushlogin".text = ""; # Stops showing the last login message
+		file.".hushlogin".text = ""; # Stops showing the "last login" message
 
 		stateVersion = "23.05";
 
@@ -37,13 +37,14 @@ in
 
 		activation = {
 			symlinkActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
-				${symlinkConfigDir "nvim" }
-				${symlinkConfigDir "zellij" }
-				${symlinkConfigDir "ghostty" }
-				${symlinkConfigDir "lazygit" }
-				${symlinkConfigDir "posting" }
-				${symlinkLocalDir "posting" }
-				${symlinkConfigFile "starship/starship.toml" }
+				${symlinkConfigDir "nvim"}
+				${symlinkConfigDir "zellij"}
+				${symlinkConfigDir "ghostty"}
+				${symlinkConfigDir "lazygit"}
+				${symlinkConfigDir "posting"}
+				${symlinkLocalDir "posting"}
+				${symlinkConfigDir "aerospace"}
+				${symlinkConfigFile "starship/starship.toml"}
 			'';
 		};
 

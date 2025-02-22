@@ -7,11 +7,9 @@ in
 	imports = [
 		system
 		./brew.nix
-		./window.nix
 		./keyboard.nix
 	];
 
-	services.nix-daemon.enable = true;
 	nixpkgs.hostPlatform = vars.personal.system;
 	nix.settings = {
 		trusted-users = [ user ];
