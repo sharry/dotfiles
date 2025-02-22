@@ -1,0 +1,13 @@
+name: catppuccin-mocha
+primary: '#89b4fa'  # buttons, fixed table columns
+secondary: '#fab387'  # method selector, some minor labels
+accent: '#b4befe'  # header text, scrollbars, cursors, focus highlights
+background: '#1e1e2e' # background colors
+surface: '#181825'  # panels, etc
+error: '#f38ba8'  # error messages
+success: '#a6e3a1'  # success messages
+warning: '#f9e2af'  # warning messages
+
+author: Youssef Ben Sadik
+description: 🌿 Catppuccin Mocha, The dark variant offering a cozy feeling with color-rich accents
+homepage: https://github.com/sharry/posting-catppuccin

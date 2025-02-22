@@ -4,6 +4,9 @@ let
 	symlinkConfigDir = directory: ''
 		run ln --symbolic --force $VERBOSE_ARG ${vars.personal.dotfilesPath}/programs/${directory} ${config.xdg.configHome}/${directory};
 	'';
+	symlinkLocalDir = directory: ''
+		run ln --symbolic --force $VERBOSE_ARG ${vars.personal.dotfilesPath}/programs/${directory}/local ${vars.personal.home}/.local/share/${directory};
+	'';
 	symlinkConfigFile = path: ''
 		run ln --symbolic --force $VERBOSE_ARG ${vars.personal.dotfilesPath}/programs/${path} ${config.xdg.configHome};
 	'';
@@ -38,6 +41,8 @@ in
 				${symlinkConfigDir "zellij" }
 				${symlinkConfigDir "ghostty" }
 				${symlinkConfigDir "lazygit" }
+				${symlinkConfigDir "posting" }
+				${symlinkLocalDir "posting" }
 				${symlinkConfigFile "starship/starship.toml" }
 			'';
 		};
