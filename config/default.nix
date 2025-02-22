@@ -1,11 +1,12 @@
 { vars }: { home-manager, nix-homebrew, ... }:
 let
 	user = vars.personal.user;
+	system = import ./system.nix { inherit vars; };
 in
 {
 	imports = [
+		system
 		./brew.nix
-		./system.nix
 		./window.nix
 		./keyboard.nix
 	];

@@ -37,6 +37,7 @@ in
 				${symlinkConfigDir "nvim" }
 				${symlinkConfigDir "zellij" }
 				${symlinkConfigDir "ghostty" }
+				${symlinkConfigDir "lazygit" }
 				${symlinkConfigFile "starship/starship.toml" }
 			'';
 		};

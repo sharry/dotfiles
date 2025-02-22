@@ -1,6 +1,4 @@
-let
-	getWallpaperLink = name: "https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/master/${name}.jpg";
-in
+{ vars }: { ... }:
 {
 	time.timeZone = "Africa/Casablanca";
 	networking.localHostName = "bensadik";
@@ -13,7 +11,7 @@ in
 	];
 
 	system.activationScripts.postUserActivation.text = ''
-		/usr/local/bin/desktoppr ${ getWallpaperLink "dark-forest" }
+		/usr/local/bin/desktoppr ${vars.personal.dotfilesPath}/assets/catppuccin-wallpaper.heic
 	'';
 
 	system.defaults = {
