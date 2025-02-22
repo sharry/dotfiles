@@ -2,13 +2,13 @@
 let
 	vars = import ../vars.nix;
 	symlinkConfigDir = directory: ''
-		run ln --symbolic --force $VERBOSE_ARG ${vars.personal.dotfilesPath}/programs/${directory} ${config.xdg.configHome}/${directory};
+		run ln --symbolic --force --no-dereference $VERBOSE_ARG ${vars.personal.dotfilesPath}/programs/${directory} ${config.xdg.configHome}/${directory};
 	'';
 	symlinkLocalDir = directory: ''
-		run ln --symbolic --force $VERBOSE_ARG ${vars.personal.dotfilesPath}/programs/${directory}/local ${vars.personal.home}/.local/share/${directory};
+		run ln --symbolic --force --no-dereference $VERBOSE_ARG ${vars.personal.dotfilesPath}/programs/${directory}/local ${vars.personal.home}/.local/share/${directory};
 	'';
 	symlinkConfigFile = path: ''
-		run ln --symbolic --force $VERBOSE_ARG ${vars.personal.dotfilesPath}/programs/${path} ${config.xdg.configHome};
+		run ln --symbolic --force --no-dereference $VERBOSE_ARG ${vars.personal.dotfilesPath}/programs/${path} ${config.xdg.configHome};
 	'';
 in
 {
