@@ -2,12 +2,13 @@
 	imports = [
 		./yazi
 		./nvim
+		./btop
 		./zellij
+		./eza.nix
 		./ssh.nix
 		./zsh.nix
 		./git.nix
 		./starship
-		./btop.nix
 		./zoxide.nix
 		./direnv.nix
 	];

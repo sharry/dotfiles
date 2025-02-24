@@ -39,6 +39,7 @@ in
 
 		activation = {
 			symlinkActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
+				${symlinkConfigDir "btop"}
 				${symlinkConfigDir "yazi"}
 				${symlinkConfigDir "nvim"}
 				${symlinkConfigDir "zellij"}
