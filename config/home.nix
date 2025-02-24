@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
 	vars = import ../vars.nix;
 	symlinkConfigDir = directory: ''
@@ -27,6 +27,8 @@ in
 		stateVersion = "23.05";
 
 		sessionVariables = {
+			JAVA_23_HOME = pkgs.jdk23;
+
 			EDITOR = "nvim";
 			DOCKER_HOST = "unix://$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}')";
 
@@ -37,6 +39,7 @@ in
 
 		activation = {
 			symlinkActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
+				${symlinkConfigDir "yazi"}
 				${symlinkConfigDir "nvim"}
 				${symlinkConfigDir "zellij"}
 				${symlinkConfigDir "ghostty"}

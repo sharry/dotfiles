@@ -10,6 +10,7 @@
 		dblab
 		gnupg
 		cargo
+		jdk23
 		devenv
 		podman
 		ffmpeg

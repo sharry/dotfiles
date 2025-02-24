@@ -1,5 +1,6 @@
 {
 	imports = [
+		./yazi
 		./nvim
 		./zellij
 		./ssh.nix
@@ -7,7 +8,6 @@
 		./git.nix
 		./starship
 		./btop.nix
-		./yazi.nix
 		./zoxide.nix
 		./direnv.nix
 	];
