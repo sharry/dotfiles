@@ -18,5 +18,10 @@ use = "Rolv-Apneseth/starship"
 rev = "6c639b4"
 hash = "5614c46d5de76623c283d415bfac8025"
 
+[[plugin.deps]]
+use = "Lil-Dank/lazygit"
+rev = "9f924e3"
+hash = "2b0c33928986f126d5c5a4cac31a6b46"
+
 [flavor]
 deps = []
