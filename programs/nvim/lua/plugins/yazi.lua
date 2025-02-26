@@ -21,7 +21,8 @@ return {
 			},
 		},
 		opts = {
-			open_for_directories = false,
+			open_for_directories = true,
+			floating_window_scaling_factor = 0.75,
 			keymaps = {
 				show_help = "<f1>",
 			},
