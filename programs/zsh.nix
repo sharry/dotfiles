@@ -19,26 +19,40 @@
 			x = "exit";
 			v = "nvim";
 			c = "clear";
-			y = "yazi";
 			g = "lazygit";
 			ll = "ls -l";
 			db = "lazysql";
 			pod = "lazydocker";
 			stats = "btop";
 			docker = "podman";
-			unjwt = "jwt decode $(pbpaste)";
 			renix = "darwin-rebuild switch --flake ~/dotfiles#$USER && source ~/.zshrc";
 			freenix = "nix-collect-garbage -d";
 			nixdev = "nix develop -c $SHELL";
 		};
 
 		initExtra = ''
-			 macos_theme() {
+			 function macos_theme() {
 				if [[ $(defaults read ~/Library/Preferences/.GlobalPreferences.plist  AppleInterfaceStyle 2>/dev/null) = Dark ]]; then
 					echo 'Dark'
 				else
 					echo 'Light'
 				fi
+			}
+
+			function y() {
+				local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+				yazi "$@" --cwd-file="$tmp"
+				if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+					builtin cd -- "$cwd"
+				fi
+				rm -f -- "$tmp"
+			}
+
+			function unjwt() {
+				local output=$(jwt decode $(pbpaste))
+				# local header=$(echo "$output" | awk 'c==1{print} /^----/{c++}' | tail -r | tail -n +4 | tail -r)
+				local claims=$(echo "$output" | awk 'c==2{print} /^----/{c++}')
+				echo "$claims" | jq
 			}
 		'';
 	};
