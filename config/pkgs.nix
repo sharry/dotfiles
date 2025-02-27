@@ -23,6 +23,7 @@
 		lazydocker
 		plistwatch # MacOS only
 		imagemagick
+		claude-code
 		podman-compose
 		nixfmt-rfc-style
 	];

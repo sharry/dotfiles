@@ -2,7 +2,7 @@
 {
 	time.timeZone = "Africa/Casablanca";
 	networking.localHostName = "bensadik";
-	security.pam.enableSudoTouchIdAuth = true;
+	security.pam.services.sudo_local.touchIdAuth = true;
 	system.stateVersion = 5;
 	nixpkgs.config.allowUnfree = true;
 
