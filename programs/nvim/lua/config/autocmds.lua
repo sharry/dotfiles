@@ -5,6 +5,19 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 	end,
 })
 
+local function force_buffer_on_tab()
+    local tab_count = #vim.api.nvim_list_tabpages()
+    if tab_count > 1 then
+        vim.cmd("tabclose")  -- Close the new tab
+        vim.cmd("enew")  -- Create a new buffer instead
+        vim.bo.bufhidden = "wipe"
+    end
+end
+
+vim.api.nvim_create_autocmd("TabNewEntered", {
+    callback = force_buffer_on_tab
+})
+
 -- vim.api.nvim_create_autocmd("FileType", {
 -- 	pattern = "java",
 -- 	callback = function()
