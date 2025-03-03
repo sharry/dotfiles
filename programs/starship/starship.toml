@@ -1,47 +1,43 @@
-format = "[░▒▓](#A3AED2)[  ](bg:#A3AED2 fg:#090C0C)[$nix_shell](bg:#A3AED2 fg:#090C0C)[](bg:#769FF0 fg:#A3AED2)$directory[](fg:#769FF0 bg:#394260)$git_branch$git_status[](fg:#394260 bg:#212736)$dotnet$java$nodejs[](fg:#212736 bg:#1D2230)$direnv[ ](fg:#1D2230)\n$character"
+format = """
+[  /$directory](bg:4 fg:0)[](fg:4 bg:14)\
+[$git_branch](fg:4 bg:14)[](fg:14)\
+$dotnet$java$nodejs$fill$direnv $nix_shell\
+$line_break\
+$character
+"""
+
+add_newline = true
+
+[fill]
+symbol = ' '
 
 [directory]
-format = "[ $path ]($style)"
-style = "fg:#E3E5E5 bg:#769FF0"
+format = "$path "
 truncation_length = 3
 truncation_symbol = "…/"
 
-[directory.substitutions]
-Documents = "󰈙 "
-Downloads = " "
-Music = " "
-Pictures = " "
-
 [direnv]
-allowed_msg = "🟢"
-denied_msg = "⛔"
 disabled = false
-format = "[ $allowed env $loaded ](bg:#1D2230)"
+denied_msg = "⛔"
+allowed_msg = "🟢"
 not_allowed_msg = "🔴"
+format = " [](fg:4)[$allowed direnv](fg:0 bg:4)[](fg:4)"
 
 [dotnet]
-format = "[[ $symbol $version ](fg:#769FF0 bg:#212736)]($style)"
-style = "bg:#212736"
+format = " $symbol $version"
 symbol = ""
 
 [git_branch]
-format = "[[ $symbol $branch ](fg:#769FF0 bg:#394260)]($style)"
-style = "bg:#394260"
+format = " $symbol $branch "
 symbol = ""
 
-[git_status]
-format = "[[($all_status$ahead_behind )](fg:#769FF0 bg:#394260)]($style)"
-style = "bg:#394260"
-
 [java]
-format = "[[ $symbol $version ](fg:#769FF0 bg:#212736)]($style)"
-style = "bg:#212736"
+format = " $symbol $version"
 symbol = ""
 
 [nix_shell]
 disabled = false
-format = "+  "
+format = "[](fg:4)[ Shell](fg:0 bg:4)[](fg:4)"
 
 [nodejs]
-format = "[[ $symbol ($version) ](fg:#769FF0 bg:#212736)]($style)"
-style = "bg:#212736"
+format = " $symbol$version"
