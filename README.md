@@ -3,7 +3,8 @@
 This repository contains my personal configuration for my macOS system and programs.
 
 ## Preview
-![Zellij Tab with two panes, Left NVIM and right Lazygit](https://github.com/user-attachments/assets/6154d4f5-cc29-4201-a87f-20159a12870c)
+
+![Dark and Light version](https://github.com/user-attachments/assets/1dccb5f2-0022-453d-a9c5-ba0d2e476243)
 
 ## Tech
 - [Nix](https://nixos.org/) - Nix is a powerful package manager for Unix systems that makes package management reliable and reproducible.
