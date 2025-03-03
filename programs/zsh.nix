@@ -20,11 +20,12 @@
 			v = "nvim";
 			c = "clear";
 			g = "lazygit";
-			ll = "ls -l";
+			e = "zellij action edit-scrollback";
 			db = "lazysql";
 			pod = "lazydocker";
 			stats = "btop";
 			docker = "podman";
+			neofetch = "fastfetch";
 			renix = "darwin-rebuild switch --flake ~/dotfiles#$USER && source ~/.zshrc";
 			freenix = "nix-collect-garbage -d";
 			nixdev = "nix develop -c $SHELL";
@@ -54,6 +55,11 @@
 				local claims=$(echo "$output" | awk 'c==2{print} /^----/{c++}')
 				echo "$claims" | jq
 			}
+
+			if [[ ! -v FASTFETCH_SHOWN ]]; then
+				fastfetch
+				export FASTFETCH_SHOWN=1
+			fi
 		'';
 	};
 }

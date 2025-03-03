@@ -20,6 +20,7 @@
 		ripgrep
 		python39
 		nodejs_22
+		fastfetch
 		lazydocker
 		plistwatch # MacOS only
 		imagemagick
