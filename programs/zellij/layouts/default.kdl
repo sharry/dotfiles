@@ -123,9 +123,9 @@ layout {
 				mode_tmux          "#[fg=6]█#[bg=6,fg=0,bold]TMUX#[fg=6,bold]"
 
 				// formatting for inactive tabs
-				tab_normal              "#[fg=14]#[bg=14,fg=4,bold]{index}#[fg=14,bg=14]#[bg=14,fg=4,bold] {name}{floating_indicator}#[fg=14,bold]"
-				tab_normal_fullscreen   "#[fg=14]#[bg=14,fg=4,bold]{index}#[fg=14,bg=14]#[bg=14,fg=4,bold] {name}{fullscreen_indicator}#[fg=14,bold]"
-				tab_normal_sync         "#[fg=14]#[bg=14,fg=4,bold]{index}#[fg=14,bg=14]#[bg=14,fg=4,bold] {name}{sync_indicator}#[fg=14,bold]"
+				tab_normal              "#[fg=14]#[bg=14,fg=4,bold]{index}#[fg=4,bg=14]#[bg=14,fg=4,bold] {name}{floating_indicator}#[fg=14,bold]"
+				tab_normal_fullscreen   "#[fg=14]#[bg=14,fg=4,bold]{index}#[fg=4,bg=14]#[bg=14,fg=4,bold] {name}{fullscreen_indicator}#[fg=14,bold]"
+				tab_normal_sync         "#[fg=14]#[bg=14,fg=4,bold]{index}#[fg=4,bg=14]#[bg=14,fg=4,bold] {name}{sync_indicator}#[fg=14,bold]"
 
 				// formatting for the current active tab
 				tab_active              "#[fg=4]#[bg=4,fg=0,bold]{index}#[fg=4,bg=14]#[bg=14,fg=4,bold] {name}{floating_indicator}#[fg=14,bold]"
