@@ -70,7 +70,7 @@ return {
 						function()
 							local col = vim.fn.col(".")
 							local line = vim.fn.line(".")
-							return string.format("%d:%d  ", col, line)
+							return string.format("%d:%d  ", line, col)
 						end,
 					}
 				}
