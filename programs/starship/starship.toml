@@ -1,5 +1,5 @@
 format = """
-[  /$directory](bg:4 fg:0)[](fg:4 bg:14)\
+[  $directory](bg:4 fg:0)[](fg:4 bg:14)\
 [$git_branch](fg:4 bg:14)[](fg:14)\
 $dotnet$java$nodejs$fill$direnv $nix_shell\
 $line_break\
@@ -14,7 +14,7 @@ symbol = ' '
 [directory]
 format = "$path "
 truncation_length = 3
-truncation_symbol = "…/"
+truncation_symbol = "/…/"
 
 [direnv]
 disabled = false
