@@ -1,4 +1,7 @@
 { pkgs, ... }:
+let
+	floatingCmd = title: cmd: "zellij run --floating --close-on-exit --name ${title} --width 90% --height 90% -x 5% -y 10% -- ${cmd}";
+in
 {
 	programs.zsh = {
 
@@ -19,7 +22,6 @@
 			x = "exit";
 			v = "nvim";
 			c = "clear";
-			g = "lazygit";
 			e = "zellij action edit-scrollback";
 			db = "lazysql";
 			pod = "lazydocker";
@@ -29,6 +31,8 @@
 			renix = "darwin-rebuild switch --flake ~/dotfiles#$USER && source ~/.zshrc";
 			freenix = "nix-collect-garbage -d";
 			nixdev = "nix develop -c $SHELL";
+			sr = floatingCmd "Serpl" "serpl";
+			g = floatingCmd "Lazygit" "lazygit";
 		};
 
 		initExtra = ''
