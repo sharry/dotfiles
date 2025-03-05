@@ -1,8 +1,11 @@
+let
+	vars = import ../vars.nix;
+in
 {
 	programs.git = {
 		enable = true;
-		userName = "Youssef Ben Sadik";
-		userEmail = "youssef@bensadik.net";
+		userName = "${vars.personal.firstName} ${vars.personal.lastName}";
+		userEmail = vars.personal.email;
 		ignores = [
 			".DS_Store"
 			"*.*~"

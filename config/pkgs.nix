@@ -8,6 +8,7 @@
 		atac
 		deno
 		dblab
+		serpl
 		gnupg
 		cargo
 		jdk23

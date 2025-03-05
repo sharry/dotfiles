@@ -15,7 +15,7 @@
 	'';
 
 	system.defaults = {
-		loginwindow.LoginwindowText = "youssef@bensadik.net";
+		loginwindow.LoginwindowText = vars.personal.email;
 
 		NSGlobalDomain = {
 			KeyRepeat = 2;
