@@ -1,6 +1,6 @@
 format = """
-[  $directory](bg:4 fg:0)[](fg:4 bg:14)\
-[$git_branch](fg:4 bg:14)[](fg:14)\
+[  $directory](bg:17 fg:16)[](fg:17 bg:18)\
+[$git_branch](fg:17 bg:18)[](fg:18)\
 $dotnet$java$nodejs$fill$direnv $nix_shell\
 $line_break\
 $character
@@ -21,7 +21,7 @@ disabled = false
 denied_msg = "⛔"
 allowed_msg = "🟢"
 not_allowed_msg = "🔴"
-format = " [](fg:4)[$allowed direnv](fg:0 bg:4)[](fg:4)"
+format = " [](fg:17)[$allowed direnv](fg:16 bg:17)[](fg:17)"
 
 [dotnet]
 format = " $symbol $version"
@@ -37,7 +37,7 @@ symbol = ""
 
 [nix_shell]
 disabled = false
-format = "[](fg:4)[ Shell](fg:0 bg:4)[](fg:4)"
+format = "[](fg:17)[ Shell](fg:16 bg:17)[](fg:17)"
 
 [nodejs]
 format = " $symbol$version"
