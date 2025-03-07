@@ -23,5 +23,11 @@ keybinds {
 		bind "Ctrl Shift -" { Resize "Decrease"; }
 		bind "Ctrl Shift [" { PreviousSwapLayout; }
 		bind "Ctrl Shift ]" { NextSwapLayout; }
+		bind "Ctrl Shift t" { TogglePaneEmbedOrFloating; }
+		bind "Ctrl Shift w" {
+			LaunchOrFocusPlugin "zellij:session-manager" {
+				floating false
+			}
+		}
 	}
 }

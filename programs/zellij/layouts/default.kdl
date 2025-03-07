@@ -122,20 +122,16 @@ layout {
 				mode_prompt        "#[fg=17]█#[bg=17,fg=16,bold]PROMPT#[fg=17,bold]"
 				mode_tmux          "#[fg=6]█#[bg=6,fg=16,bold]TMUX#[fg=6,bold]"
 
-				// formatting for inactive tabs
 				tab_normal              "#[fg=18]#[bg=18,fg=17,bold]{index}#[fg=17,bg=18]#[bg=18,fg=17,bold] {name}{floating_indicator}#[fg=18,bold]"
 				tab_normal_fullscreen   "#[fg=18]#[bg=18,fg=17,bold]{index}#[fg=17,bg=18]#[bg=18,fg=17,bold] {name}{fullscreen_indicator}#[fg=18,bold]"
 				tab_normal_sync         "#[fg=18]#[bg=18,fg=17,bold]{index}#[fg=17,bg=18]#[bg=18,fg=17,bold] {name}{sync_indicator}#[fg=18,bold]"
 
-				// formatting for the current active tab
 				tab_active              "#[fg=17]#[bg=17,fg=16,bold]{index}#[fg=17,bg=18]#[bg=18,fg=17,bold] {name}{floating_indicator}#[fg=18,bold]"
 				tab_active_fullscreen   "#[fg=17]#[bg=17,fg=16,bold]{index}#[fg=17,bg=18]#[bg=18,fg=17,bold] {name}{fullscreen_indicator}#[fg=18,bold]"
 				tab_active_sync         "#[fg=17]#[bg=17,fg=16,bold]{index}#[fg=17,bg=18]#[bg=18,fg=17,bold] {name}{sync_indicator}#[fg=18,bold]"
 
-				// separator between the tabs
 				tab_separator           "#[bg=#00000000] "
 
-				// indicators
 				tab_sync_indicator       "  "
 				tab_fullscreen_indicator " 󰊓 "
 				tab_floating_indicator   " 󰹙 "
