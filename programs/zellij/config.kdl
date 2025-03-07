@@ -1,7 +1,23 @@
 mouse_mode true
 pane_frames false
 simplified_ui true
-theme "catppuccin-mocha"
+theme "catppuccin"
+
+themes {
+  catppuccin {
+    bg 18
+    fg 8
+    red 9
+    blue 14
+    green 4
+    yellow 2
+    magenta 5
+    orange 3
+    cyan 6
+    black 16
+    white 7
+  }
+}
 
 ui {
 	pane_frames {
