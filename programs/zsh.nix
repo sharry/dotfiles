@@ -55,8 +55,10 @@ in
 
 			function unjwt() {
 				local output=$(jwt decode $(pbpaste))
-				# local header=$(echo "$output" | awk 'c==1{print} /^----/{c++}' | tail -r | tail -n +4 | tail -r)
+				local header=$(echo "$output" | awk 'c==1{print} /^----/{c++}' | tail -r | tail -n +4 | tail -r)
 				local claims=$(echo "$output" | awk 'c==2{print} /^----/{c++}')
+				echo "$header" | jq
+				echo
 				echo "$claims" | jq
 			}
 
