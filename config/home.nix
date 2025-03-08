@@ -42,6 +42,7 @@ in
 				${symlinkConfigDir "btop"}
 				${symlinkConfigDir "yazi"}
 				${symlinkConfigDir "nvim"}
+				${symlinkConfigDir "serpl"}
 				${symlinkConfigDir "zellij"}
 				${symlinkConfigDir "ghostty"}
 				${symlinkConfigDir "lazygit"}

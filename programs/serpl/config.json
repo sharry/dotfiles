@@ -1,0 +1,11 @@
+{
+  "keybindings": {
+    "<Esc>": "Quit",
+    "<Ctrl-c>": "Quit",
+    "<Tab>": "LoopOverTabs",
+    "<Backtab>": "BackLoopOverTabs",
+    "<Ctrl-o>": "ProcessReplace",
+    "<Ctrl-n>": "InputMode",
+    "?": "ShowHelp"
+  }
+}
