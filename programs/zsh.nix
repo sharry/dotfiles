@@ -76,6 +76,12 @@ in
 
 			zellij_tab_name_update
 			chpwd_functions+=(zellij_tab_name_update)
+
+			export FZF_DEFAULT_OPTS='
+				--color=bg+:16,spinner:4,hl:4,border:4
+				--color=fg:19,header:2,info:4,pointer:4
+				--color=marker:4,fg+:19,prompt:4,hl+:2
+			'
 		'';
 	};
 }
