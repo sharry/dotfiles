@@ -3,16 +3,16 @@ local map = vim.keymap.set
 local telescope = require('telescope.builtin')
 local function map_floating_zellij_job(details)
 	if vim.fn.executable(details.command) == 1 then
-	map("n", details.keybind,
-		function()
-			vim.fn.system("pkill " .. details.command)
-			vim.fn.jobstart(
-				{ "zellij", "run", "--floating", "--close-on-exit", "--name", details.desc, "--width", "90%", "--height", "90%", "-x", "5%", "-y", "10%", "--", details.command },
-				{ detach = true }
-			)
-		end,
-		{ desc = details.desc }
-	)
+		map("n", details.keybind,
+			function()
+				vim.fn.system("pkill " .. details.command)
+				vim.fn.jobstart(
+					{ "zellij", "run", "--floating", "--close-on-exit", "--name", details.desc, "--width", "90%", "--height", "90%", "-x", "5%", "-y", "10%", "--", details.command },
+					{ detach = true }
+				)
+			end,
+			{ desc = details.desc }
+		)
 	end
 end
 
