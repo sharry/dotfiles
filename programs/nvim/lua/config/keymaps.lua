@@ -2,12 +2,19 @@
 local map = vim.keymap.set
 local telescope = require('telescope.builtin')
 local function map_floating_zellij_job(details)
-	if vim.fn.executable(details.command) == 1 then
+	if vim.fn.executable(details.kill or details.command()) == 1 then
 		map("n", details.keybind,
 			function()
-				vim.fn.system("pkill " .. details.command)
+				vim.fn.system("pkill " .. (details.kill or details.command()))
 				vim.fn.jobstart(
-					{ "zellij", "run", "--floating", "--close-on-exit", "--name", details.desc, "--width", "90%", "--height", "90%", "-x", "5%", "-y", "10%", "--", details.command },
+					{
+						"zellij", "run", "--floating", "--close-on-exit", "--name", details.desc,
+						"--width", "90%", "--height", "90%", "-x", "5%", "-y", "10%",
+						"--", "sh", "-c", details.command({
+							server = vim.v.servername,
+							dir = vim.fn.expand('%:p:h') or vim.fn.getcwd()
+						})
+					},
 					{ detach = true }
 				)
 			end,
@@ -28,14 +35,28 @@ map("n", "<S-Right>", "zL", { desc = "Scroll Right" })
 map("n", "<leader>fx", ":!chmod +x %<CR>", { desc = "Make file executable" })
 
 map_floating_zellij_job({
-	command = "lazygit",
+	command = function() return "lazygit" end,
 	desc = "Lazygit",
 	keybind = "<leader>gg"
 })
 
 map_floating_zellij_job({
-	command = "serpl",
+	command = function() return "serpl" end,
 	desc = "Serpl (Search & Replace)",
 	keybind = "<leader>sr"
+})
+
+map_floating_zellij_job({
+	command = function(args)
+		return [[
+		_f() {
+			export EDITOR="nvim --server ]] .. args.server .. [[ --remote";
+			yazi ]] .. args.dir .. [[;
+		};_f
+	]]
+	end,
+	kill = "yazi",
+	desc = "Yazi",
+	keybind = "<leader>e"
 })
 

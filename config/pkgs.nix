@@ -26,7 +26,6 @@
 		plistwatch # MacOS only
 		imagemagick
 		claude-code
-		neovim-remote
 		podman-compose
 		nixfmt-rfc-style
 	];

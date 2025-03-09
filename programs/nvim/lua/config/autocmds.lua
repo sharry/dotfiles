@@ -2,6 +2,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 	pattern = { "*" },
 	callback = function()
 		vim.b.autoformat = false
+		vim.fn.system("pkill yazi")
 	end,
 })
 
@@ -18,6 +19,8 @@ vim.api.nvim_create_autocmd("TabNewEntered", {
     callback = force_buffer_on_tab
 })
 
+-- TODO: Config Java
+--
 -- vim.api.nvim_create_autocmd("FileType", {
 -- 	pattern = "java",
 -- 	callback = function()
