@@ -51,12 +51,13 @@ keybinds {
 		bind "Super Right" { MoveFocusOrTab "Right"; }
 		bind "Super Down"  { MoveFocus "Down"; }
 
-		bind "Super Shift +" { Resize "Increase"; }
-		bind "Super Shift -" { Resize "Decrease"; }
+		bind "Ctrl =" { Resize "Increase"; }
+		bind "Ctrl -" { Resize "Decrease"; }
+
 		bind "Super Shift Right" { PreviousSwapLayout; }
 		bind "Super Shift Left" { NextSwapLayout; }
 
-		bind "Super e" {
+		bind "Super s" {
 			LaunchOrFocusPlugin "zellij:session-manager" {
 				floating false
 			}

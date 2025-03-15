@@ -9,7 +9,7 @@ local function map_floating_zellij_job(details)
 				vim.fn.jobstart(
 					{
 						"zellij", "run", "--floating", "--close-on-exit", "--name", details.desc,
-						"--width", "90%", "--height", "90%", "-x", "5%", "-y", "10%",
+						"--width", "90%", "--height", "90%", "-x", "5%", "-y", "8%",
 						"--", "sh", "-c", details.command({
 							server = vim.v.servername,
 							dir = vim.fn.expand('%:p:h') or vim.fn.getcwd()
