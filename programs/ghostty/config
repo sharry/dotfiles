@@ -4,3 +4,8 @@ mouse-hide-while-typing = true
 background-blur-radius = 20
 background-opacity = 0.85
 macos-titlebar-style = transparent
+keybind = super+left=unbind
+keybind = super+right=unbind
+keybind = super+up=unbind
+keybind = super+down=unbind
+keybind = super+t=unbind

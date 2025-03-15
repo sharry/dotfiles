@@ -26,24 +26,41 @@ ui {
 }
 
 keybinds {
+
+	locked {
+		bind "Super shift g" { SwitchToMode "normal"; }
+	}
+
 	shared_except "locked" {
-		bind "Ctrl Shift f" { ToggleFloatingPanes; }
-		bind "Ctrl Shift n" { NewPane; }
-		bind "Ctrl Shift i" { MoveTab "Left"; }
-		bind "Ctrl Shift o" { MoveTab "Right"; }
-		bind "Ctrl Shift h" "Ctrl Shift Left" { MoveFocusOrTab "Left"; }
-		bind "Ctrl Shift l" "Ctrl Shift Right" { MoveFocusOrTab "Right"; }
-		bind "Ctrl Shift j" "Ctrl Shift Down" { MoveFocus "Down"; }
-		bind "Ctrl Shift k" "Ctrl Shift Up" { MoveFocus "Up"; }
-		bind "Ctrl Shift =" "Ctrl Shift +" { Resize "Increase"; }
-		bind "Ctrl Shift -" { Resize "Decrease"; }
-		bind "Ctrl Shift [" { PreviousSwapLayout; }
-		bind "Ctrl Shift ]" { NextSwapLayout; }
-		bind "Ctrl Shift t" { TogglePaneEmbedOrFloating; }
-		bind "Ctrl Shift w" {
+
+		bind "Super f" { ToggleFloatingPanes; }
+		bind "Super Shift f" { TogglePaneEmbedOrFloating; }
+
+		bind "Super p" { NewPane; }
+		bind "Super t" { NewTab; }
+		bind "Super i" { MoveTab "Left"; }
+		bind "Super o" { MoveTab "Right"; }
+
+		bind "Super shift t" { SwitchToMode "tab"; }
+		bind "Super shift p" { SwitchToMode "pane"; }
+		bind "Super shift s" { SwitchToMode "session"; }
+		bind "Super shift g" { SwitchToMode "locked"; }
+
+		bind "Super Up"    { MoveFocus "Up"; }
+		bind "Super Left"  { MoveFocusOrTab "Left"; }
+		bind "Super Right" { MoveFocusOrTab "Right"; }
+		bind "Super Down"  { MoveFocus "Down"; }
+
+		bind "Super Shift +" { Resize "Increase"; }
+		bind "Super Shift -" { Resize "Decrease"; }
+		bind "Super Shift Right" { PreviousSwapLayout; }
+		bind "Super Shift Left" { NextSwapLayout; }
+
+		bind "Super e" {
 			LaunchOrFocusPlugin "zellij:session-manager" {
 				floating false
 			}
 		}
+
 	}
 }
