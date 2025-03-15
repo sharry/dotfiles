@@ -15,11 +15,6 @@ start-at-login = false
 horizontal = 5
 vertical = 5
 
-[gaps.outer]
-bottom = 5
-left = 5
-right = 5
-
 [key-mapping]
 preset = "qwerty"
 
