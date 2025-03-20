@@ -2,8 +2,6 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 	pattern = { "*" },
 	callback = function()
 		vim.b.autoformat = false
-		vim.o.cmdheight = 1
-		vim.fn.system("pkill yazi")
 	end,
 })
 
