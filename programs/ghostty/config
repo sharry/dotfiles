@@ -10,7 +10,8 @@ keybind = super+right=unbind
 keybind = super+up=unbind
 keybind = super+down=unbind
 keybind = super+t=unbind
+keybind = super+d=unbind
 
 window-padding-balance = true
 window-padding-x = 0
-window-padding-y = 0
+window-padding-y = 1

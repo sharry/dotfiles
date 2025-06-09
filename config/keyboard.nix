@@ -1,4 +1,7 @@
 let
+
+	vars = import ../vars.nix;
+
 	keyMap = { from, to }: {
 		HIDKeyboardModifierMappingDst = to;
 		HIDKeyboardModifierMappingSrc = from;
@@ -19,5 +22,10 @@ in
 		userKeyMapping = [
 			(keyMap { from = capsLock; to = deleteForward; })
 		];
+	};
+
+	home-manager.users.${vars.personal.user}.targets.darwin.keybindings = {
+		"^←" = "moveWordLeft:";
+		"^→" = "moveWordRight:";
 	};
 }

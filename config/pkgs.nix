@@ -5,6 +5,7 @@
 		jqp
 		nil
 		fzf
+		_7zz
 		atac
 		deno
 		dblab
@@ -19,7 +20,6 @@
 		lazygit
 		lazysql
 		ripgrep
-		python39
 		nodejs_22
 		fastfetch
 		lazydocker

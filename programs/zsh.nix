@@ -31,11 +31,12 @@ in
 			renix = "darwin-rebuild switch --flake ~/dotfiles#$USER && source ~/.zshrc";
 			freenix = "nix-collect-garbage -d";
 			nixdev = "nix develop -c $SHELL";
+			gz = "git archive -o \"$(basename \"$PWD\").zip\" HEAD";
 			sr = floatingCmd "Serpl" "serpl";
 			g = floatingCmd "Lazygit" "lazygit";
 		};
 
-		initExtra = ''
+		initContent = ''
 			 function macos_theme() {
 				if [[ $(defaults read ~/Library/Preferences/.GlobalPreferences.plist  AppleInterfaceStyle 2>/dev/null) = Dark ]]; then
 					echo 'Dark'
@@ -71,6 +72,28 @@ in
 						current_dir=''${current_dir##*/}
 					fi
 					command nohup zellij action rename-tab $current_dir >/dev/null 2>&1
+				fi
+			}
+
+			killport() {
+				if [ -z "$1" ]; then
+					echo "Usage: killport <port>"
+					return 1
+				fi
+
+				PORT=$1
+				if command -v lsof > /dev/null; then
+					PID=$(lsof -i tcp:"$PORT" -sTCP:LISTEN -t 2>/dev/null)
+				else
+					echo "lsof not found. Please install lsof."
+					return 1
+				fi
+
+				if [ -z "$PID" ]; then
+					echo "No process found on port $PORT"
+				else
+					echo "Killing process $PID on port $PORT"
+					kill -9 "$PID"
 				fi
 			}
 
