@@ -1,14 +1,4 @@
 [[plugin.deps]]
-use = "yazi-rs/plugins:git"
-rev = "5186af7"
-hash = "771f18427fb75fb19990ce602bb322f4"
-
-[[plugin.deps]]
-use = "yazi-rs/plugins:full-border"
-rev = "5186af7"
-hash = "ae9e1d0c6bfd68cdebc98cc684c22b45"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
 rev = "5186af7"
 hash = "f28138c2e11e87962b66d583fef724c3"
@@ -22,6 +12,11 @@ hash = "5614c46d5de76623c283d415bfac8025"
 use = "Lil-Dank/lazygit"
 rev = "9f924e3"
 hash = "2b0c33928986f126d5c5a4cac31a6b46"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "b886025"
+hash = "3996fc74044bc44144b323686f887e1"
 
 [flavor]
 deps = []
