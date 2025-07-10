@@ -25,7 +25,7 @@ local function map_floating_zellij_job(details)
 				"-c",
 				details.command({
 					server = vim.v.servername,
-					file = vim.fn.expand("%:p") or vim.fn.getcwd(),
+					file = vim.fn.fnamemodify(vim.fn.bufname(), ':p'),
 				}) .. "; zellij action toggle-floating-panes",
 			}, { detach = true })
 		end, { desc = details.desc })
