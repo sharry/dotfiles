@@ -22,6 +22,7 @@
 		ripgrep
 		nodejs_22
 		fastfetch
+		gemini-cli
 		lazydocker
 		plistwatch # MacOS only
 		imagemagick

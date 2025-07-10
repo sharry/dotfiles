@@ -28,7 +28,7 @@ in
 			stats = "btop";
 			docker = "podman";
 			neofetch = "fastfetch";
-			renix = "darwin-rebuild switch --flake ~/dotfiles#$USER && source ~/.zshrc";
+			renix = "sudo darwin-rebuild switch --flake ~/dotfiles#$USER && source ~/.zshrc";
 			freenix = "nix-collect-garbage -d";
 			nixdev = "nix develop -c $SHELL";
 			gz = "git archive -o \"$(basename \"$PWD\").zip\" HEAD";
