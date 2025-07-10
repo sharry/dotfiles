@@ -12,10 +12,6 @@
 			url = "github:nix-community/home-manager/master";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		nix-rosetta-builder = {
-			url = "github:cpick/nix-rosetta-builder";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
 	};
 
 	outputs =
@@ -24,7 +20,6 @@
 			nix-darwin,
 			nix-homebrew,
 			home-manager,
-			nix-rosetta-builder,
 			...
 		}:
 		let
@@ -38,7 +33,6 @@
 					config
 					home-manager.darwinModules.home-manager
 					nix-homebrew.darwinModules.nix-homebrew
-					nix-rosetta-builder.darwinModules.default
 				];
 			};
 

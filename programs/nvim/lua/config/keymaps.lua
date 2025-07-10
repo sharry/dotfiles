@@ -33,6 +33,7 @@ local function map_floating_zellij_job(details)
 end
 
 map("n", "<leader>b", telescope.buffers, { desc = "Telescope buffers" })
+map("n", "<leader>r", ":LspRestart<CR>", { desc = "Restart LSP" })
 -- map('n', '<leader><space>', "<cmd>Telescope frecency workspace=CWD<cr><bs>", { desc = 'Telescope find files' })
 
 map("n", "go", "<C-o>", { desc = "Jump back" })

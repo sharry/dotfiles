@@ -3,14 +3,17 @@
 	time.timeZone = "Africa/Casablanca";
 	networking.localHostName = "bensadik";
 	security.pam.services.sudo_local.touchIdAuth = true;
-	system.stateVersion = 5;
+	system = {
+		stateVersion = 5;
+		primaryUser = vars.personal.user;
+	};
 	nixpkgs.config.allowUnfree = true;
 
 	imports = [
 		../programs/system-default.nix
 	];
 
-	system.activationScripts.postUserActivation.text = ''
+	system.activationScripts.activateSettings.text = ''
 		/usr/local/bin/desktoppr ${vars.personal.dotfilesPath}/assets/catppuccin-wallpaper.heic
 	'';
 
