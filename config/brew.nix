@@ -5,6 +5,7 @@
 
 		brews = [
 			"posting"
+			"xcodegen"
 		];
 
 		taps = [

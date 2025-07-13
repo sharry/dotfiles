@@ -1,4 +1,4 @@
-title = " "
+<title = " "
 theme = dark:catppuccin-mocha.conf,light:catppuccin-latte.conf
 mouse-hide-while-typing = true
 background-blur-radius = 20

@@ -34,7 +34,7 @@ end
 
 map("n", "<leader>b", telescope.buffers, { desc = "Telescope buffers" })
 map("n", "<leader>r", ":LspRestart<CR>", { desc = "Restart LSP" })
--- map('n', '<leader><space>', "<cmd>Telescope frecency workspace=CWD<cr><bs>", { desc = 'Telescope find files' })
+map('n', '<leader><space>', "<cmd>Telescope frecency workspace=CWD<cr><bs>", { desc = 'Telescope find files' })
 
 map("n", "go", "<C-o>", { desc = "Jump back" })
 map("n", "gi", "<C-i>", { desc = "Jump forward" })
