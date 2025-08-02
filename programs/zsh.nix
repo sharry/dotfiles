@@ -22,6 +22,7 @@ in
 			x = "exit";
 			v = "nvim";
 			c = "clear";
+			d = "npx ccr code";
 			e = "zellij action edit-scrollback";
 			db = "lazysql";
 			pod = "lazydocker";

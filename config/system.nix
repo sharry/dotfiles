@@ -7,7 +7,10 @@
 		stateVersion = 5;
 		primaryUser = vars.personal.user;
 	};
-	nixpkgs.config.allowUnfree = true;
+	nixpkgs.config = {
+		allowUnfree = true;
+		allowUnsupportedSystem = true;
+	};
 
 	imports = [
 		../programs/system-default.nix
@@ -16,7 +19,6 @@
 	system.activationScripts.activateSettings.text = ''
 		/usr/local/bin/desktoppr ${vars.personal.dotfilesPath}/assets/catppuccin-wallpaper.heic
 	'';
-
 	system.defaults = {
 		loginwindow.LoginwindowText = vars.personal.email;
 
@@ -30,5 +32,14 @@
 			NSDocumentSaveNewDocumentsToCloud = false;
 		};
 
+		CustomUserPreferences = {
+			".GlobalPreferences"= {
+				NSAutomaticTextReplacementEnabled = 1;
+				NSUserDictionaryReplacementItems = [
+					{ on = 1; replace = ";t"; "with" = "Translate the following text to English:"; }
+					{ on = 1; replace = ";r"; "with" = "Rewrite the following text, keep the language simple and the idea clear:"; }
+				];
+			};
+		};
 	};
 }

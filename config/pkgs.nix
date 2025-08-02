@@ -5,6 +5,7 @@
 		jqp
 		nil
 		fzf
+		dysk
 		_7zz
 		atac
 		deno

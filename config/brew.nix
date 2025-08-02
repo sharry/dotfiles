@@ -4,6 +4,7 @@
 		enable = true;
 
 		brews = [
+			"nginx"
 			"posting"
 			"xcodegen"
 		];
@@ -23,7 +24,7 @@
 			"aerospace"
 			"desktoppr"
 			"hiddenbar"
-			"microsoft-edge"
+			"blackhole-2ch"
 			"visual-studio-code"
 		];
 
