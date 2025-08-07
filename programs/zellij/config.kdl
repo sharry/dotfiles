@@ -166,7 +166,12 @@ keybinds clear-defaults=true {
         bind "Super p" { NewPane; }
         bind "Ctrl q" { Quit; }
         bind "Shift Super s" { SwitchToMode "session"; }
-        bind "Super s" { LaunchOrFocusPlugin "zellij:session-manager"; }
+        bind "Super s" {
+			LaunchOrFocusPlugin "zellij:session-manager" {
+				floating true
+				move_to_focused_tab true
+			};
+		}
         bind "Shift Super t" { SwitchToMode "tab"; }
         bind "Super t" { NewTab; }
     }
