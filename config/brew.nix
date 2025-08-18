@@ -21,6 +21,7 @@
 			"ghostty"
 			"obsidian"
 			"telegram"
+			"kindavim"
 			"aerospace"
 			"desktoppr"
 			"hiddenbar"

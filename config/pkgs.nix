@@ -21,8 +21,10 @@
 		lazygit
 		lazysql
 		ripgrep
+		opencode
 		nodejs_22
 		fastfetch
+		secretspec
 		gemini-cli
 		lazydocker
 		plistwatch # MacOS only

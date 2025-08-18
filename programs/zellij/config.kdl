@@ -261,6 +261,15 @@ keybinds clear-defaults=true {
         bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
         bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
     }
+	normal {
+        bind "Super g" {
+			Run "lazygit" {
+                floating true
+                width "70%"
+				height "70%"
+            };
+		}
+	}
 }
 themes {
     catppuccin {
