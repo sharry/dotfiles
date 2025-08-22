@@ -1,4 +1,4 @@
-{ vars }: { home-manager, nix-homebrew, ... }:
+{ vars, inputs }: { home-manager, nix-homebrew, ... }:
 let
 	user = vars.personal.user;
 	system = import ./system.nix { inherit vars; };
@@ -28,6 +28,7 @@ in
 		useGlobalPkgs = true;
 		useUserPackages = true;
 		backupFileExtension = "bak";
+		extraSpecialArgs = { inherit inputs; };
 		users.${user} = import ./home.nix;
 	};
 

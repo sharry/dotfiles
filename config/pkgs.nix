@@ -17,6 +17,7 @@
 		devenv
 		podman
 		ffmpeg
+		ledger
 		jwt-cli
 		lazygit
 		lazysql
@@ -24,6 +25,7 @@
 		opencode
 		nodejs_22
 		fastfetch
+		qwen-code
 		secretspec
 		gemini-cli
 		lazydocker

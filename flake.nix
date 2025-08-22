@@ -1,5 +1,5 @@
 {
-	description = "Ben Sadik's Nix config";
+	description = "Sharry's Nix config";
 
 	inputs = {
 		nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -21,10 +21,10 @@
 			nix-homebrew,
 			home-manager,
 			...
-		}:
+		}@inputs :
 		let
 			vars = import ./vars.nix;
-			config = import ./config { inherit vars; };
+			config = import ./config { inherit vars; inherit inputs; };
 			user = vars.personal.user;
 		in
 		{
