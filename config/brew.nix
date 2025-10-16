@@ -17,17 +17,15 @@
 			"zen"
 			"arc"
 			"pika"
-			"maccy"
-			"raycast"
+			"ngrok"
 			"ghostty"
 			"obsidian"
 			"telegram"
-			"kindavim"
 			"aerospace"
 			"desktoppr"
 			"hiddenbar"
-			"blackhole-2ch"
-			"visual-studio-code"
+			"qbittorrent"
+			# "blackhole-2ch" not used
 		];
 
 		onActivation = {

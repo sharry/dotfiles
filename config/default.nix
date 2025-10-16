@@ -11,11 +11,7 @@ in
 	];
 
 	nixpkgs.hostPlatform = vars.personal.system;
-	nix.settings = {
-		trusted-users = [ user ];
-		experimental-features = "nix-command flakes";
-	};
-
+	nix.enable = false;
 	nix-homebrew = {
 		user = user;
 		enable = true;

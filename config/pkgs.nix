@@ -17,11 +17,14 @@
 		devenv
 		podman
 		ffmpeg
-		ledger
+		puffin
+		hledger
+		termscp
 		jwt-cli
 		lazygit
 		lazysql
 		ripgrep
+		weechat
 		opencode
 		nodejs_22
 		fastfetch
@@ -32,6 +35,7 @@
 		plistwatch # MacOS only
 		imagemagick
 		claude-code
+		hledger-web
 		podman-compose
 		nixfmt-rfc-style
 	];
