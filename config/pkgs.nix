@@ -31,10 +31,10 @@
 		qwen-code
 		secretspec
 		gemini-cli
+		cursor-cli
 		lazydocker
 		plistwatch # MacOS only
 		imagemagick
-		claude-code
 		hledger-web
 		podman-compose
 		nixfmt-rfc-style

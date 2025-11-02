@@ -16,6 +16,7 @@
 		casks = [
 			"zen"
 			"arc"
+			"iina"
 			"pika"
 			"ngrok"
 			"ghostty"

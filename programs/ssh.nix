@@ -13,6 +13,7 @@
 				extraOptions = {
 					AddKeysToAgent = "yes";
 					UseKeychain = "yes";
+					IdentitiesOnly = "yes";
 				};
 			};
 
@@ -24,6 +25,7 @@
 				extraOptions = {
 					AddKeysToAgent = "yes";
 					UseKeychain = "yes";
+					IdentitiesOnly = "yes";
 				};
 			};
 
