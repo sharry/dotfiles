@@ -14,4 +14,4 @@ keybind = super+d=unbind
 
 window-padding-balance = true
 window-padding-x = 0
-window-padding-y = 3
+window-padding-y = 5

@@ -1,6 +1,5 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 local map = vim.keymap.set
-local telescope = require("telescope.builtin")
 local function map_floating_zellij_job(details)
 	if vim.fn.executable(details.kill or details.command()) == 1 then
 		map("n", details.keybind, function()
@@ -32,9 +31,7 @@ local function map_floating_zellij_job(details)
 	end
 end
 
-map("n", "<leader>b", telescope.buffers, { desc = "Telescope buffers" })
 map("n", "<leader>r", ":LspRestart<CR>", { desc = "Restart LSP" })
-map('n', '<leader><space>', "<cmd>Telescope frecency workspace=CWD<cr><bs>", { desc = 'Telescope find files' })
 
 map("n", "go", "<C-o>", { desc = "Jump back" })
 map("n", "gi", "<C-i>", { desc = "Jump forward" })
