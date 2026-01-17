@@ -18,6 +18,18 @@ vim.api.nvim_create_autocmd("TabNewEntered", {
     callback = force_buffer_on_tab
 })
 
+-- Track file opens with fre for frecency
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*",
+	callback = function()
+		local filepath = vim.fn.expand("%:p")
+		-- Only track actual files (not empty buffers, directories, etc.)
+		if filepath ~= "" and vim.fn.filereadable(filepath) == 1 then
+			vim.fn.jobstart({ "fre", "--add", filepath }, { detach = true })
+		end
+	end,
+})
+
 -- TODO: Config Java
 --
 -- vim.api.nvim_create_autocmd("FileType", {

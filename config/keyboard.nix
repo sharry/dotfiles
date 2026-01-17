@@ -19,7 +19,7 @@ in
 {
 	system.keyboard = {
 		enableKeyMapping = true;
-		nonUS.remapTilde = true;
+		nonUS.remapTilde = false;
 		userKeyMapping = [
 			(keyMap { from = capsLock; to = deleteForward; })
 		];

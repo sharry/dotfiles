@@ -1,5 +1,6 @@
 { pkgs, ... }:
 let
+	vars = import ../vars.nix;
 	floatingCmd = title: cmd: "zellij run --floating --close-on-exit --name ${title} --width 90% --height 90% -x 5% -y 10% -- ${cmd}";
 in
 {
@@ -22,6 +23,7 @@ in
 			x = "exit";
 			v = "nvim";
 			c = "clear";
+			o = "opencode";
 			d = "npx ccr code";
 			e = "zellij action edit-scrollback";
 			db = "lazysql";
@@ -32,13 +34,16 @@ in
 			renix = "sudo darwin-rebuild switch --flake ~/dotfiles#$USER && source ~/.zshrc";
 			freenix = "nix-collect-garbage -d";
 			nixdev = "nix develop -c $SHELL";
+			drag = "${vars.personal.dotfilesPath}/bin/drag";
 			gz = "git archive -o \"$(basename \"$PWD\").zip\" HEAD";
 			sr = floatingCmd "Serpl" "serpl";
 			g = floatingCmd "Lazygit" "lazygit";
 		};
 
 		initContent = ''
-			 function macos_theme() {
+			eval "$(/opt/homebrew/bin/brew shellenv)"
+
+			function macos_theme() {
 				if [[ $(defaults read ~/Library/Preferences/.GlobalPreferences.plist  AppleInterfaceStyle 2>/dev/null) = Dark ]]; then
 					echo 'Dark'
 				else

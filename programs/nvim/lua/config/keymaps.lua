@@ -42,7 +42,7 @@ map("n", "<S-Up>", "10k", { desc = "Scroll Up" })
 map("n", "<S-Down>", "10j", { desc = "Scroll Down" })
 map("n", "<S-Left>", "zH", { desc = "Scroll Left" })
 map("n", "<S-Right>", "zL", { desc = "Scroll Right" })
-map("n", "<Del>", "ciw", { desc = "Cut Inside Word" })
+map("n", "<S-Del>", "ciw", { desc = "Cut Inside Word" })
 map("n", "<leader>fx", ":!chmod +x %<CR>", { desc = "Make file executable" })
 
 map_floating_zellij_job({
@@ -57,7 +57,7 @@ map_floating_zellij_job({
 	command = function()
 		return "serpl"
 	end,
-	desc = "Serpl (Search & Replace)",
+	desc = "Search & Replace",
 	keybind = "<leader>sr",
 })
 
@@ -104,11 +104,41 @@ map_floating_zellij_job({
 	command = function(args)
 		return [[
 		_f() {
-			nvim --server ]] .. args.server .. [[ --remote $(fzf);
+			project_name=$(basename "$PWD")
+			list_cmd='project_name=$(basename "$PWD"); { fre --sorted | rg "^$PWD/" | sed "s|^$PWD|$project_name|" | awk '\''{print "\033[1;32m" $0 "\033[0m"}'\''; rg --files | sed "s|^|$project_name/|"; } | awk '\''{key=$0; gsub(/\x1b\[[0-9;]*m/, "", key); if (!seen[key]++) print $0}'\'''
+			selected=$(sh -c "$list_cmd" | fzf --ansi --no-sort --preview-window "up:80%" --preview "bat --plain --theme=catppuccin-mocha --color=always \"\$PWD/\$(echo {} | sed -E 's/\x1b\[[0-9;]*m//g' | sed 's|^$project_name/||')\"" --bind "del:execute-silent(fre --delete \"\$PWD/\$(echo {} | sed -E 's/\x1b\[[0-9;]*m//g' | sed 's|^$project_name/||')\")+reload($list_cmd)")
+			if [ -n "$selected" ]; then
+				nvim --server ]].. args.server ..[[ --remote "$PWD/$(echo "$selected" | sed -E 's/\x1b\[[0-9;]*m//g' | sed "s|^$project_name/||")";
+			fi
 		};_f
 	]]
 	end,
 	kill = "fzf",
-	desc = "",
-	keybind = "<leader>ff",
+	desc = "Open File",
+	keybind = "<leader><Del>",
+})
+
+map_floating_zellij_job({
+	command = function(args)
+		return [[
+		_f() {
+			selected=$(rg --column --line-number --no-heading --color=always --smart-case --fixed-strings '' | \
+				fzf --ansi --phony --query "" \
+				--bind "change:reload:rg --column --line-number --no-heading --color=always --smart-case --fixed-strings {q} || true" \
+				--delimiter ":" \
+				--preview "bat --plain --theme=catppuccin-mocha --color=always --highlight-line {2} {1}" \
+				--preview-window "up:80%")
+			if [ -n "$selected" ]; then
+				clean=$(printf "%s" "$selected" | sed -E 's/\x1b\[[0-9;]*m//g' | tr -d '\r')
+				file=$(printf "%s" "$clean" | cut -d: -f1)
+				line=$(printf "%s" "$clean" | cut -d: -f2)
+				full_path="$PWD/$file"
+				nvim --server ]].. args.server ..[[ --remote-expr "luaeval('vim.api.nvim_command(\"edit $full_path | $line\")')";
+			fi
+		};_f
+	]]
+	end,
+	kill = "fzf",
+	desc = "Search",
+	keybind = "<leader>/",
 })

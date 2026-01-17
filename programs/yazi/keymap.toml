@@ -369,3 +369,7 @@ desc = "Chmod on selected files"
 on   = [ "g", "i" ]
 run  = "plugin lazygit"
 desc = "run lazygit"
+
+[[mgr.prepend_keymap]]
+on  = "<C-m>"
+run = "shell -- zsh drag $@"

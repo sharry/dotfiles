@@ -5,11 +5,15 @@
 
 		brews = [
 			"nginx"
+			"yt-dlp"
+			"ffmpeg"
 			"posting"
 			"xcodegen"
+			"anomalyco/tap/opencode"
 		];
 
 		taps = [
+			"steipete/tap"
 			"nikitabobko/tap"
 		];
 
@@ -20,13 +24,13 @@
 			"pika"
 			"ngrok"
 			"ghostty"
+			"codexbar"
 			"obsidian"
 			"telegram"
 			"aerospace"
 			"desktoppr"
 			"hiddenbar"
 			"qbittorrent"
-			# "blackhole-2ch" not used
 		];
 
 		onActivation = {

@@ -2,21 +2,22 @@
 {
 	home.packages = with pkgs; [
 		fd
+		fre
 		jqp
 		nil
+		bun
 		fzf
+		bat
 		dysk
 		_7zz
 		atac
 		deno
-		dblab
 		serpl
 		gnupg
 		cargo
-		jdk23
+		codex
 		devenv
 		podman
-		ffmpeg
 		puffin
 		hledger
 		termscp
@@ -25,15 +26,15 @@
 		lazysql
 		ripgrep
 		weechat
-		opencode
+		jiratui
 		nodejs_22
 		fastfetch
-		qwen-code
 		secretspec
 		gemini-cli
 		cursor-cli
 		lazydocker
 		plistwatch # MacOS only
+		claude-code
 		imagemagick
 		hledger-web
 		podman-compose

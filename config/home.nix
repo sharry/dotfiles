@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 let
 	vars = import ../vars.nix;
 	symlinkConfigDir = directory: ''
@@ -7,8 +7,8 @@ let
 	symlinkLocalDir = directory: ''
 		run ln --symbolic --force --no-dereference $VERBOSE_ARG ${vars.personal.dotfilesPath}/programs/${directory}/local ${vars.personal.home}/.local/share/${directory};
 	'';
-	symlinkConfigFile = path: ''
-		run ln --symbolic --force --no-dereference $VERBOSE_ARG ${vars.personal.dotfilesPath}/programs/${path} ${config.xdg.configHome};
+	symlinkConfigFile = path: configDir: ''
+		run ln --symbolic --force --no-dereference $VERBOSE_ARG ${vars.personal.dotfilesPath}/programs/${path} ${config.xdg.configHome}${configDir};
 	'';
 in
 {
@@ -27,7 +27,6 @@ in
 		stateVersion = "23.05";
 
 		sessionVariables = {
-			JAVA_23_HOME = pkgs.jdk23;
 
 			EDITOR = "nvim";
 			DOCKER_HOST = "unix://$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}')";
@@ -49,7 +48,8 @@ in
 				${symlinkConfigDir "posting"}
 				${symlinkLocalDir "posting"}
 				${symlinkConfigDir "aerospace"}
-				${symlinkConfigFile "starship/starship.toml"}
+				${symlinkConfigFile "starship/starship.toml" ""}
+				${symlinkConfigFile "opencode/opencode.json" "/opencode"}
 			'';
 		};
 
