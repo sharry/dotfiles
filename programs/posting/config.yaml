@@ -1,1 +1,10 @@
 theme: catppuccin-mocha
+keymap:
+  open-in-editor: ctrl+e
+  save-request: ctrl+x
+  focus-method: ctrl+z
+  expand-section: ctrl+r
+  new-request: ctrl+a
+  commands: ctrl+m
+  jump: delete
+  send-request: ctrl+j

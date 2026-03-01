@@ -2,8 +2,12 @@
 	programs.ssh = {
 
 		enable = true;
+		enableDefaultConfig = false;
 
 		matchBlocks = {
+			"*" = {
+				# Default values that were previously applied automatically
+			};
 
 			# Personal GitHub
 			"github.com" = {

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   vars = import ../vars.nix;
   floatingCmd =
@@ -7,6 +7,7 @@ let
 in
 {
   programs.zsh = {
+    dotDir = "${config.xdg.configHome}/zsh";
 
     enable = true;
     enableCompletion = true;
@@ -139,6 +140,8 @@ in
       export_opencode_port
       zellij_tab_name_update
       chpwd_functions+=(export_opencode_port zellij_tab_name_update)
+	  export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
+	  export PATH="$JAVA_HOME/bin:$PATH"
 
       export FZF_DEFAULT_OPTS='
         --color=bg+:16,spinner:4,hl:4,border:4
