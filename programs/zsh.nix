@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   vars = import ../vars.nix;
   floatingCmd =
@@ -7,6 +7,7 @@ let
 in
 {
   programs.zsh = {
+    dotDir = "${config.xdg.configHome}/zsh";
 
     enable = true;
     enableCompletion = true;

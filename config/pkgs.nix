@@ -1,43 +1,43 @@
 { pkgs, ... }:
 {
-	home.packages = with pkgs; [
-		fd
-		fre
-		jqp
-		nil
-		bun
-		fzf
-		bat
-		dysk
-		_7zz
-		atac
-		deno
-		serpl
-		gnupg
-		cargo
-		codex
-		devenv
-		podman
-		puffin
-		hledger
-		termscp
-		jwt-cli
-		lazygit
-		lazysql
-		ripgrep
-		weechat
-		jiratui
-		nodejs_22
-		fastfetch
-		secretspec
-		gemini-cli
-		cursor-cli
-		lazydocker
-		plistwatch # MacOS only
-		claude-code
-		imagemagick
-		hledger-web
-		podman-compose
-		nixfmt-rfc-style
-	];
+  home.packages = with pkgs; [
+    fd
+    fre
+    jqp
+    nil
+    bun
+    fzf
+    bat
+    dysk
+    _7zz
+    atac
+    deno
+    just
+    serpl
+    gnupg
+    cargo
+    codex
+    devenv
+    podman
+    puffin
+    hledger
+    jwt-cli
+    lazygit
+    lazysql
+    ripgrep
+    weechat
+    obsidian
+    nodejs_22
+    fastfetch
+    secretspec
+    gemini-cli
+    cursor-cli
+    lazydocker
+    plistwatch # MacOS only
+    claude-code
+    imagemagick
+    hledger-web
+    podman-compose
+    nixfmt
+  ];
 }
