@@ -12,7 +12,6 @@
     dysk
     _7zz
     atac
-    deno
     just
     serpl
     gnupg
