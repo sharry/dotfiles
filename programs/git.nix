@@ -1,6 +1,3 @@
-let
-  vars = import ../vars.nix;
-in
 {
   programs.git = {
     enable = true;
@@ -10,8 +7,8 @@ in
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       user = {
-        email = vars.personal.email;
-        name = "${vars.personal.firstName} ${vars.personal.lastName}";
+        email = builtins.getEnv "EMAIL";
+        name = builtins.getEnv "FULLNAME";
       };
     };
     ignores = [

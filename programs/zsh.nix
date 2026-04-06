@@ -33,7 +33,7 @@ in
       stats = "btop";
       docker = "podman";
       neofetch = "fastfetch";
-      renix = "sudo darwin-rebuild switch --flake ~/dotfiles#$USER && { infisical_pull_machine_env || printf 'Warning: infisical_pull_machine_env failed\n'; } && exec zsh";
+      renix = "sudo --preserve-env=EMAIL,FULLNAME darwin-rebuild switch --flake ~/dotfiles#$USER --impure && { infisync || printf 'Warning: infisync failed\n'; } && exec zsh";
       freenix = "nix-collect-garbage -d";
       nixdev = "nix develop -c $SHELL";
       drag = "${vars.personal.dotfilesPath}/bin/drag";
@@ -82,7 +82,7 @@ in
               fi
             }
 
-            infisical_pull_machine_env() {
+            infisync() {
               emulate -L zsh
               setopt pipefail
 
@@ -105,7 +105,7 @@ in
                 --silent
                 --format=dotenv
                 --projectId "$INFISICAL_MACHINE_PROJECT_ID"
-                --env "''${INFISICAL_MACHINE_ENV:-prod}"
+                --env "''${INFISICAL_MACHINE_ENV:-macbook}"
                 --path "''${INFISICAL_MACHINE_PATH:-/}"
               )
 
@@ -208,14 +208,6 @@ in
             export_opencode_port
             zellij_tab_name_update
             chpwd_functions+=(export_opencode_port zellij_tab_name_update)
-      	  export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
-      	  export PATH="$JAVA_HOME/bin:$PATH"
-
-            export FZF_DEFAULT_OPTS='
-              --color=bg+:16,spinner:4,hl:4,border:4
-              --color=fg:19,header:2,info:4,pointer:4
-              --color=marker:4,fg+:19,prompt:4,hl+:2
-            '
     '';
   };
 }

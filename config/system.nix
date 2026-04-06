@@ -21,7 +21,7 @@
     		/usr/local/bin/desktoppr ${vars.personal.dotfilesPath}/assets/catppuccin-wallpaper.heic
     	'';
   system.defaults = {
-    loginwindow.LoginwindowText = vars.personal.email;
+    loginwindow.LoginwindowText = builtins.getEnv "EMAIL";
 
     NSGlobalDomain = {
       KeyRepeat = 2;

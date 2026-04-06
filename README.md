@@ -19,7 +19,7 @@ Machine secrets are pulled from Infisical and loaded by Zsh.
 1. Fill in `programs/infisical/infisical.conf`
 2. Apply the dotfiles: `sudo darwin-rebuild switch --flake ~/dotfiles#$USER`
 3. Authenticate with `infisical login` if you are not using `INFISICAL_MACHINE_TOKEN`
-4. Pull secrets with `infisical_pull_machine_env`
+4. Pull secrets with `infisync`
 
 ```sh
 INFISICAL_MACHINE_PROJECT_ID="<project-id>"

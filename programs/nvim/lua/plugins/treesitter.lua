@@ -1,12 +1,26 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
-	opts = {
-		incremental_selection = {
-			enable = true,
-			keymaps = {
-				init_selection = "<Enter>",
-				node_incremental = "<Enter>",
-				node_decremental = "<S-Enter>",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = {
+			indent = { enable = true },
+			highlight = { enable = true },
+			folds = { enable = true },
+		},
+	},
+	{
+		"folke/flash.nvim",
+		keys = {
+			{
+				"<Enter>",
+				function()
+					require("flash").treesitter({
+						actions = {
+							["<Enter>"] = "next",
+							["<S-Enter>"] = "prev",
+						},
+					})
+				end,
+				desc = "Flash Treesitter",
 			},
 		},
 	},
