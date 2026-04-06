@@ -11,8 +11,3 @@ vim.opt.listchars = {
   trail = "-",
   nbsp = "+",
 }
-
--- local java_17_home = vim.uv.os_getenv("JAVA_17_HOME");
--- if (java_17_home ~= nil) then
--- 	vim.uv.os_setenv("JAVA_HOME", java_17_home)
--- end

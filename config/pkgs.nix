@@ -1,10 +1,11 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-	gh
+    gh
     fd
     fre
     jqp
+    jdk21
     nil
     bun
     fzf
@@ -15,30 +16,33 @@
     just
     serpl
     gnupg
+    gradle
     cargo
     codex
     nixfmt
-	llmfit
+    llmfit
+    maven
     devenv
     podman
     puffin
-	gh-dash
+    gh-dash
     hledger
     jwt-cli
     lazygit
     lazysql
     ripgrep
     weechat
-	wrangler
+    wrangler
     obsidian
-	infisical
+    infisical
     nodejs_22
     fastfetch
-	terraform
+    terraform
     secretspec
     gemini-cli
     cursor-cli
     lazydocker
+    spring-boot-cli
     plistwatch # MacOS only
     claude-code
     imagemagick

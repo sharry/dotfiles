@@ -3,8 +3,6 @@ return {
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			-- Neovim 0.12 ships a built-in `catppuccin` colorscheme.
-			-- Load the plugin directly so our catppuccin options still apply.
 			colorscheme = function()
 				require("catppuccin").load()
 			end,
@@ -14,7 +12,10 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		opts = {
-			transparent_background =  true,
+			transparent_background = true,
+			float = {
+				transparent = true,
+			},
 		},
 	},
 }
