@@ -9,19 +9,5 @@ return {
 	},
 	{
 		"folke/flash.nvim",
-		keys = {
-			{
-				"<Enter>",
-				function()
-					require("flash").treesitter({
-						actions = {
-							["<Enter>"] = "next",
-							["<S-Enter>"] = "prev",
-						},
-					})
-				end,
-				desc = "Flash Treesitter",
-			},
-		},
 	},
 }

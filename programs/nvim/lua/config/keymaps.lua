@@ -1,6 +1,16 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 local map = vim.keymap.set
 local telescope = require("telescope.builtin")
+
+local function flash_treesitter()
+	require("flash").treesitter({
+		actions = {
+			["<Enter>"] = "next",
+			["<S-Enter>"] = "prev",
+		},
+	})
+end
+
 local function map_floating_zellij_job(details)
 	if vim.fn.executable(details.kill or details.command()) == 1 then
 		map("n", details.keybind, function()
@@ -44,6 +54,8 @@ map("n", "<S-Left>", "zH", { desc = "Scroll Left" })
 map("n", "<S-Right>", "zL", { desc = "Scroll Right" })
 map("n", "<S-Del>", "ciw", { desc = "Cut Inside Word" })
 map("n", "<leader>fx", ":!chmod +x %<CR>", { desc = "Make file executable" })
+map("n", "<Enter>", flash_treesitter, { desc = "Flash Treesitter" })
+map("n", "<S-Enter>", flash_treesitter, { desc = "Flash Treesitter" })
 
 map_floating_zellij_job({
 	command = function()
