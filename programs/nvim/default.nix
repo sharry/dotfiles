@@ -29,6 +29,7 @@ in
     extraPackages = [
       pkgs.jdk21
       pkgs.jdt-language-server
+      pkgs.statix
       javaDebugExtension
       javaTestExtension
       springBootTools

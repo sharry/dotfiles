@@ -25,7 +25,7 @@
 		let
 			vars = import ./vars.nix;
 			config = import ./config { inherit vars; inherit inputs; };
-			user = vars.personal.user;
+			inherit (vars.personal) user;
 		in
 		{
 			darwinConfigurations.${user} = nix-darwin.lib.darwinSystem {
