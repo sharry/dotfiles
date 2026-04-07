@@ -33,6 +33,16 @@
 				};
 			};
 
+			"whisper" = {
+				hostname = "100.112.86.26";
+				user = "whisper";
+				identityFile = "~/.ssh/id_ed25519_secure";
+				extraOptions = {
+					IdentitiesOnly = "yes";
+					SendEnv = "SSH_ZJ_SESSION";
+				};
+			};
+
 		};
 	};
 }
