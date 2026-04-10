@@ -18,7 +18,9 @@
   ];
 
   system.activationScripts.activateSettings.text = ''
-    		/usr/local/bin/desktoppr ${vars.personal.dotfilesPath}/assets/catppuccin-wallpaper.heic
+    		if command -v desktoppr &>/dev/null; then
+    		  desktoppr ${vars.personal.dotfilesPath}/assets/catppuccin-wallpaper.heic
+    		fi
     	'';
   system.defaults = {
     loginwindow.LoginwindowText = builtins.getEnv "EMAIL";

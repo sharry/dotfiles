@@ -11,6 +11,7 @@ keybind = super+up=unbind
 keybind = super+down=unbind
 keybind = super+t=unbind
 keybind = super+d=unbind
+keybind = super+f=unbind
 
 window-padding-balance = true
 window-padding-x = 0

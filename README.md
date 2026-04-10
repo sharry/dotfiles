@@ -6,6 +6,12 @@ This repository contains my personal configuration for my macOS system and progr
 
 ![Dark and Light version](https://github.com/user-attachments/assets/1dccb5f2-0022-453d-a9c5-ba0d2e476243)
 
+## Install
+
+```sh
+curl -fsSL https://bensadik.net/dotfiles | bash
+```
+
 ## Tech
 - [Nix](https://nixos.org/) - Nix is a powerful package manager for Unix systems that makes package management reliable and reproducible.
 - [nix-darwin](https://github.com/LnL7/nix-darwin) - nix-darwin is a set of tools for using Nix as a standalone macOS package manager.
