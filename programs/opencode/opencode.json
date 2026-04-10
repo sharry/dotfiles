@@ -11,6 +11,17 @@
 		"*": "allow",
 		"edit": "ask"
 	},
-	"plugin": [
-	]
+	"plugin": [],
+	"provider": {
+		"whisper": {
+			"npm": "@ai-sdk/openai-compatible",
+			"name": "Whisper",
+			"options": {
+				"baseURL": "http://100.116.167.75:11434/v1"
+			},
+			"models": {
+				"gemma4": {}
+			}
+		}
+	}
 }
