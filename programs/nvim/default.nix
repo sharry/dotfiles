@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  config,
+  vars,
+  ...
+}:
 let
   javaDebugExtension = pkgs.vscode-extensions.vscjava.vscode-java-debug;
   javaTestExtension = pkgs.vscode-extensions.vscjava.vscode-java-test;
@@ -24,8 +29,13 @@ let
   };
 in
 {
+  xdg.configFile."nvim".source =
+    config.lib.file.mkOutOfStoreSymlink "${vars.personal.dotfilesPath}/programs/nvim";
+
   programs.neovim = {
     enable = true;
+    withRuby = false;
+    withPython3 = false;
     extraPackages = [
       pkgs.jdk21
       pkgs.jdt-language-server

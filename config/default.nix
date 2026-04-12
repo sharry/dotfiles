@@ -12,6 +12,7 @@ in
   ];
 
   nixpkgs.hostPlatform = vars.personal.system;
+  # Managed by Determinate Nix installer — nix-darwin must not manage the daemon
   nix.enable = false;
   nix-homebrew = {
     user = user;
@@ -25,10 +26,13 @@ in
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "bak";
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs vars; };
     users.${user} = import ./home.nix;
     # Disable manual generation to avoid 'options.json' derivation warning
-    sharedModules = [ { manual.manpages.enable = false; } ];
+    sharedModules = [
+      inputs.sops-nix.homeManagerModules.sops
+      { manual.manpages.enable = false; }
+    ];
   };
 
 }

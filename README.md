@@ -22,6 +22,26 @@ curl -fsSL https://bensadik.net/dotfiles | bash
 
 Machine secrets are pulled from Infisical and loaded by Zsh.
 
+Build-time secrets are also synced into `secrets/secrets.yaml` for `sops-nix`. A fresh install expects these Infisical keys to exist:
+
+1. `EMAIL`
+2. `FULLNAME`
+3. `WHISPER_HOSTNAME`
+4. `SSH_ID_ED25519_PERSONAL`
+5. `SSH_ID_ED25519_PERSONAL_PUB`
+6. `SSH_ID_ED25519_WORK`
+7. `SSH_ID_ED25519_WORK_PUB`
+8. `SSH_ID_ED25519_SECURE`
+9. `SSH_ID_ED25519_SECURE_PUB`
+
+To seed those SSH key secrets from the current machine, run:
+
+```sh
+~/dotfiles/bin/push-ssh-keys
+```
+
+Use `~/dotfiles/bin/push-ssh-keys --dry-run` to preview the target without changing Infisical.
+
 1. Fill in `programs/infisical/infisical.conf`
 2. Apply the dotfiles: `sudo darwin-rebuild switch --flake ~/dotfiles#$USER`
 3. Authenticate with `infisical login` if you are not using `INFISICAL_MACHINE_TOKEN`

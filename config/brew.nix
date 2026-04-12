@@ -7,8 +7,6 @@
       "nginx"
       "yt-dlp"
       "ffmpeg"
-      "openjdk@21"
-      "maven"
       "posting"
       "xcodegen"
       "cf-terraforming"
@@ -37,7 +35,7 @@
 
     onActivation = {
       upgrade = true;
-      cleanup = "zap";
+      cleanup = "zap"; # Removes all formulae/casks not listed above
       autoUpdate = true;
     };
   };

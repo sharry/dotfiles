@@ -1,6 +1,10 @@
+{ config, vars, ... }:
 {
-	programs.zellij = {
-		enable = true;
-		enableZshIntegration = true;
-	};
+  xdg.configFile."zellij".source =
+    config.lib.file.mkOutOfStoreSymlink "${vars.personal.dotfilesPath}/programs/zellij";
+
+  programs.zellij = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }

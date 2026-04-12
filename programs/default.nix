@@ -1,15 +1,32 @@
 {
-	imports = [
-		./yazi
-		./nvim
-		./btop
-		./zellij
-		./eza.nix
-		./ssh.nix
-		./zsh.nix
-		./git.nix
-		./starship
-		./zoxide.nix
-		./direnv.nix
-	];
+  imports = [
+    ./yazi
+    ./nvim
+    ./btop
+    ./zsh
+    ./zellij
+    ./ghostty
+    ./lazygit
+    ./posting
+    ./aerospace
+    ./infisical
+    ./opencode
+    ./serpl
+    ./starship
+    ./ssh.nix
+    ./git.nix
+    ./direnv.nix
+  ];
+
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  services.podman.enable = true;
 }

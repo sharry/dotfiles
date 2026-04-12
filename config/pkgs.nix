@@ -3,6 +3,9 @@
   home.packages = with pkgs; [
     gh
     fd
+    age
+    sops
+    yq-go
     fre
     jqp
     jdk21

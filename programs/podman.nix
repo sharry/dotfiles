@@ -1,5 +1,0 @@
-{
-	services.podman = {
-		enable = true;
-	};
-}
