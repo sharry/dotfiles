@@ -1,0 +1,232 @@
+diff --git a/packages/opencode/src/cli/cmd/tui/component/logo.tsx b/packages/opencode/src/cli/cmd/tui/component/logo.tsx
+index 8e6208b..1b4248e 100644
+--- a/packages/opencode/src/cli/cmd/tui/component/logo.tsx
++++ b/packages/opencode/src/cli/cmd/tui/component/logo.tsx
+@@ -13,7 +13,7 @@ export function Logo() {
+   const { theme } = useTheme()
+ 
+   const renderLine = (line: string, fg: RGBA, bold: boolean): JSX.Element[] => {
+-    const shadow = tint(theme.background, fg, 0.25)
++    const shadow = tint(theme._baseBackground, fg, 0.25)
+     const attrs = bold ? TextAttributes.BOLD : undefined
+     const elements: JSX.Element[] = []
+     let i = 0
+diff --git a/packages/opencode/src/cli/cmd/tui/component/prompt/index.tsx b/packages/opencode/src/cli/cmd/tui/component/prompt/index.tsx
+index 045d730..91655ef 100644
+--- a/packages/opencode/src/cli/cmd/tui/component/prompt/index.tsx
++++ b/packages/opencode/src/cli/cmd/tui/component/prompt/index.tsx
+@@ -851,6 +851,7 @@ export function Prompt(props: PromptProps) {
+     return {
+       frames: createFrames({
+         color,
++        background: theme._baseBackground,
+         style: "blocks",
+         inactiveFactor: 0.6,
+         // enableFading: false,
+@@ -858,6 +859,7 @@ export function Prompt(props: PromptProps) {
+       }),
+       color: createColors({
+         color,
++        background: theme._baseBackground,
+         style: "blocks",
+         inactiveFactor: 0.6,
+         // enableFading: false,
+diff --git a/packages/opencode/src/cli/cmd/tui/context/theme.tsx b/packages/opencode/src/cli/cmd/tui/context/theme.tsx
+index 4857f7a..ebf111b 100644
+--- a/packages/opencode/src/cli/cmd/tui/context/theme.tsx
++++ b/packages/opencode/src/cli/cmd/tui/context/theme.tsx
+@@ -46,6 +46,7 @@ import { isRecord } from "@/util/record"
+ import type { TuiThemeCurrent } from "@opencode-ai/plugin/tui"
+ 
+ type Theme = TuiThemeCurrent & {
++  _baseBackground: RGBA
+   _hasSelectedListItemText: boolean
+ }
+ type ThemeColor = Exclude<keyof TuiThemeCurrent, "thinkingOpacity">
+@@ -248,8 +249,12 @@ export function resolveTheme(theme: ThemeJson, mode: "dark" | "light") {
+   // Handle thinkingOpacity - optional with default of 0.6
+   const thinkingOpacity = theme.theme.thinkingOpacity ?? 0.6
+ 
++  const baseBackground = resolved.background!
++  resolved.background = RGBA.fromInts(0, 0, 0, 0)
++
+   return {
+     ...resolved,
++    _baseBackground: baseBackground,
+     _hasSelectedListItemText: hasSelectedListItemText,
+     thinkingOpacity,
+   } as Theme
+diff --git a/packages/opencode/src/cli/cmd/tui/ui/dialog.tsx b/packages/opencode/src/cli/cmd/tui/ui/dialog.tsx
+index 11c43fe..c830600 100644
+--- a/packages/opencode/src/cli/cmd/tui/ui/dialog.tsx
++++ b/packages/opencode/src/cli/cmd/tui/ui/dialog.tsx
+@@ -44,7 +44,12 @@ export function Dialog(
+       paddingTop={dimensions().height / 4}
+       left={0}
+       top={0}
+-      backgroundColor={RGBA.fromInts(0, 0, 0, 150)}
++      backgroundColor={RGBA.fromValues(
++        theme._baseBackground.r,
++        theme._baseBackground.g,
++        theme._baseBackground.b,
++        150 / 255,
++      )}
+     >
+       <box
+         onMouseUp={(e) => {
+diff --git a/packages/opencode/src/cli/cmd/tui/ui/spinner.ts b/packages/opencode/src/cli/cmd/tui/ui/spinner.ts
+index c185ea7..2a9b186 100644
+--- a/packages/opencode/src/cli/cmd/tui/ui/spinner.ts
++++ b/packages/opencode/src/cli/cmd/tui/ui/spinner.ts
+@@ -6,6 +6,7 @@ interface AdvancedGradientOptions {
+   colors: ColorInput[]
+   trailLength: number
+   defaultColor?: ColorInput
++  background?: ColorInput
+   direction?: "forward" | "backward" | "bidirectional"
+   holdFrames?: { start?: number; end?: number }
+   enableFading?: boolean
+@@ -22,6 +23,16 @@ interface ScannerState {
+   isMovingForward: boolean
+ }
+ 
++function blendOverBackground(background: RGBA | undefined, foreground: RGBA, alpha: number): RGBA {
++  if (!background) return RGBA.fromValues(foreground.r, foreground.g, foreground.b, alpha)
++  return RGBA.fromValues(
++    background.r + (foreground.r - background.r) * alpha,
++    background.g + (foreground.g - background.g) * alpha,
++    background.b + (foreground.b - background.b) * alpha,
++    1,
++  )
++}
++
+ function getScannerState(
+   frameIndex: number,
+   totalChars: number,
+@@ -139,12 +150,13 @@ function calculateColorIndex(
+ }
+ 
+ function createKnightRiderTrail(options: AdvancedGradientOptions): ColorGenerator {
+-  const { colors, defaultColor, enableFading = true, minAlpha = 0 } = options
++  const { colors, defaultColor, background, enableFading = true, minAlpha = 0 } = options
+ 
+   // Use the provided defaultColor if it's an RGBA instance, otherwise convert/default
+   // We use RGBA.fromHex for the fallback to ensure we have an RGBA object.
+   // Note: If defaultColor is a string, we convert it once here.
+   const defaultRgba = defaultColor instanceof RGBA ? defaultColor : RGBA.fromHex((defaultColor as string) || "#000000")
++  const backgroundRgba = background instanceof RGBA ? background : typeof background === "string" ? RGBA.fromHex(background) : undefined
+ 
+   // Store the base alpha from the inactive factor
+   const baseInactiveAlpha = defaultRgba.a
+@@ -178,15 +190,15 @@ function createKnightRiderTrail(options: AdvancedGradientOptions): ColorGenerato
+       }
+     }
+ 
+-    // Combine base inactive alpha with the fade factor
+-    // This ensures inactiveFactor is respected while still allowing fading animation
+-    defaultRgba.a = baseInactiveAlpha * fadeFactor
++    const inactiveColor = backgroundRgba
++      ? blendOverBackground(backgroundRgba, defaultRgba, fadeFactor)
++      : RGBA.fromValues(defaultRgba.r, defaultRgba.g, defaultRgba.b, baseInactiveAlpha * fadeFactor)
+ 
+     if (index === -1) {
+-      return defaultRgba
++      return inactiveColor
+     }
+ 
+-    return colors[index] ?? defaultRgba
++    return colors[index] ?? inactiveColor
+   }
+ }
+ 
+@@ -196,8 +208,9 @@ function createKnightRiderTrail(options: AdvancedGradientOptions): ColorGenerato
+  * @param steps Number of gradient steps (default: 6)
+  * @returns Array of RGBA colors with alpha-based trail fade (background-independent)
+  */
+-export function deriveTrailColors(brightColor: ColorInput, steps: number = 6): RGBA[] {
++export function deriveTrailColors(brightColor: ColorInput, steps: number = 6, background?: ColorInput): RGBA[] {
+   const baseRgba = brightColor instanceof RGBA ? brightColor : RGBA.fromHex(brightColor as string)
++  const backgroundRgba = background instanceof RGBA ? background : typeof background === "string" ? RGBA.fromHex(background) : undefined
+ 
+   const colors: RGBA[] = []
+ 
+@@ -224,7 +237,7 @@ export function deriveTrailColors(brightColor: ColorInput, steps: number = 6): R
+     const g = Math.min(1.0, baseRgba.g * brightnessFactor)
+     const b = Math.min(1.0, baseRgba.b * brightnessFactor)
+ 
+-    colors.push(RGBA.fromValues(r, g, b, alpha))
++    colors.push(blendOverBackground(backgroundRgba, RGBA.fromValues(r, g, b, 1), alpha))
+   }
+ 
+   return colors
+@@ -236,11 +249,12 @@ export function deriveTrailColors(brightColor: ColorInput, steps: number = 6): R
+  * @param factor Alpha factor for inactive color (default: 0.2, range: 0-1)
+  * @returns The same color with reduced alpha for background-independent dimming
+  */
+-export function deriveInactiveColor(brightColor: ColorInput, factor: number = 0.2): RGBA {
++export function deriveInactiveColor(brightColor: ColorInput, factor: number = 0.2, background?: ColorInput): RGBA {
+   const baseRgba = brightColor instanceof RGBA ? brightColor : RGBA.fromHex(brightColor as string)
++  const backgroundRgba = background instanceof RGBA ? background : typeof background === "string" ? RGBA.fromHex(background) : undefined
+ 
+   // Use the full color brightness but adjust alpha for background-independent dimming
+-  return RGBA.fromValues(baseRgba.r, baseRgba.g, baseRgba.b, factor)
++  return blendOverBackground(backgroundRgba, baseRgba, factor)
+ }
+ 
+ export type KnightRiderStyle = "blocks" | "diamonds"
+@@ -255,6 +269,7 @@ export interface KnightRiderOptions {
+   color?: ColorInput
+   /** Number of trail steps when using single color (default: 6) */
+   trailSteps?: number
++  background?: ColorInput
+   defaultColor?: ColorInput
+   /** Alpha factor for inactive color when using single color (default: 0.2, range: 0-1) */
+   inactiveFactor?: number
+@@ -278,7 +293,7 @@ export function createFrames(options: KnightRiderOptions = {}): string[] {
+   const colors =
+     options.colors ??
+     (options.color
+-      ? deriveTrailColors(options.color, options.trailSteps)
++      ? deriveTrailColors(options.color, options.trailSteps, options.background)
+       : [
+           RGBA.fromHex("#ff0000"), // Brightest Red (Center)
+           RGBA.fromHex("#ff5555"), // Glare/Bloom
+@@ -290,12 +305,13 @@ export function createFrames(options: KnightRiderOptions = {}): string[] {
+ 
+   const defaultColor =
+     options.defaultColor ??
+-    (options.color ? deriveInactiveColor(options.color, options.inactiveFactor) : RGBA.fromHex("#330000"))
++    (options.color ? deriveInactiveColor(options.color, options.inactiveFactor, options.background) : RGBA.fromHex("#330000"))
+ 
+   const trailOptions = {
+     colors,
+     trailLength: colors.length,
+     defaultColor,
++    background: options.background,
+     direction: "bidirectional" as const,
+     holdFrames: { start: holdStart, end: holdEnd },
+     enableFading: options.enableFading,
+@@ -340,7 +356,7 @@ export function createColors(options: KnightRiderOptions = {}): ColorGenerator {
+   const colors =
+     options.colors ??
+     (options.color
+-      ? deriveTrailColors(options.color, options.trailSteps)
++      ? deriveTrailColors(options.color, options.trailSteps, options.background)
+       : [
+           RGBA.fromHex("#ff0000"), // Brightest Red (Center)
+           RGBA.fromHex("#ff5555"), // Glare/Bloom
+@@ -352,12 +368,13 @@ export function createColors(options: KnightRiderOptions = {}): ColorGenerator {
+ 
+   const defaultColor =
+     options.defaultColor ??
+-    (options.color ? deriveInactiveColor(options.color, options.inactiveFactor) : RGBA.fromHex("#330000"))
++    (options.color ? deriveInactiveColor(options.color, options.inactiveFactor, options.background) : RGBA.fromHex("#330000"))
+ 
+   const trailOptions = {
+     colors,
+     trailLength: colors.length,
+     defaultColor,
++    background: options.background,
+     direction: "bidirectional" as const,
+     holdFrames: { start: holdStart, end: holdEnd },
+     enableFading: options.enableFading,

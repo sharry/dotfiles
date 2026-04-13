@@ -4,11 +4,8 @@
     gh
     fd
     age
-    sops
-    yq-go
     fre
     jqp
-    jdk21
     nil
     bun
     fzf
@@ -17,14 +14,16 @@
     _7zz
     atac
     just
+	sops
     serpl
     gnupg
-    gradle
     cargo
-    codex
+    jdk21
+    maven
+    yq-go
+    gradle
     nixfmt
     llmfit
-    maven
     devenv
     podman
     puffin
@@ -42,14 +41,12 @@
     fastfetch
     terraform
     secretspec
-    gemini-cli
-    cursor-cli
     lazydocker
-    spring-boot-cli
-    plistwatch # MacOS only
+    plistwatch
     claude-code
     imagemagick
     hledger-web
     podman-compose
+    spring-boot-cli
   ];
 }

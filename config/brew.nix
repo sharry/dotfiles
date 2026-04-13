@@ -10,7 +10,6 @@
       "posting"
       "xcodegen"
       "cf-terraforming"
-      "anomalyco/tap/opencode"
     ];
 
     taps = [
