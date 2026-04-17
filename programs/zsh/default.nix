@@ -5,10 +5,6 @@
   ...
 }:
 let
-  floatingCmd =
-    title: cmd:
-    "zellij run --floating --close-on-exit --name ${title} --width 90% --height 90% -x 5% -y 10% -- ${cmd} >/dev/null";
-
   # Read and interpolate shell function files
   readFunc = file: builtins.readFile file;
   interpolateInfisical =
@@ -39,7 +35,7 @@ in
       v = "nvim";
       c = "clear";
       d = "npx ccr code";
-      e = "zellij action edit-scrollback";
+      e = "nvim";
       db = "lazysql";
       pod = "lazydocker";
       stats = "btop";
@@ -50,8 +46,8 @@ in
       nixdev = "nix develop -c $SHELL";
       drag = "${vars.personal.dotfilesPath}/bin/drag";
       gz = "git archive -o \"$(basename \"$PWD\").zip\" HEAD";
-      sr = floatingCmd "Serpl" "serpl";
-      g = floatingCmd "Lazygit" "lazygit";
+      sr = "serpl";
+      g = "lazygit";
     };
 
     initContent = ''
