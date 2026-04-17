@@ -5,11 +5,11 @@
 
     brews = [
       "nginx"
+      "sheets"
       "yt-dlp"
       "ffmpeg"
       "posting"
       "xcodegen"
-      "cf-terraforming"
     ];
 
     taps = [
@@ -18,7 +18,6 @@
     ];
 
     casks = [
-      "zen"
       "arc"
       "iina"
       "pika"
@@ -29,6 +28,7 @@
       "aerospace"
       "desktoppr"
       "hiddenbar"
+      "secretive"
       "qbittorrent"
     ];
 

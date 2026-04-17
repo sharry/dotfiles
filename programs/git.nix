@@ -1,4 +1,16 @@
-{ config, ... }:
+{
+  config,
+  pkgs,
+  vars,
+  ...
+}:
+let
+  inherit (vars.personal.secretive) socket signingPubKey;
+  secretiveSshKeygen = pkgs.writeShellScript "secretive-ssh-keygen" ''
+    export SSH_AUTH_SOCK="${socket}"
+    exec ${pkgs.openssh}/bin/ssh-keygen "$@"
+  '';
+in
 {
   programs.git = {
     enable = true;
@@ -7,7 +19,7 @@
     ];
     signing = {
       format = "ssh";
-      key = "~/.ssh/id_ed25519_personal.pub";
+      key = signingPubKey;
       signByDefault = true;
     };
     settings = {
@@ -15,6 +27,7 @@
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       tag.gpgSign = true;
+      gpg.ssh.program = "${secretiveSshKeygen}";
     };
     ignores = [
       ".DS_Store"

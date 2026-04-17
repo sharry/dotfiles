@@ -50,15 +50,20 @@ extract = [
 	{ run = 'ya pub extract --list %*',   desc = "Extract here", for = "windows" },
 ]
 play = [
-	{ run = 'mpv --force-window %s',   orphan = true, for = "unix" },
+	{ run = '''zsh -ic 'play "$@"' -- %s''', block = true, for = "unix" },
 	{ run = 'mpv --force-window %*', orphan = true, for = "windows" },
 	{ run = '''mediainfo %s1; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+]
+sheets = [
+	{ run = '''zsh -ic 'sheets "$@"' -- %s''', block = true, desc = "sheets", for = "unix" },
 ]
 
 [open]
 rules = [
 	# Folder
 	{ url = "*/", use = [ "edit", "open", "reveal" ] },
+	# CSV
+	{ url = "*.csv", use = [ "sheets", "reveal" ] },
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	# Image

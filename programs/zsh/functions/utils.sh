@@ -17,6 +17,10 @@ unjwt() {
   echo "$claims" | jq
 }
 
+play() {
+	mpv --vo=kitty --profile=sw-fast --really-quiet "$@"
+}
+
 killport() {
   if [ -z "${1:-}" ]; then
     echo "Usage: killport <port>"

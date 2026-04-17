@@ -4,6 +4,7 @@
 	uv
     gh
     fd
+	mpv
     age
     fre
     jqp
