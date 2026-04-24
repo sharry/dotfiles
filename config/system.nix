@@ -4,6 +4,10 @@
   time.timeZone = "Africa/Casablanca";
   networking.localHostName = "bensadik";
   security.pam.services.sudo_local.touchIdAuth = true;
+  fonts.packages = with pkgs; [
+    ibm-plex
+    nerd-fonts.jetbrains-mono
+  ];
   system = {
     stateVersion = 5;
     primaryUser = vars.personal.user;
@@ -24,8 +28,8 @@
     let
       sopsFile = ../secrets/secrets.yaml;
       ageKeyFile = "${vars.personal.home}/.config/sops/age/keys.txt";
-      user = vars.personal.user;
-      home = vars.personal.home;
+      inherit (vars.personal) user;
+      inherit (vars.personal) home;
     in
     ''
       if [ -s "${ageKeyFile}" ]; then

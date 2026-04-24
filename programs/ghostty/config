@@ -6,8 +6,8 @@ background-opacity = 0.85
 macos-titlebar-style = transparent
 macos-icon = xray
 
-keybind = super+p=new_split:right
-keybind = super+d=new_split:down
+keybind = super+d=new_split:right
+keybind = super+shift+d=new_split:down
 keybind = super+arrow_up=goto_split:up
 keybind = super+arrow_down=goto_split:down
 keybind = super+arrow_left=goto_split:left
