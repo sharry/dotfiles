@@ -1,0 +1,14 @@
+name: catppuccin-latte
+primary: '#1e66f5'  # buttons, fixed table columns
+secondary: '#fe640b'  # method selector, some minor labels
+accent: '#7287fd'  # header text, scrollbars, cursors, focus highlights
+background: '#eff1f5' # background colors
+surface: '#e6e9ef'  # panels, etc
+error: '#d20f39'  # error messages
+success: '#40a02b'  # success messages
+warning: '#df8e1d'  # warning messages
+dark: false
+
+author: Youssef Ben Sadik
+description: Catppuccin Latte, the light variant with soft contrast and pastel accents
+homepage: https://github.com/sharry/posting-catppuccin

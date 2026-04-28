@@ -55,13 +55,13 @@ in
 
       ${readFunc ./functions/utils.sh}
       ${interpolateInfisical}
-      ${readFunc ./functions/zellij.sh}
+      ${readFunc ./functions/ghostty.sh}
       ${readFunc ./functions/opencode.sh}
 
       load_infisical_machine_config
       load_infisical_machine_env
       typeset -gaU chpwd_functions
-      chpwd_functions+=(export_opencode_port zellij_tab_name_update)
+      chpwd_functions+=(export_opencode_port ghostty_tab_name_update)
     '';
   };
 }

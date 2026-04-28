@@ -21,7 +21,6 @@
       "arc"
       "iina"
       "pika"
-      "ngrok"
       "ghostty"
       "obsidian"
       "telegram"

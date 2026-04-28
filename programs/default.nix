@@ -4,7 +4,6 @@
     ./nvim
     ./btop
     ./zsh
-    ./zellij
     ./ghostty
     ./lazygit
     ./posting

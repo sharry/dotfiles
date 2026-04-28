@@ -1,4 +1,5 @@
-theme: catppuccin-mocha
+theme: catppuccin-auto
+watch_themes: true
 keymap:
   open-in-editor: ctrl+e
   save-request: ctrl+x
