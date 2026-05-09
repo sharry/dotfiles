@@ -15,6 +15,7 @@
     taps = [
       "steipete/tap"
       "nikitabobko/tap"
+      "pluk-inc/tap"
     ];
 
     casks = [
@@ -31,6 +32,7 @@
       "secretive"
       "qbittorrent"
       "tablepro"
+      "markdown-preview"
     ];
 
     onActivation = {

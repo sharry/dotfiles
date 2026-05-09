@@ -57,6 +57,9 @@ play = [
 sheets = [
 	{ run = '''zsh -ic 'sheets "$@"' -- %s''', block = true, desc = "sheets", for = "unix" },
 ]
+md_preview = [
+	{ run = 'qlmanage -p %s >/dev/null 2>&1', orphan = true, desc = "Quick Look", for = "macos" },
+]
 
 [open]
 rules = [
@@ -64,6 +67,8 @@ rules = [
 	{ url = "*/", use = [ "edit", "open", "reveal" ] },
 	# CSV
 	{ url = "*.csv", use = [ "sheets", "reveal" ] },
+	# Markdown
+	{ url = "*.{md,markdown}", use = [ "md_preview", "reveal" ] },
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	# Image
