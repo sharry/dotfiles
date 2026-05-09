@@ -50,5 +50,6 @@
     hledger-web
     podman-compose
     spring-boot-cli
+	pi-coding-agent
   ];
 }

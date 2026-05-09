@@ -12,6 +12,7 @@
     ./opencode
     ./serpl
     ./starship
+    ./zen-browser
     ./ssh.nix
     ./git.nix
     ./direnv.nix

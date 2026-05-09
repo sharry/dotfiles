@@ -11,10 +11,7 @@
 		"*": "allow",
 		"edit": "ask"
 	},
-	"plugin": [
-		"opencode-gemini-auth@latest",
-		"opencode-claude-auth@latest"
-	],
+	"plugin": [],
 	"provider": {
 		"whisper": {
 			"npm": "@ai-sdk/openai-compatible",

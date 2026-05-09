@@ -19,6 +19,7 @@
 
     casks = [
       "arc"
+      "zen@twilight"
       "iina"
       "pika"
       "ghostty"
@@ -29,6 +30,7 @@
       "hiddenbar"
       "secretive"
       "qbittorrent"
+      "tablepro"
     ];
 
     onActivation = {

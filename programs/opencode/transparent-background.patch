@@ -1,16 +1,17 @@
 diff --git a/packages/opencode/src/cli/cmd/tui/component/logo.tsx b/packages/opencode/src/cli/cmd/tui/component/logo.tsx
-index 8e6208b..1b4248e 100644
+index 293d7a1..2611c0a 100644
 --- a/packages/opencode/src/cli/cmd/tui/component/logo.tsx
 +++ b/packages/opencode/src/cli/cmd/tui/component/logo.tsx
-@@ -13,7 +13,7 @@ export function Logo() {
-   const { theme } = useTheme()
- 
-   const renderLine = (line: string, fg: RGBA, bold: boolean): JSX.Element[] => {
--    const shadow = tint(theme.background, fg, 0.25)
-+    const shadow = tint(theme._baseBackground, fg, 0.25)
+@@ -695,7 +695,7 @@ export function Logo(props: {
+     frame: Frame,
+     dusk: Frame,
+     state: IdleState | undefined,
+   ): JSX.Element[] => {
+-    const shadow = tint(theme.background, ink, 0.25)
++    const shadow = tint(theme._baseBackground, ink, 0.25)
      const attrs = bold ? TextAttributes.BOLD : undefined
-     const elements: JSX.Element[] = []
-     let i = 0
+
+     return Array.from(line).map((char, i) => {
 diff --git a/packages/opencode/src/cli/cmd/tui/component/prompt/index.tsx b/packages/opencode/src/cli/cmd/tui/component/prompt/index.tsx
 index 045d730..91655ef 100644
 --- a/packages/opencode/src/cli/cmd/tui/component/prompt/index.tsx
