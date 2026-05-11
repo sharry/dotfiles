@@ -1,0 +1,6 @@
+# Runtime/state files may contain secrets or private session data.
+auth.json
+sessions/
+git/
+npm/
+*.jsonl

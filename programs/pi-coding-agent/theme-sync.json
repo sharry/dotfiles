@@ -1,0 +1,10 @@
+{
+  "isSyncActive": true,
+  "themes": {
+    "light": "catppuccin-latte",
+    "dark": "catppuccin-macchiato"
+  },
+  "detection": {
+    "pollIntervalMs": 2000
+  }
+}

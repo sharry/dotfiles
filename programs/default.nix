@@ -10,6 +10,7 @@
     ./aerospace
     ./infisical
     ./opencode
+    ./pi-coding-agent
     ./serpl
     ./starship
     ./zen-browser

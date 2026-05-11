@@ -1,0 +1,10 @@
+{
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "npm:@sherif-fanous/pi-theme-sync",
+    "npm:@woxqaq/pi-web"
+  ],
+  "theme": "light"
+}
