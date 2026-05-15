@@ -1,5 +1,5 @@
 { vars }:
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   time.timeZone = "Africa/Casablanca";
   networking.localHostName = "bensadik";
@@ -17,9 +17,9 @@
     allowUnsupportedSystem = true;
   };
 
-  # Keep the Mac awake with the lid closed, where supported.
-  system.activationScripts.power.text = lib.mkAfter ''
-    /usr/bin/pmset -a disablesleep 1 2>/dev/null || /usr/bin/pmset -a sleep 0
+  # Restore normal sleep/lid behavior if a prior activation disabled sleep.
+  system.activationScripts.power.text = ''
+    /usr/bin/pmset -a disablesleep 0 2>/dev/null || true
   '';
 
   system.activationScripts.activateSettings.text = ''
@@ -70,7 +70,7 @@
     };
 
     screensaver = {
-      askForPassword = false;
+      askForPassword = true;
       askForPasswordDelay = 0;
     };
 
